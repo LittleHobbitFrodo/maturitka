@@ -180,8 +180,96 @@ Identifikátory a skupiny
 
 - **Řešení závislostí**: zjistí, co chybí
 - **Rozdíly mezi distribucemi**: `apt`, `dnf`, `pacman`, `zypper`
-- **Command pro instalaci**: `apt/dnf/zypper install ..`, `pacmand -S`
+- **Instalace**: `apt/dnf/zypper install ..`, `pacmand -S`
   - Root access
+- **Smazání**: `apt/dnf/zypper remove ..`, `pacman -R ..`
+- **Aktualizace DB**: `apt/dnf update`, `dnf check-update`, `pacman -Sy`, `zypper refresh`
+- **Update stažených**: `apt/dnf updgrade`, `pacman -Syu`, `zypper update`
+### Repozitáře
+- Server/y obsahujici balicky softwaru
+
+| Typ | Správce | Výhody | Nevýhody | Příklady |
+|--------|------------|-----------|----------|-----|
+| Oficiální | Dev team distribuce | Stabilita, bezpečnost | Starší verze | `main`|
+| Komuniní | Komunita | Širší nabídka, novější verze | méně testování | Ubuntu `universe`, `AUR`, `rpm fusion` |
+| 3rd party | Externí firmy, projekty | Specifický software | Bezp. riziko | Docker, Nvidia |
+
+### Další operace
+- **Vyhledávání**: `apt search ..`, `dnf search ..`, `pacman -Ss ..`
+- **Zobrazení informací**: `apt show ..`, `dnf info ..`, `pacman -Si ..`
+- **Správa cache**: `apt clean/autoclean/autoremove`
+
+---
+
+## Sestavení ze zdrojáku
+- **Zdrojový kód**: Napsaný v prog. jazyce (čitelný)
+- **Binárka**: Zkompilovaný zdrojový kód (spustitelný, nečitelný)
+
+### Kompilace
+1. **Preprocessor**: Zpracovává preprocesorové direktivy `#...`
+    - `#include <header.h>` vloží header nebo source
+    - `#define macro ...` vytvoří nové makro
+    - `#if/ifdef/ifndef/...` podmíněná kompilace
+2. **Kompilátor**: Překládá zdroj. kód do objektových souborů (`.o`)
+3. **Linker**: Zpracovává obj. soubory do výstupního programu
+    - Přidává knihovny (statické, dynamické)
+    - Řeší odkazy na funkce, proměnné
+
+### Build systémy
+> Automatizace sestavování  
+
+**Proč**: Ruční sestavování je neudržitelné (u větších projrktů)
+- Efektivita: Zzkompilují se jenom změněné části  
+**Příklady**:
+- `make`: Klasika na linuxu (bohužel)
+- `cmake`: Překládá konfiguraci do jiných build systémů
+- `meson`: Moderní
+- `autotools`(?): Starší, ale furt se používá
+- Většina nových jazyků má vlastní build systémy: (C#, Zig, Rust, atd.)
+
+### Workflow
+```bash
+git clone projekt # nebo tar -xvf projekt.tar.gz
+cd projekt
+./configure # nebo cmake .
+make .  # sestaveni
+make test # testovani
+sudo make install # instalace sestaveneho programu
+```
+
+### Kdy využít kompilaci ze zdroje
+- Balíček není dostupný v repozitáři
+- Potřeba nejnovější verze softwaru
+- Specifické optimalizace nebo konfigurace
+- Vývoj a úpravy softwaru
+- Důvěra k vlastnímu sestavení
+
+### Základní kroky
+- Instalace build nástrojů
+- Stažení zdrojového kódu
+- Instalace vývojářských závislostí
+- Konfigurace sestavení
+- Kompilace
+- Instalace do systému
+
+
+## `$PATH`
+- Proměnná prostředí obsahující cesty k adresářům se spustitelnými soubory
+- Shell prohledává tyto adresáře při spuštění příkazu
+- `echo $PATH`: Zobrazení aktuální hodnoty PATH
+- **Přidání adresáře**: `export PATH="$PATH:/novy/adresar"`
+  - Trvalá změna: `echo $(export PATH="$PATH:/novy/adresar") > ~/.bashrc`
+    - Projeví se po: `source ~/.bashrc`
+- **Pořadí**: prohledává se zleva
+
+### Typické adresáře
+- Systémové: `/bin`, `/usr/bin`
+- Lokaálně nainstalovaný SW: `/usr/local/bin`, `/usr/local/sbin`
+- Sysadmin nástroje: `/sbin`, `/usr/sbin`
+- Uživatelské: `~/bin`, `~/.local/bin`
+
+
+
 
 
 
