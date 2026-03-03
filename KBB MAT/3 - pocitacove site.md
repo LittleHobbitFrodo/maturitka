@@ -367,9 +367,88 @@ search skola.ssps.cz ssps.cz
 `domain`: výchozí doména
 
 
+---
+## DHCP (**D**ynamic **H**ost **C**onfiguration **P**rotocol)
+Automaticky přiděluje IP adresu a konfiguruje zařízení
+- Přiděluje: IP adresu. masku sítě. default gateway. DNS server, atd.
+
+### 4 fáze (DORA (the explorer :D))
+1. **D**iscover  
+    **„Je tu nějaký DHCP server?“**
+
+    Zařízení pošle "Je tu nějaký DHCP server?"
 
 
+2. **O**ffer  
+    **„Mohu ti přidělit tuto IP adresu.“**
 
+    DHCP server odpovídá
+    - Odpověď obsahuje:
+      - Navrhovanou **IP** adresu
+      - **Lease** (doba propůjčení adresy)
+      - atd.
+
+
+3. **R**equest
+    **„Tuto IP adresu přijímám.“**
+
+    Zařízení adresu přijme
+    - Vybere si jeden server pokud jich odpovědělo víc
+
+
+4. **A**cknowledge  
+    **„IP adresa je tvoje.“**
+
+    Server potvrdí připsání IP adresy
+
+
+### Konfigurace
+`/etc/dhcp/dhcpd.conf` nebo ``/etc/dhcpd.conf``
+- [Arch wiki](https://wiki.archlinux.org/title/Dhcpd) - konfigurace `dhcpd`
+
+```txt
+option domain-name-servers 8.8.8.8, 8.8.4.4;
+option subnet-mask 255.255.255.0;
+option routers 139.96.30.100;
+subnet 139.96.30.0 netmask 255.255.255.0 {
+  range 139.96.30.150 139.96.30.250;
+}
+```
+`subnet`: Definice síťe  
+`range`: Rozsah přidělovaných adres  
+`option routers`: Default gateway  
+`option domain-name-servers`: Defaultní DNS server
+`default-lease-time`: Defaultní doba půjčení adres
+`max-lease-time`: Maximální doba propůjčení adres
+
+
+### Lease
+
+Doba propůjčení adresy
+
+Funkce:
+1. Server přidělí adresu na nějaký čas
+2. Po uběhnutí 50% času si zařízení požádá o prodloužení
+3. Pokud lease vyprší bez prodloužení, vrací se do poolu
+
+Informace jsou uložené v `/var/lib/dhcp/dhcpd.leases`?
+- **FACTCHECK**
+
+### Statické IP adresy
+Použití: tiskárny, servery, NAS, kamery, atd.
+
+Konfigurace:
+```txt
+host server1 {
+    hardware ethernet 00:11:22:33:44:55;
+    fixed-address 192.168.1.10;
+}
+```
+
+Výhody:
+- Centrální správa
+- Žádné konflikty IP
+- Není nutné ručně nastavovat IP na zařízení
 
 
 
