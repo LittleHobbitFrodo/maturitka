@@ -1,9 +1,9 @@
-# Počítačové sítě
+# 03. Počítačové sítě
 
-## Historie
+# Historie
 ["Brief" history of internet](https://www.internetsociety.org/internet/history-internet/brief-history-internet/)  
 [wikipedie](https://en.wikipedia.org/wiki/History_of_the_Internet#1973%E2%80%931989:_Merging_the_networks_and_creating_the_Internet)
-### Vznik a vývoj
+## Vznik a vývoj
 1. **Výzkumný projekt agenturou ARPA** (**A**dvanced **R**esearch **P**rojects **A**gency)
     - **60. léta**
     - Propojit univerzity a výzkumná centra - (**WAN** - **W**ide **A**rea **N**etwork)
@@ -33,26 +33,26 @@ Postupně se síť rozšiřovala i mimo akademický prostor
 
 A stala se globální komunikační infrastrukturou
 
-### Technologie a protokoly
+# Technologie a protokoly
 
-#### **Packet switching**
+## **Packet switching**
 - Rozdělení dat na packety
 - Každý packet může jít jinou cestou
 - V destinaci se zase složí
 
-### **TCP** - **T**ransmission **C**ontrol **P**rotocol
+## **TCP** - **T**ransmission **C**ontrol **P**rotocol
 Zajišťuje bezpečný přenos informací
 - pořadí dat, kontrola a oprava chyb
 - **UDP** (**U**ser **D**atagram **P**rotocol) zařizuje rychlé spojení bez kontroly chyb
 
-### **IP** - **I**nternet **P**rotocol
+## **IP** - **I**nternet **P**rotocol
 Zajišťuje směrování mezi sítěmi
 - IPv4 se stal protokolem v roce 1983
   - V budoucnu nahrazen IPv6
 
 ---
 
-## TCP/IP model
+# TCP/IP model
 > Jak jsou data přenášena na internetu
 - Praktičnější a jednodušší než **OSI**
 - [Random video (actually useful)](https://youtu.be/XIgniNnM1wg?si=ZIl9cPGTuh6Bm4d1&t=173)
@@ -60,9 +60,9 @@ Zajišťuje směrování mezi sítěmi
 
 Zapouzdření dat - každá vrstva přidá vlastní hlavičku
 
-![TCP/IP model](tcp-ip.png)
+![TCP/IP model](assets/tcp-ip.png)
 
-### **Vrstvy**
+## **Vrstvy**
 1. **Application**: Bridge mezi nižšímy vrstvami a uživately (př. HTTP, FTP, DNS)
 2. **Transport**: Zajišťuje spolehlivý přenos dat
     - Basically [TCP](#tcp---transmission-control-protocol) a UDP
@@ -80,19 +80,19 @@ Zapouzdření dat - každá vrstva přidá vlastní hlavičku
 
 ---
 
-## IP adresy
+# IP adresy
 - **Struktura**
     1. Síťová část: `192.168.10`
     2. Hostitelská část: `200`
 
-### **Maska sítě** (subnet mask)
+## **Maska sítě** (subnet mask)
 - Která část IP adresy patří síti a která zařízení?
 - |IP|Maska|
   |--|-----|
   |`192.168.10.200`|`255.255.255.0`|
   |`11000000.10101000.00001010.11001000`|`11111111.11111111.11111111.00000000`|
   -> Síť je `192.168.10.0/24`
-### **Síťová adresa**
+## **Síťová adresa**
 - Bit **AND** mezi adresou a její maskou:
 - |Stuff|Desítkově|Binárně|
   |-----|---------|-------|
@@ -100,10 +100,10 @@ Zapouzdření dat - každá vrstva přidá vlastní hlavičku
   |Maska|255.255.255.0|`11111111.11111111.11111111.00000000`|
   |Síťová|192.168.1.0|`11000000.10101000.00000001.00000000`|
 
-### **Broadcast adresa**
+## **Broadcast adresa**
   - Výpočet: `sitova_adresa | (!mask)`
 
-### IPv4 vs IPv6
+## IPv4 vs IPv6
 **IPv4**: 32 bitů -> **~4.3 miliardy** adres -> **nedostatek**
 - Běžně používá **NAT** pro zvýšení počtu adres
 - 4 oktety (0..255) => `192.168.10.200/24`
@@ -117,7 +117,7 @@ Zapouzdření dat - každá vrstva přidá vlastní hlavičku
     - Host má `32-24` bitů
 
 
-### Veřejná vs privátní IP adresa
+## Veřejná vs privátní IP adresa
 - **Veřejná**: unikátní na celém internetu
   - Přiděluje ISP
 - **Privátní**: osobní lokální adresa
@@ -125,8 +125,8 @@ Zapouzdření dat - každá vrstva přidá vlastní hlavičku
 
 ---
 
-## Porty a protokoly
-### Port
+# Porty a protokoly
+## Port
 Port = identifikátor služby/aplikace na zařízení (číslo `0-65535`)
 
 IP adresa určuje zařízení, port určuje službu
@@ -142,7 +142,7 @@ IP adresa určuje zařízení, port určuje službu
 |25|`SMTP`|442|`HTTPS`|
 |53|`DNS`|
 
-### Protokoly
+## Protokoly
 
 #### TCP (**T**ransmission **C**ontrol **P**rotocol)
 - [TCP/UDP model](#tcp---transmission-control-protocol)
@@ -181,9 +181,9 @@ Bezpečné a šifrováné vzdálené přihlášení
 
 ---
 
-## Routování
+# Routování
 
-### Router
+## Router
 Propojuje různé sítě
 - Přeposílá pakety mezi sítěmi
   - Nalézá cestu k cíli
@@ -193,7 +193,7 @@ Propojuje různé sítě
 3. Najde jí v routovací tabulce
 4. Najde nejlepší cestu pro paket
 
-### Routovací tabulka
+## Routovací tabulka
 Seznam pravidel, kam posílat pakety
 - Vždycky vybere nejpřesnější shodu v tabulce
 
@@ -203,13 +203,13 @@ Zaznamy Obsahují:
 - Next hop (kterému routeru paket poslat)
 - Výstupní rozhraní (ethernet port, ...)
 
-### Statické routování
+## Statické routování
 
 Nastaveno ručně adminem
 
 Vhodné pro malé sítě
 
-### Dynamické routování
+## Dynamické routování
 
 Vyhledávání optimální cesty pomocí protokolu
 - Routery si mezi sebou vyměňují informace
@@ -222,21 +222,21 @@ Protokoly:
 - `OSPF` - Dijkstra algo
 - `BGP` - mezi poskytovateli
 
-### Default gateway
+## Default gateway
 
 „Všechno, co neznám, pošli sem.“
 - IP adresa routeru (`192.168.22.1`)
 - V rout. tabulce se zapisuje se jako `0.0.0.0`
 
-### Putování paketů
-#### Lokální síť
+## Putování paketů
+### Lokální síť
 - Komputor posílající data: 192.168.2.20
   - Cíl: 142.250.74.36
 - Router:
   - Default gateway: 192.168.1.1
   - IP adresa: 85.160.12.34
 
-#### Putování
+### Putování
 
 1. Vytvoření paketu
     - Source IP: 192.168.2.20
@@ -266,16 +266,16 @@ Protokoly:
 
 ---
 
-## DNS (**D**omain **N**ame **S**ervice)
+# DNS (**D**omain **N**ame **S**ervice)
 
-### Princip
+## Princip
 Překlad jmen domén na IP adresy:
 1. Lookup v lokálním cache
 2. Pokud nenalezeno, dotaz jde na **rekurzivní DNS server** (ISP nebo veřejný)
 3. DNS server vyhledá IP adresu nebo dotaz předá jinému DNS serveru
 4. Server pošle IP adresu zpátky
 
-### Hierarchie
+## Hierarchie
 1. **Root** servery
     - Neznají konkrétní adresy
     - Ukazují na TLD servery
@@ -288,7 +288,7 @@ Překlad jmen domén na IP adresy:
 Dotaz -> `Root` -> `TLD` -> `Autoritativní` -> odpověď
 
 
-### Druhy záznamů
+## Druhy záznamů
 
 **`A`**: Doménu na `IPv4` adresu
 - `google.com` -> `8.8.8.8`
@@ -308,9 +308,9 @@ Dotaz -> `Root` -> `TLD` -> `Autoritativní` -> odpověď
 - Ověření vlastnictví domény (např. pro Google služby)
 
 
-### Konfigurace
+## Konfigurace
 
-#### DNS resolver
+### DNS resolver
 Systémová komponenta, většinou `systemd-resolved`, `bind` nebo `dnsmasq`
 
 **Funkce**: Překládá domény na žádost jiných programů
@@ -368,11 +368,11 @@ search skola.ssps.cz ssps.cz
 
 
 ---
-## DHCP (**D**ynamic **H**ost **C**onfiguration **P**rotocol)
+# DHCP (**D**ynamic **H**ost **C**onfiguration **P**rotocol)
 Automaticky přiděluje IP adresu a konfiguruje zařízení
-- Přiděluje: IP adresu. masku sítě. default gateway. DNS server, atd.
+- Přiděluje: IP adresu, masku sítě, default gateway, defaultní DNS server, atd.
 
-### 4 fáze (DORA (the explorer :D))
+## 4 fáze (DORA (the explorer :D))
 1. **D**iscover  
     **„Je tu nějaký DHCP server?“**
 
@@ -402,62 +402,204 @@ Automaticky přiděluje IP adresu a konfiguruje zařízení
     Server potvrdí připsání IP adresy
 
 
-### Konfigurace
-`/etc/dhcp/dhcpd.conf` nebo ``/etc/dhcpd.conf``
+## Konfigurace
+
+- [haxagon - Konfigurace DHCP serveru](https://haxagon.xyz/challenge/642fe6e4eb2ce99aa3ff84e4)
 - [Arch wiki](https://wiki.archlinux.org/title/Dhcpd) - konfigurace `dhcpd`
 
+Konfigurační soubor: `/etc/default/isc-dhcp-server`
+
+
+### **Instalace**
+`sudo apt install isc-dhcp-server`
+
+### **Výběr interfaců**
 ```txt
-option domain-name-servers 8.8.8.8, 8.8.4.4;
-option subnet-mask 255.255.255.0;
-option routers 139.96.30.100;
-subnet 139.96.30.0 netmask 255.255.255.0 {
-  range 139.96.30.150 139.96.30.250;
+INTERFACESv4="<interface pro IPv4>"
+INTERFACESv6="<interface pro IPv6>"
+```
+- Více interfaců rozděleno mezerou
+
+
+### **Autoritativní DHCP server**
+- **Autoritativní** = Oficiální správce subnetu
+  - Může klientovi říct, že je adresa neplatná (`DHCPNAK`)
+- Přidat `authoritative;` na první řádek
+
+### **DNS servery**
+`option domain-name-servers <nameservery>`
+- Více nameserverů rozděleno mezerou
+
+
+### **Leasing**
+Lease time = Doba propůjčení IP adresy
+
+1. DHCP server **přiřadí** klientovi **adresu**
+2. Po uplynutí 50% času leasu Klient **požádá o prodloužení** času
+3. Pokud **čas uplynul** bez prodloužení, je **adresa zneplatněna** a vrácena do poolu
+
+**Defaultní lease time**: `default-lease-time <počet sekund>;`
+- Pokud klient nezažádá o přesný lease time
+
+**Maximální lease time**: `max-lease-time <počet sekund>;`
+- Maximální délká leasu (pokud si klient zažádá o přesnou délku)
+
+### **Subnety**
+
+Subnety se konfigurují pomocí bloku
+
+```txt
+subnet <IP> netmask <MASK> {
+  range 192.168.0.10 192.168.0.99;
+  option routers 192.168.0.1;
 }
 ```
-`subnet`: Definice síťe  
-`range`: Rozsah přidělovaných adres  
-`option routers`: Default gateway  
-`option domain-name-servers`: Defaultní DNS server
-`default-lease-time`: Defaultní doba půjčení adres
-`max-lease-time`: Maximální doba propůjčení adres
+
+Options:
+- `range <start IP> <end IP>;`: Určuje rozsah sítě
+- `option routers <IP router/ů>;`: Určuje adresu routeru
+
+### Start/Restart serveru
+`sudo service isc-dhcp-server restart`  
+nebo  
+`sudo systemctl restart isc-dhcp-server`
 
 
-### Lease
+---
 
-Doba propůjčení adresy
+# Síťování v GNU/Linux
 
-Funkce:
-1. Server přidělí adresu na nějaký čas
-2. Po uběhnutí 50% času si zařízení požádá o prodloužení
-3. Pokud lease vyprší bez prodloužení, vrací se do poolu
+## Získání aktuální konfigurace
 
-Informace jsou uložené v `/var/lib/dhcp/dhcpd.leases`?
-- **FACTCHECK**
+### **Fyzické rozhraní**: `ip link`
+- fyzická nebo virtuální síťová rozhraní
+- `lo` = loopback
+- `eth0` = ethernet port
+- `wlan0` = wifi karta
+- `UP/DOWN` = je aktivní?
+- `mtu` = maximálmí velikost rámce
 
-### Statické IP adresy
-Použití: tiskárny, servery, NAS, kamery, atd.
-
-Konfigurace:
-```txt
-host server1 {
-    hardware ethernet 00:11:22:33:44:55;
-    fixed-address 192.168.1.10;
-}
+### **Síťové rozhraní**: `ip a`
+- Přidělené IP adresy
+output:  
+```
+2: eth0: <UP>
+  inet 192.168.1.25/24
 ```
 
-Výhody:
-- Centrální správa
-- Žádné konflikty IP
-- Není nutné ručně nastavovat IP na zařízení
+### **Routovací tabulka**: `ip route`
+
+output:  
+```
+default via 192.168.33.1 dev wlp1s0f0 proto dhcp src 192.168.33.165 metric 600
+192.168.33.0/24 dev wlp1s0f0 proto kernel scope link src 192.168.33.165 metric 600
+```
+Význam:
+| Položka         | Význam        |
+| --------------- | ------------- |
+| default         | výchozí route |
+| via 192.168.1.1 | gateway       |
+| dev eth0        | rozhraní      |
+| src             | zdrojová IP   |
+
+### **Zjištění default gateway**: `ip route | grep default`
+
+### **Zjištění ARP tabulky**: `ip neigh` 🐴
+- Nebo `arp -n`
+
+output:  
+`192.168.33.1 dev wlp1s0f0 lladdr 0e:ea:14:69:22:a0 REACHABLE`
+| položka     | význam       |
+| ----------- | ------------ |
+| 192.168.33.1| IP           |
+| lladdr      | MAC adresa   |
+| REACHABLE   | stav záznamu |
+
+
+## Nastavení síťových rozhraní
+
+### **Aktivace a deaktivace rozhraní**
+`ip link set eth0 `**`up/down`**
+
+### **Přiřazení, odebrání a změna IP konfigurace**
+`ip addr `**`add/del`**` 192.168.1.10/24 dev eth0`
+- Lze stejně přidat i více adres
+
+Změna:  
+`ip addr `**`del`**` 192.168.1.10/24 dev eth0`  
+`ip addr `**`add`**` 192.168.1.10/24 dev eth0`
+
+### **Zobrazení**
+`ip addr show eth0`
+
+## **Přidání a odebrání routovacích pravidel**
+`ip route `**`add/del`**` 10.0.0.0/24 via 192.168.1.1`
+
+## **Nastavení default gateway**
+`ip route `**`add/del`**` default via 192.168.1.1`
 
 
 
+## Nástroje pro diagnostiku
+
+### **Testování konektivity**: `ping <IP/domena>`
+
+output:  
+`64 bytes from 8.8.8.8: icmp_seq=1 ttl=118 time=16.2 ms`
+- `icmp_seq` - Pořadí paketu
+- `ttl` - **T**ime **T**o **L**ive (v hopech)
+- `time` - Latence
+
+Omezení počtu paketů: `ping -c 4 <IP/domena>`
+
+### **Trasování cesty paketů**: `traceroute <IP/domena>`
+
+output:  
+```
+1  192.168.1.1
+2  10.0.0.1
+3  203.0.113.5
+...
+```
+Každý řádek je router (hop) mezi zdrojem a cílem
+- Routery vrací ICMP zprávy
+
+### **Zobrazení síťových spojení**
+
+Zobrazit všchny spojení: `ss -a`
+- Pouze TCP: `ss -t`
+- Pouze naslouchající porty: `ss -l`
+- Bez dns překladu: `ss -n`
 
 
+### **Statistiky síťových rozhraní**: `ip -s link`
 
+output:
+```
+2: wlp1s0f0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP mode DORMANT group default qlen 1000
+    link/ether 1a:51:cf:23:4e:f4 brd ff:ff:ff:ff:ff:ff permaddr 80:65:7c:c6:e3:5a
+    RX:  bytes packets errors dropped  missed   mcast           
+      79100585   70683      0      12       0    3202 
+    TX:  bytes packets errors dropped carrier collsns           
+       6068779   29866      0       0       0       0 
+    altname wlx80657cc6e35a
+```
 
+`RX`: Received  
+`TX`: Transmitted
 
+### **Zobrazení otevřených portů**: `ss -ltn`
 
+output:
 
+| State  | Recv-Q | Send-Q | Local Address:Port | Peer Address:Port |
+|--------|--------|--------|--| --|
+|`LISTEN`|`0`|`4096`| `127.0.0.54:53`| `0.0.0.0:*`|
+|Poslouchání| Receive count | Send count
 
+# Konfigurace služeb
+## Konfigurace DNS
+- [haxagon - Konfigurace DNS serveru](https://haxagon.xyz/challenge/6440da131ef0fb6d4f86978a)
 
+## Konfigurace DHCP
+[haxagon - Konfigurace DHCP serveru](https://haxagon.xyz/challenge/642fe6e4eb2ce99aa3ff84e4)
