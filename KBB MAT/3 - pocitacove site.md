@@ -302,13 +302,24 @@ Dotaz -> `Root` -> `TLD` -> `Autoritativní` -> odpověď
 - Určuje poštovní server pro danou doménu
   - `...@example.com` je spravováno na doméně `mail.example.com`
 
+**PTR** (Pointer)
+- Opak `A` a `AAAA` záznamů
+- Umožňuje tzv. reverse dns lookup, tedy adresu na doménu
+
+**SOA** (**S**tart **O**f **A**uthority)
+- Označuje, že daný DNS server je autoritou pro určitou zónu
+
+**NS** (**N**ame**S**erver)
+- určuje, který DNS server je autoritativní pro danou doménu
+
+
 **TXT**: Textové info
 - SPF (ochrana proti spamům)
 - DKIM (ověření emailu)
 - Ověření vlastnictví domény (např. pro Google služby)
 
 
-## Konfigurace
+## [Konfigurace](#konfigurace-dns)
 
 ### DNS resolver
 Systémová komponenta, většinou `systemd-resolved`, `bind` nebo `dnsmasq`
@@ -402,68 +413,7 @@ Automaticky přiděluje IP adresu a konfiguruje zařízení
     Server potvrdí připsání IP adresy
 
 
-## Konfigurace
-
-- [haxagon - Konfigurace DHCP serveru](https://haxagon.xyz/challenge/642fe6e4eb2ce99aa3ff84e4)
-- [Arch wiki](https://wiki.archlinux.org/title/Dhcpd) - konfigurace `dhcpd`
-
-Konfigurační soubor: `/etc/default/isc-dhcp-server`
-
-
-### **Instalace**
-`sudo apt install isc-dhcp-server`
-
-### **Výběr interfaců**
-```txt
-INTERFACESv4="<interface pro IPv4>"
-INTERFACESv6="<interface pro IPv6>"
-```
-- Více interfaců rozděleno mezerou
-
-
-### **Autoritativní DHCP server**
-- **Autoritativní** = Oficiální správce subnetu
-  - Může klientovi říct, že je adresa neplatná (`DHCPNAK`)
-- Přidat `authoritative;` na první řádek
-
-### **DNS servery**
-`option domain-name-servers <nameservery>`
-- Více nameserverů rozděleno mezerou
-
-
-### **Leasing**
-Lease time = Doba propůjčení IP adresy
-
-1. DHCP server **přiřadí** klientovi **adresu**
-2. Po uplynutí 50% času leasu Klient **požádá o prodloužení** času
-3. Pokud **čas uplynul** bez prodloužení, je **adresa zneplatněna** a vrácena do poolu
-
-**Defaultní lease time**: `default-lease-time <počet sekund>;`
-- Pokud klient nezažádá o přesný lease time
-
-**Maximální lease time**: `max-lease-time <počet sekund>;`
-- Maximální délká leasu (pokud si klient zažádá o přesnou délku)
-
-### **Subnety**
-
-Subnety se konfigurují pomocí bloku
-
-```txt
-subnet <IP> netmask <MASK> {
-  range 192.168.0.10 192.168.0.99;
-  option routers 192.168.0.1;
-}
-```
-
-Options:
-- `range <start IP> <end IP>;`: Určuje rozsah sítě
-- `option routers <IP router/ů>;`: Určuje adresu routeru
-
-### Start/Restart serveru
-`sudo service isc-dhcp-server restart`  
-nebo  
-`sudo systemctl restart isc-dhcp-server`
-
+## [Konfigurace](#konfigurace-dhcp)
 
 ---
 
@@ -601,5 +551,144 @@ output:
 ## Konfigurace DNS
 - [haxagon - Konfigurace DNS serveru](https://haxagon.xyz/challenge/6440da131ef0fb6d4f86978a)
 
+**Adresář pro konfiguraci**: `/etc/bind/`
+
+**Instalace**: `sudo apt install bind9 bind9-utils`
+
+**Spuštění**: `sudo systemctl start bind9`
+
+### **`/etc/bind/named.conf`**
+
+example:
+```
+include "/etc/bind/named.conf.options";
+include "/etc/bind/named.conf.local";
+include "/etc/bind/named.conf.default-zones";
+```
+
+### **`/etc/bind/named.conf.options`**
+Uchovává globální nastavení DNS serveru
+- Nastavení cache, přesměrování dotazů, atd.
+
+example:
+```
+acl internalNetwork { 192.168.1.0/24; };
+
+options {
+  directory "/var/cache/bind";
+  forwarders { 8.8.8.8; 9.9.9.9; };
+  allow-query { internalNetwork; };
+  version "one does not simply get my version";
+};
+```
+- `acl internalNetwork {...}`: Seznam adres síťí, které budou k serveru mít přístup
+  - `acl` = **A**ccess **C**ontol **L**ist
+- `directory <path>`: Ukazuje na umístění souborů s cachovanými záznamy
+- `forwarders { <IPs> }`: IP adresy na servery, na které dotaz přeposlat když server neví odpověď
+- `allow-query { <nets> }`: Adresy, které mohou využívat DNS k vyhledávání záznamů
+- `version <string>`: Text, který bude v SOA záznamech reprezentovat verzi serveru
+
+### **`/etc/bind/named.conf.local`**
+Deklarace zón, která má DNS server spravovat
+
+```
+zone "example.com" IN {
+        type master;
+        file "/etc/bind/example-com.zone";
+};
+```
+
+- `zone <name> IN {}`: Jméno zóny, které spravujeme
+  - `IN` je pro internetové adresy (**IN**ternet)
+- `type master`: Tato zóna je `master` zońou, tedy zdrojem pro záznamy v této  zóně.
+- `file /etc/bind/example-com.zone`: umístění soubory s daty zóny
+
+### **`/etc/bind/example-com.zone`**
+Obsahuje záznamy pro konkrétní zónu
+
+```
+$TTL    1d
+@ IN SOA example.com. info.example.com. (
+  2023041901      ; Serial [!!Replace with today's date!!]
+  10h             ; Refresh [10 hours]
+  15m             ; Retry   [15 minutes]
+  1w              ; Expire  [1 weeks]
+  1h              ; Negative Cache TTL [1 hour]
+)
+```
+- `$TTL 1d`: Nastaví **T**ime **T**o **L**ive na jeden den pro všechny záznamy
+- `@ IN SOA example.com. info.example.com (...)`
+  - `@`: Kořenová doména, tedy `example.com`
+  - `SOA`: Záznam pro doménu `example.com`
+  - `example.com`: Primární **jméno serveru** pro tuto zónu
+  - `info.example.com`: **Email** správce DNS serveru pro tuto zónu
+    - `@` je nahrazen tečkou
+  - `2023041901`: **Sériové číslo**
+    - Inkrementuje se pokaždé, když dojde ke změně zóny
+  - `10h`: **Refresh**, jak často dotazovat primární server o této zóně
+  - `15m`: **Retry**, jak dlouho čekat, než se pokusí znovu kontaktovat primární server, pokud došlo k chybě
+  - `1w`: **Expiry**, jak dlouho má sekundární server používat záznamy v této zóně
+  - `1h`: Mínusové TTL neexistujícího záznamu, tedy pokud se klient zeptá na neexistující záznam, srver mu odpoví negativním TTL
+
+
+
 ## Konfigurace DHCP
-[haxagon - Konfigurace DHCP serveru](https://haxagon.xyz/challenge/642fe6e4eb2ce99aa3ff84e4)
+- [haxagon - Konfigurace DHCP serveru](https://haxagon.xyz/challenge/642fe6e4eb2ce99aa3ff84e4)
+- [Arch wiki](https://wiki.archlinux.org/title/Dhcpd) - konfigurace `dhcpd`
+
+Konfigurační soubor: `/etc/default/isc-dhcp-server`
+
+
+### **Instalace**
+`sudo apt install isc-dhcp-server`
+
+### **Výběr interfaců**
+```txt
+INTERFACESv4="<interface pro IPv4>"
+INTERFACESv6="<interface pro IPv6>"
+```
+- Více interfaců rozděleno mezerou
+
+
+### **Autoritativní DHCP server**
+- **Autoritativní** = Oficiální správce subnetu
+  - Může klientovi říct, že je adresa neplatná (`DHCPNAK`)
+- Přidat `authoritative;` na první řádek
+
+### **DNS servery**
+`option domain-name-servers <nameservery>`
+- Více nameserverů rozděleno mezerou
+
+
+### **Leasing**
+Lease time = Doba propůjčení IP adresy
+
+1. DHCP server **přiřadí** klientovi **adresu**
+2. Po uplynutí 50% času leasu Klient **požádá o prodloužení** času
+3. Pokud **čas uplynul** bez prodloužení, je **adresa zneplatněna** a vrácena do poolu
+
+**Defaultní lease time**: `default-lease-time <počet sekund>;`
+- Pokud klient nezažádá o přesný lease time
+
+**Maximální lease time**: `max-lease-time <počet sekund>;`
+- Maximální délká leasu (pokud si klient zažádá o přesnou délku)
+
+### **Subnety**
+
+Subnety se konfigurují pomocí bloku
+
+```txt
+subnet <IP> netmask <MASK> {
+  range 192.168.0.10 192.168.0.99;
+  option routers 192.168.0.1;
+}
+```
+
+Options:
+- `range <start IP> <end IP>;`: Určuje rozsah sítě
+- `option routers <IP router/ů>;`: Určuje adresu routeru
+
+### Start/Restart serveru
+`sudo service isc-dhcp-server restart`  
+nebo  
+`sudo systemctl restart isc-dhcp-server`
