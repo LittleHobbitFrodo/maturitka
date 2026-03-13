@@ -1,5 +1,8 @@
 # Jmeno - Autor (celej)
 
+- [Lit. druhy a žánry](https://rozbor-dila.cz/literarni-formy-pojmy-druhy-a-zanry/)
+
+
 ## Literární druh a žánr
 - **Druhy**: Lyrika, Epika, Drama
   - osoby (ich/er forma), vysvetleni

@@ -21,7 +21,7 @@ Rok vydání: 1842
   -  Jáma a kyvadlo
 - Okolnosti smrti jsou dodnes nejasné
 
-Další známá díla:
+### Tvorba
 - Havran
 - Černý kocour
 - Vraždy v ulici Morgue
@@ -47,34 +47,45 @@ George Gordon Byron - Romantický spisovatel
 Victor Hugo - Romantický spisovatel
 - Bídníci, Chrám matky boží v Paříži
 
-
-Autori souvisejici dobou a/nebo zanrem
-- alespon 3 (ke kazdymu alesp. 1 dilo)
-
 ## Děj
-- Par vet - max odstavec
+- Člověk je inkvizicí odsouzen k smrti mučením. Omldí. Probudí se tmavé kobce a při průzkumu kobky zjistí, že je kruhového tvaru a uprostřed je jáma. Poté usíná.
+
+Probouzí se stále v cele, ale svázaný na dřevěné lavici. V cele už není taková tma. Po chvíli si všimne, že se nad ním houpe velké ostré kyvadlo. Postupně kmity zrychlují a kyvadlo klesá. 
+
+Kyvadlo klesá několik dní a muž střídavě propadá zoufalství a střízlivosti.
+
+Když kyvadlo klesne necelé 3 palce od těla muže, dostane nápad. Všude kolem jsou krysy. Pomaže svoje pouta jídlem, které má po ruce. Po chvíli krysy pouta přehryžou a muž se vyprostí.
+
+Kyvadlo se náhle vrátí na své místo a železé stěny kobky se začnou rozpalovat a pahybovat směrem k sobě. Rozpálené stěny tlačí muže směrem k jámě. Když je muž na samém okraji, uslyší lidské hlasy a ruka ho zachytí před pádem do jámy.
 
 ## Hlavní myšlenka a motiv
-- hlavni myslenka a motiv objevujici se v dile
+- Motivy: smrt, hrůza ze smrti, duševní vyšinutí
+- Myšlenka: Popis autorův vnitřní stav mysli, zanechat pocit zděšní a hnusu
 
 ## Časoprostor
-- misto/a a doba/y deje
+Vězení v Toledu, Španělsko
+
+doba není přesně určena, středověk až 19. století 
 
 ## Postavy
-- popsat alespon 3
-- zbytek vyjmenovat
-
+Vězeň - není přibližně popsán
 
 ## Kompozice
-- Kdy kniha vysla, rozdeleni na kapitoly/povidky/strofy, ...
-- komp. postupy - chronologická, retrospektivní, rámcová, řetězová, zrcadlová
-- vypraveci postupy - přímá, nepřímá, polopřímá řeč
-- typy promluv - vypravěč (ich/er forma), dialogy, monology
+
+Kniha vyšla 1842
+
+Kompoziční postup: chronologický  
+Vyprávecí postupy: nepřímá řeč  
+Typy promluv: Ich-forma, monolog
 
 ## Jazykové prostředky
-- jakym jazyke napsano - spisovne, hovorve, slang, ...
-- tropy a figury - ironie, personofokace, ...
-  - nejlepe i priklady
-- vers + rym (a druhy)
+
+Jazyk: spisovný
+
+Tropy a figury: **TODO**
 
 ## Vlastní názor
+
+Edgar Allan Poe krásně vystihl tmavou, krutou a skoro až horrorovou atmosféru díla. Několikrát se mi při čtení začala dělat husí kůže.
+
+Nejvíce se mi ale líbí detailní popis trestancových myšlenek.
