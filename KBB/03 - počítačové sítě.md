@@ -35,6 +35,8 @@ A stala se globální komunikační infrastrukturou
 
 # Technologie a protokoly
 
+---
+
 ## **Packet switching**
 - Rozdělení dat na packety
 - Každý packet může jít jinou cestou
@@ -488,8 +490,6 @@ Změna:
 ## **Nastavení default gateway**
 `ip route `**`add/del`**` default via 192.168.1.1`
 
-
-
 ## Nástroje pro diagnostiku
 
 ### **Testování konektivity**: `ping <IP/domena>`
@@ -630,6 +630,12 @@ $TTL    1d
   - `1w`: **Expiry**, jak dlouho má sekundární server používat záznamy v této zóně
   - `1h`: Mínusové TTL neexistujícího záznamu, tedy pokud se klient zeptá na neexistující záznam, srver mu odpoví negativním TTL
 
+
+`ns IN NS 192.168.1.10` je záznam NS pro doménu `example.com`  
+`ns IN A 192.168.1.10` je záznam typu `A` pro doménu `example.com`
+
+### Restartování služby - aplikace konfigurace
+`sudo systemctl restart bind9`
 
 
 ## Konfigurace DHCP
