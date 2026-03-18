@@ -54,3 +54,9 @@ Autoři související dobou a/nebo žánrem
 - verš + rým (a druhy)
 
 ## Vlastní názor
+
+
+## Symbolika
+- navíc
+
+## Význam díla
