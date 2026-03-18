@@ -379,7 +379,6 @@ search skola.ssps.cz ssps.cz
 
 `domain`: výchozí doména
 
-
 ---
 # DHCP (**D**ynamic **H**ost **C**onfiguration **P**rotocol)
 Automaticky přiděluje IP adresu a konfiguruje zařízení

@@ -425,5 +425,49 @@ Ncat: Connected to 142.251.209.14:80.
 Ncat: 0 bytes sent, 0 bytes received in 0.05 seconds.
 ```
 
+# Řešení problémů s konektivitou
 
+## Nefunkční konektivita
+
+1. Kontrola připojení ethernetových portů
+    - Kontrola stavu ethernetových portů (fyzické poškození, domácí mazlíčci)
+2. Zkontrolovat DNS
+    - `cat /etc/resolv.conf`
+      - Mělo by obsahovat např. `nameserver 1.1.1.1`
+    - [konfigurace](./03%20-%20počítačové%20sítě.md#dns-domain-name-service)
+3. Zkontrolovat DHCP
+    - [konfigurace](./03%20-%20počítačové%20sítě.md#dhcp-dynamic-host-configuration-protocol)
+4. Zkontrolovat IP adresy (včetně gateway (`ip route`))
+5. Firewall - `sudo iptables `
+
+
+### Zjištění konktivity
+
+1. `ping 8.8.8.8`
+2. `traceroute`
+3. `tcpdump`/`wireshark`
+
+## Pomalé připojení
+
+Příčiny:
+- Přetížení sítě
+- Špatný router
+- Packet loss
+
+Možné řešení: restart routeru
+
+### Problémy s DNS
+
+Symptomy:
+`ping 8.8.8.8` funguje, ale `ping google.com` nefunguje
+
+Změna defaultního DNS serveru: např. google: `8.8.8.8`
+- [konfigurace](./03%20-%20počítačové%20sítě.md#dns-domain-name-service)
+
+### Routovací problémy
+Diagnostika:
+1. `ip route`
+2. `traceroute <IP>`
+
+Nastavení default route: `ip route add default via <IP>`
 
