@@ -41,10 +41,9 @@ Howard Phillips Lovecraft - The call of Cuthulu
 Clive Staples Lewis - Chronicles of Narnia
 - Diskutoval s Tolkienem nad Pánem prstenů a pomáhal s konečnou formou
 
-**TODO**
 
-Autoři související dobou a/nebo žánrem
-- alespoň 3 (ke každýmu alesp. 1 dílo)
+George R. R. Martin - Song of ice and fire
+- Píše rozšířené fantasy romány jako je Hra o trůny
 
 ## Děj
 Kniha vypraví o hobitovi z kraje, který si jako malý hrával na velká dobrodružství, hledal v lesech elfy a přátelil se s čarodějem Gandalfem. Když mu bylo 50 let (roku 2941 3. věku), Gandalf znovu se objevil. Nabídl Bilbovi jisté dobrodružství, ze kterého se snad vrátí živý. Bilbo zprvu odmítnul, ale když mu Gandal jeden večer do nory nastěhoval 13 trpaslíků, hned drůhý den si to rozmyslel.

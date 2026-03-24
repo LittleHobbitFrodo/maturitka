@@ -19,16 +19,17 @@ Blaník, Akt, Němý bobeš, …
 
 ## Zařazení autorů do kontextu literatury
 - **Satirické drama**
-- 2. polovina 20. století až slučasnost
+- 2. polovina 20. století až současnost
 - Žižkovské divado Járy Cimrmana
-- herci jou mouze muži – pouze jejich koníčkem
-- inteligentní humor
+- Herci jou pouze muži – pouze jejich koníčkem
+- Inteligentní humor
 
 ## Děj
 ### část 1
 Seminář – objevení hry České nebe
+- Série odborných referátů pojednávajících o životě a tvorbě Járy Cimrmana
 ### část 2
-hra České nebe – příběh se odehrává v nebi, zasedá česká nebeská komise – chtějí rozšířit počet členů ze 3 na 6 a přemýšlejí koho přijmout.
+Hra České nebe – příběh se odehrává v nebi, zasedá česká nebeská komise – chtějí rozšířit počet členů ze 3 na 6 a přemýšlejí koho přijmout.
 
 ## Myšlenka, téma a motiv
 Myšlenka, téma – česká historie  
