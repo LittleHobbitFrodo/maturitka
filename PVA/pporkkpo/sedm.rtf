@@ -1,0 +1,119 @@
+{\rtf1\ansi\ansicpg1250\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 TimesNewRomanPS-ItalicMT;\f1\froman\fcharset0 TimesNewRomanPSMT;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww25400\viewh13140\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\fi1135\pardirnatural\qc\partightenfactor0
+
+\f0\i\fs20 \cf0 PVA - maturita l\'e9ta p\'e1n\uc0\u283  2045 - ROMAN\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\fi1135\pardirnatural\qc\partightenfactor0
+
+\fs36 \cf0 \
+Kolekce (List, Dictionary, Stack), frekven\uc0\u269 n\'ed anal\'fdza a jej\'ed v\'fdznam pro de\'9aifrov\'e1n\'ed.\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\fi1135\pardirnatural\partightenfactor0
+
+\f1\i0\fs26 \cf0 KOLEKCE \'97 LIST, DICTIONARY, STACK\
+\
+\'97 ukl\'e1d\'e1n\'ed a spr\'e1va skupiny souvisej\'edc\'edch objekt\uc0\u367 \
+\'97 
+\f0\i System.Array, System.Span<T>, System.Memory<T>, List<T>, Dictionary<TKey, TValue>\
+
+\f1\i0 \'97 charakteristika\
+	\'97 p\uc0\u345 \'edstup \'97 index, kl\'ed\u269 \
+	\'97 v\'fdkon, efektivita\
+	\'97 dynami\uc0\u269 nost \'97 zv\u283 t\'9aov\'e1n\'ed, odeb\'edr\'e1n\'ed prvk\u367 \
+\
+\'97 p\uc0\u345 \'edstup k prvk\u367 m pomoc\'ed dotaz\u367  LINQ\
+	\'97 podobn\'e9 SQL dotaz\uc0\u367 m\
+	\'97 from 
+\f0\i x
+\f1\i0  in 
+\f0\i xCollection
+\f1\i0  where 
+\f0\i x
+\f1\i0  > 100 select 
+\f0\i x\
+	\'97 IEnumerable<T>
+\f1\i0 \
+\
+\'97 obecn\'e9\
+	\'97 p\uc0\u345 edkem v\'9aech typ\u367  je 
+\f0\i Object
+\f1\i0 \
+	\'97 ArrayList\
+	\'97 p\uc0\u345 i z\'edsk\'e1v\'e1n\'ed prvk\u367  je nutn\'e9 je p\u345 etypovat\
+\
+\'97 generick\'e9\
+	\'97 <T>\
+	\'97 typ m\uc0\u367 \'9eeme sami specifikovat\
+	\'97 vlastn\'ed implementace \'97 m\uc0\u367 \'9eeme kontrolovat, kdy generick\'fd parametr implementuje dan\'e9 rozhran\'ed (
+\f0\i IComparable, IEnumerable
+\f1\i0 )\
+\
+\
+\'97 LIST\
+	\
+	
+\f0\i List<int> neco = new List<int>(x); //velikost x, optional\
+
+\f1\i0 \
+	\'97 Add, Remove \'97 dynamick\'fd p\uc0\u345 \'edstup\
+		\'97 Contains, IndexOf, Clear\'85\
+		\'97 fce pro sorting\'85\
+	\'97 p\uc0\u345 \'edstup pomoc\'ed indexeru \'97 [x]\
+\
+\'97 DICTIONARY\
+	\
+	
+\f0\i Dictionary<TKey, TValue> necoOpet = new Dictionary<TKey, TValue>();\
+	
+\f1\i0 \
+	\'97 ukl\'e1d\'e1n\'ed podle kl\'ed\uc0\u269 e a hodnoty \'97 velmi rychl\'e9 vyhled\'e1v\'e1n\'ed \'97 
+\f0\i O(n) 
+\f1\i0 \'97 hashtable\
+	\'97 !!! duplicitn\'ed kl\'ed\uc0\u269 e \'97 
+\f0\i ArgumentException
+\f1\i0 \
+	\'97 
+\f0\i Add, TryGetValue, Remove, ContainsKey, ContainsValue
+\f1\i0 \'85\
+	\
+	
+\f0\i foreach( KeyValuePair<string, string> kvp in myDictionary )\
+	\{\
+    		Console.WriteLine("Key = \{0\}, Value = \{1\}", kvp.Key, kvp.Value);\
+	\}
+\f1\i0 \
+\
+\'97 STACK\
+\
+	
+\f0\i Stack<int> mujStackOuje = new Stack<int>();
+\f1\i0 \
+\
+	\'97 LIFO \'97 last in first out\
+	\'97 
+\f0\i Push, Pop, Peek, Contains, Count
+\f1\i0 \'85\
+	\'97 inicializace s kolekc\'ed Array\
+	\'97 implementov\'e1n jako pole\
+	\'97 duplicitn\'ed prvky, null prvky\
+	\'97 
+\f0\i Queue<T>
+\f1\i0 \
+\
+\
+FREKVEN\uc0\u268 N\'cd ANAL\'ddZA a JEJ\'cd V\'ddZNAM PRO DE\'8aIFROV\'c1N\'cd\
+\
+\'97 n\'e1stroj kryptoanal\'fdzy\
+\'97 pom\'e1h\'e1 n\'e1m se dopracovat k otev\uc0\u345 en\'e9mu textu pomoc\'ed statistiky a znalost\'ed p\u345 irozen\'e9ho jazyka\
+\'97 \uc0\u269 etnost p\'edsmen / \u269 etnost kombinac\'ed p\'edsmen\
+\'97 substitu\uc0\u269 n\'ed / transpozi\u269 n\'ed \'9aifry\
+\'97 
+\f0\i bruteforce
+\f1\i0 \
+\'97 (popul\'e1rn\'ed literatura \'97 E. A. Poe \'97 Zlat\'fd Brouk)\
+\
+}

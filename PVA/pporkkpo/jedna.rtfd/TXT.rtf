@@ -1,0 +1,117 @@
+{\rtf1\ansi\ansicpg1250\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 TimesNewRomanPS-ItalicMT;\f1\froman\fcharset0 TimesNewRomanPSMT;\f2\froman\fcharset0 TimesNewRomanPS-BoldMT;
+\f3\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww25400\viewh13140\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\fi1135\pardirnatural\qc\partightenfactor0
+
+\f0\i\fs20 \cf0 PVA - maturita 2045 - LUBOM\'cdR PLAKAL\
+
+\fs36 \
+Algoritmizace. T\uc0\u345 \'edda Program a v\'fdznam statick\'e9 metody, vstup programu. Numerick\'e9\
+liter\'e1ly. C\'e9sarova \'9aifra.\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\fi1135\pardirnatural\partightenfactor0
+
+\f1\i0\fs26 \cf0 ALGORITMIZACE\
+\
+	\'84\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Algoritmem rozum\'edme posloupnost kone\uc0\u269 n\'e9ho po\u269 tu p\u345 esn\u283  definovan\'fdch krok\u367  pot\u345 ebn\'fdch k dosa\'9een\'ed ur\u269 it\'e9ho v\'fdsledku \u269 i 		vy\u345 e\'9aen\'ed ur\u269 it\'e9 \'falohy\kerning1\expnd0\expndtw0 \outl0\strokewidth0 \'93\
+\
+\'97 p\uc0\u345 esn\'fd n\'e1vod, jak  vy\u345 e\'9ait danou \'falohu\
+\'97 teoretick\'fd z\'e1pis / konkr\'e9tn\'ed implementace\
+\'97 po\'9eadavky\
+	\'97 
+\f2\b element\'e1rnost
+\f1\b0 \
+	\'97 
+\f2\b kone\uc0\u269 nost
+\f1\b0  \'97 mus\'ed vr\'e1tit v\'fdsledek v kone\uc0\u269 n\'e9m po\u269 tu krok\u367 \
+	\'97 
+\f2\b obecnost
+\f1\b0  \'97 univerz\'e1ln\'ed, mus\'ed po\uc0\u269 \'edtat s prom\u283 nliv\'fdm vstupem a reagovat na n\u283 j odpov\'eddaj\'edc\'edm zp\u367 sobem\
+	\'97 
+\f2\b determinovanost
+\f1\b0  \'97 stejn\'e1 data, stejn\'e9 podm\'ednky, stejn\'fd v\'fdsledek (jednozna\uc0\u269 nost v\'fdsledku)\
+	\'97 
+\f2\b determinismus
+\f1\b0  \'97 ka\'9ed\'fd krok mus\'ed b\'fdt jednozna\uc0\u269 n\u283  definov\'e1n, mus\'ed b\'fdt z\u345 ejm\'e9, co prov\'e1d\'ed (
+\f0\i to self: programovac\'ed jazyk, kde se d\'e1 ml\'9eit
+\f1\i0 )\
+	\'97 
+\f2\b v\'fdstup
+\f1\b0  \'97 m\uc0\u283 l by m\'edt v\'fdstup, kter\'fd bude mo\'9en\'e9 pova\'9eovat za \u345 e\'9aen\'ed pro vstupn\'ed data\
+\
+\'97 z\'e1pis algoritmu\
+	\'97 v\'fdvojov\'fd diagram\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\fi1135\pardirnatural\partightenfactor0
+\cf0 		
+\f3\fs24 {{\NeXTGraphic Pasted Graphic 1.png \width5180 \height8260 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}
+\f1\fs26 \
+\
+	\'97 pseudok\'f3d\
+\
+\
+T\uc0\u344 \'cdDA PROGRAM a VSTUP PROGRAMU\
+\
+\'97 t\uc0\u345 \'edda \'84program\'93 spolu s metodou \'84main\'93 tvo\u345 \'ed vstupn\'ed \u269 \'e1st programu (platn\'fd c# k\'f3d je nemus\'ed obsahovat, kompil\'e1tor vygeneruje)\
+\'97 t\uc0\u345 \'edda main\
+	\'97 statick\'e1, nen\'ed t\uc0\u345 eba vytv\'e1\u345 et instanci \'84
+\f0\i Program
+\f1\i0 \'93\
+	\'97 void / int (jako c)\
+	\'97  argument \'84
+\f0\i string[]
+\f1\i0 \'93 \'97 array argument\uc0\u367  z konzole, dobrovoln\'e9\
+\
+\
+SLOV\'cd\uc0\u268 KO STATIC\
+\
+\'97 nap\uc0\u345 \'edklad funkce main\
+\'97 statick\'e9 funkce nejsou asociovan\'e9 s instancemi \'97 nepat\uc0\u345 \'ed konkr\'e9tn\'edmu objektu, ale typu (funkce 
+\f0\i Main 
+\f1\i0 pat\uc0\u345 \'ed typu 
+\f0\i Program
+\f1\i0 )\
+\'97 statick\'e1 t\uc0\u345 \'edda\
+	\'97 obsahuje pouze statick\'e9 funkce\
+	\'97 nelze vytvo\uc0\u345 it jej\'ed instanci\
+\
+\'97 
+\f0\i public static int x = 10; 
+\f1\i0 \'97 bude existovat jedin\'e1 instance\
+\
+\
+NUMERICK\'c9 LITER\'c1LY\
+\
+
+\f0\i 0, 7, 765.67f, 890e-7\
+
+\f1\i0 \
+\'97 doslovn\'fd, nen\'ed to prom\uc0\u283 nn\'e1\
+\'97 deklarace, v\'fdpo\uc0\u269 ty, konstanty (ne konstantn\'ed prom\u283 nn\'e9)\
+\'97 specifick\'e1 velikost, signed / unsigned\
+\'97 int\
+\'97 double \'97 nep\uc0\u345 esn\'fd, zlat\'e1 st\u345 edn\'ed cesta\
+\'97 decimal \'97 p\uc0\u345 \'edpona \'84m/M\'93, jinak error \'97 kompil\'e1tor si mysl\'ed, \'9ee se sna\'9e\'edme typu decimal narvat double \'97 nejpomalej\'9a\'ed\
+\'97 float \'97 p\uc0\u345 \'edpona \'84f/F\'93, nejrychlej\'9a\'ed, nejm\'e9n\u283  p\u345 esn\'fd\
+\'97 specifik\'e1tory liter\'e1l\uc0\u367  \'97 implicitn\'ed konverze (m, d, F, L\'85)\
+\'97 0x0, 0b0\
+\'97 separ\'e1tor \'84_\'93\
+\
+\
+C\'c9SAROVA \'8aIFRA\
+\
+\'97 substitu\uc0\u269 n\'ed \'9aifra, ROT 13\
+	\'97 mno\'9eina znak\uc0\u367  je nahrazena jinou mno\'9einou\
+\'97 kl\'ed\uc0\u269 em je posun v abeced\u283  (kl\'ed\u269  = 3) \'97 z 
+\f0\i A 
+\f1\i0 se st\'e1v\'e1 
+\f0\i D
+\f1\i0 \
+\'97 nebezpe\uc0\u269 n\'e1, m\u367 \'9eeme prov\'e9st frekven\u269 n\'ed anal\'fdzu a odhalit kl\'ed\u269  (posun)\
+\'97 vigen\'e9rova \'9aifra \'97 26 abeced, bezpe\uc0\u269 n\u283 j\'9a\'ed}

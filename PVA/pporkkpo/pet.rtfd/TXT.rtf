@@ -1,0 +1,121 @@
+{\rtf1\ansi\ansicpg1250\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 TimesNewRomanPS-ItalicMT;\f1\froman\fcharset0 TimesNewRomanPSMT;\f2\froman\fcharset0 TimesNewRomanPS-BoldMT;
+\f3\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red255\green255\blue255;}
+{\*\expandedcolortbl;;\cssrgb\c100000\c100000\c100000\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww25400\viewh13140\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\fi1135\pardirnatural\qc\partightenfactor0
+
+\f0\i\fs20 \cf0 PVA - maturita l\'e9ta p\'e1n\uc0\u283  2045 - AAAAAAA\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\fi1135\pardirnatural\qc\partightenfactor0
+
+\fs36 \cf0 \
+N\'e1hodn\'e1 \uc0\u269 \'edsla a n\'e1hodn\'e1 \u269 \'edsla bez opakov\'e1n\'ed, kryptografick\'e1 kvalita n\'e1hodn\'fdch \u269 \'edsel.\
+Metoda Monte Carlo.\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\fi1135\pardirnatural\partightenfactor0
+
+\f1\i0\fs26 \cf0 N\'c1HODN\'c1 \uc0\u268 \'cdSLA a N\'c1HODN\'c1 \u268 \'cdSLA BEZ OPAKOV\'c1N\'cd\
+\
+\'97 true-random, pseudo-random\
+\'97 po\uc0\u269 \'edta\u269 e jsou pouze velmi komplexn\'ed finite state machine* \'97 deterministick\'e9 \'97 nedok\'e1\'9e\'ed generovat n\'e1hodn\'e1 \u269 \'edsla \'97 pouze tak p\u367 sob\'ed\
+	\'97 pseudo random\
+\
+\'97 true random - Hardware RNG\
+	\'97 ovlivn\uc0\u283 ny vn\u283 j\'9a\'edmi jevy z na\'9a\'ed reality \'97 fyzick\'fd proces \'97 entropie\
+	\'97 random \'84noise\'93 \'97 nestabilita analogov\'fdch obvod\uc0\u367 , brown motion, polo\u269 as rozpadu\'85\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\fi1135\pardirnatural\partightenfactor0
+
+\f2\b \cf0 Pseudo Random
+\f1\b0 \
+\
+\'97 deterministick\'fd zp\uc0\u367 sob generov\'e1n\'ed \'84n\'e1hodn\'fdch\'93 \u269 \'edsel, i p\u345 es to jsou st\'e1le kl\'ed\u269 ov\'fdm prvkem modern\'ed kryptogrfie\
+\'97 vstupn\'ed parametr \'97 
+\f0\i seed
+\f1\i0  \'97 skoro n\'e1hodn\'e1 hodnota\
+	\'97 side channel attack \'97 zneu\'9eit\'ed fyzick\'e9 implementace, nam\'edsto hled\'e1n\'ed teoretick\'e9 chyby v matematice\
+	\'97 stejn\'fd seed, stejn\'fd v\'fdsledek\
+\'97 navenek nelze rozpoznat\
+\'97 jednosm\uc0\u283 rn\'e9 fce \'97 slo\'9eit\'e9 z\'edskat z v\'fdsledku vstupy\
+	\'97 asymetrick\'e1 kryptografie\
+	\'97 n\'e1soben\'ed, modulo (???)\
+\
+
+\f2\b modnaR oduesP
+\f1\b0 \
+\
+\'97 c# t\uc0\u345 \'edda 
+\f0\i SystemRandom
+\f1\i0 \
+\'97 pseudon\'e1hodn\'fd gener\'e1tor \uc0\u269 \'edsel, spl\u328 uje statistick\'e9 po\'9eadavky\
+(\'97 podle subtraktivn\'edho gener\'e1toru n\'e1hodn\'fdch \uc0\u269 \'edsel Donalda E. Knutha)\
+\'97 pro kryptograficky bezpe\uc0\u269 n\'e9 n\'e1hodn\'e9 \u269 \'edslo \'97 
+\f0\i System.Security.Cryptography.RandomNumberGenerator
+\f1\i0 \
+\
+\
+
+\f0\i \cb2 Random R = new Random();\
+	\
+int A = R.Next(seed);	//optional\
+A = R.Next(y, x); 	//y \'97 (x-1)\
+A = R.Next(x);		//0 \'97 (x-1)\
+	\
+//NextDouble, NextBytes\'85
+\f1\i0 \cb1 \
+
+\f0\i \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\fi1135\pardirnatural\partightenfactor0
+
+\f1\i0 \cf0 \'97 v\'fddhoz\'ed seed \'97 system clock\
+\'97 kone\uc0\u269 n\'e1 p\u345 esnost \'97 generov\'e1n\'ed pomoc\'ed 
+\f0\i x.Next()
+\f1\i0  vede ke stejn\'fdm v\'fdsledk\uc0\u367 m\
+\
+\'97 bez opakov\'e1n\'ed\
+	\'97 list, vygenerovan\'e9 \uc0\u269 \'edslo p\u345 id\'e1me pouze pokud v listu nen\'ed (=> generujeme toto \u269 \'edslo tak dlouho, dokud tuto podm\'ednku nebude spl\u328 ovat)\
+\
+KRYPTOGRAFICK\'c1 KVALITA\
+\
+\'97 periodicita\
+	\'97 gener\'e1tory s n\'edzkou periodicitou lze nazvat jako slab\'e9\
+\'97 korelace po sob\uc0\u283  vygenerovan\'fdch n\'e1hodn\'fdch \u269 \'edsel\
+\'97 side channel attack (
+\f0\i \'fatok postrann\'edm kan\'e1lem
+\f1\i0 ) \
+	\'97 odhalen\'ed vstupn\'edho seedu (
+\f0\i semene - c# online p\uc0\u345 \'edru\u269 ka learn.microsoft.com \'97 Knihovny modulu runtime / System.Random / Vytvo\u345 en\'ed instance gener\'e1toru n\'e1hodn\'fdch \u269 \'edsel / \u345 \'e1dek \u269 .9 / 5. slovo 
+\f1\i0 )\
+	\'97 znalost pou\'9e\'edvan\'e9ho algoritmu\
+	\'97 d\'e9lka trv\'e1n\'ed\'85\
+\'97 System.Security.Cryptography.RandomNumberGenerator\
+\
+METODA MONTE CARLO\
+\
+\'97 simulace experiment\uc0\u367  \'97 pravd\u283 podobnost sou\u269 tu p\u345 i hodu v\'edce kostkami\'85\
+\'97 v\'fdpo\uc0\u269 et integr\'e1l\u367  \'97 obsah plochy od k\u345 ivkou fce 
+\f0\i f(x) 
+\f1\i0 (oproti tomu metoda s obd\'e9ln\'edky)\
+	\'97 aproximace 
+\f0\i pi\
+\
+
+\f1\i0 \'97 integrace monte carlo\
+	\'97 bod je nad k\uc0\u345 ivkou / pod n\'ed\
+	\'97 plocha pod k\uc0\u345 ivkou 
+\f0\i S
+\f1\i0  v\uc0\u367 \u269 i celkov\'e9 plo\'9ae vrat = body pod k\u345 ivkou v\u367 \u269 i v\'9aem bod\u367 m\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 		
+\f3\fs24 {{\NeXTGraphic Pasted Graphic.png \width13940 \height5660 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}
+\f1\fs26 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\fi1135\pardirnatural\partightenfactor0
+\cf0 \
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+*vy\'9eaduje verifikaci, klarifikaci a nostrifikaci}

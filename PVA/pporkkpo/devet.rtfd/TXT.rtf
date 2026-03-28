@@ -1,0 +1,199 @@
+{\rtf1\ansi\ansicpg1250\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 TimesNewRomanPS-ItalicMT;\f1\froman\fcharset0 TimesNewRomanPSMT;\f2\fswiss\fcharset0 Helvetica;
+\f3\froman\fcharset0 Times-Italic;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww25400\viewh13140\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\fi1135\pardirnatural\qc\partightenfactor0
+
+\f0\i\fs20 \cf0 PVA - maturita l\'e9ta p\'e1n\uc0\u283  2045 - T\u344 ISTAT\u344 ICETT\u344 IST\u344 \'cdBRN\'ddCHST\u344 \'cdKA\u268 EKST\u344 \'cdKALOP\u344 EST\u344 ISTAT\u344 ICETST\u344 \'cdBRN\'ddCHS\u344 ECH\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\fi1135\pardirnatural\qc\partightenfactor0
+
+\fs36 \cf0 \
+Datum a \uc0\u269 as, \'9aifrov\'e1n\'ed operac\'ed XOR a opakovan\'fdm kl\'ed\u269 em, kvalita \'9aifrov\'e1n\'ed.\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\fi1135\pardirnatural\partightenfactor0
+
+\f1\i0\fs26 \cf0 DATUM A \uc0\u268 AS\
+\
+\'97 
+\f0\i struct DateTime, TimeSpan, class Stopwatch
+\f1\i0 \
+\
+\'97 DateTime\
+	\'97 konkr\'e9tn\'ed bod na ose \uc0\u269 asu\
+	\'97 datov\'fd typ\
+	\'97 mnoho konstruktor\uc0\u367 \
+		\
+
+\f0\i 		DateTime( Int32 rok, Int32 mesic, Int32 den )\
+		DateTime( Int32 rok, Int32 mesic, Int32 den, Int32 hodina, Int32 minuta, Int32 vte\uc0\u345 ina )\
+		DateTime( Int64 tick )\
+		\
+		//tick = po\uc0\u269 et 100 nanosekundov\'fdch interval\u367  od 1. 1. 0001 00:00:000
+\f1\i0 \
+	\
+	\'97 metody 
+\f0\i DateTime
+\f1\i0  nem\uc0\u283 n\'ed instanci, vrac\'ed pozm\u283 n\u283 nou verzi \'97 
+\f0\i AddDays(double), AddMonths(double)\'85
+\f1\i0 \
+	\'97 utitlit\'e1rn\'ed fce \'97 
+\f0\i IsGapYear, DaysInMonth, Compare, Equals\'85\
+
+\f1\i0 \
+	\'97 
+\f0\i TryParse
+\f1\i0 \
+		\'97 \uc0\u345 et\u283 zec string na DateTime\
+		\'97 vrac\'ed 
+\f0\i bool
+\f1\i0  dle v\'fdsledku\
+		\'97 out DateTime result\
+		\'97 
+\f0\i Parse
+\f1\i0 \
+\
+	\'97 form\'e1tovac\'ed \uc0\u345 et\u283 zce\
+		\'97 MMM \'97 m\uc0\u283 s\'edc na t\u345 i p\'edsmena\
+		\'97 ddd \'97 den v t\'fddnu na t\uc0\u345 i p\'edsmena\
+		\'97 d \'97 den v m\uc0\u283 s\'edci\
+		\'97 HH \'97 hodiny (0 - 24) na dv\uc0\u283  p\'edsm.\
+		\'97 mm \'97 minuty na dv\uc0\u283  p\'edsm.\
+		\'97 yyyy \'97 rok na \uc0\u269 ty\u345 i p\'edsmena\
+		\'97 M\
+		\'97 d\
+		\'97 h\
+		\'97 mm\
+		\'97 yy\
+\
+	\'97 jednop\'edsmenn\'e9\
+\
+		
+\f0\i Console.WriteLine(cas.ToString(\'84X\'93));\
+
+\f1\i0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 		
+\f2\fs24 {{\NeXTGraphic Pasted Graphic 1.png \width11500 \height6180 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}
+\f1\fs26 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\fi1135\pardirnatural\partightenfactor0
+\cf0 \
+\'97 TimeSpan\
+	\'97 \uc0\u269 asov\'fd interval\
+	\'97 s\uc0\u269 \'edt\'e1n\'ed a od\u269 \'edt\'e1n\'ed s DateTime\
+	\'97 struct \'97 hodnotov\'fd typ\
+	\
+	T
+\f0\i imeSpan( Int32 hours, Int32 minutes, Int32 seconds );\
+	TimeSpan( Int32 days, Int32 hours, Int32 minutes, Int32 seconds )\
+
+\f1\i0 	\'85\
+	\
+	\'97 TimeSpan cus = DateTime.Now() \'85 \'97 \'85 DateTime.Now()\
+	\'97 
+\f0\i FromHours, FromDays, Add, Substract
+\f1\i0 \
+	\'97 
+\f0\i Parse
+\f1\i0 \
+	\'97 
+\f0\i TryParse
+\f1\i0 \
+		\'97 syntax:\
+		\
+		[ws][-]\{ d | [d.]hh:mm[:ss[.ff]] \}[ws]
+\f0\i \
+			[ ] znamen\'e1 volitelnou \uc0\u269 \'e1st\
+			jedna z variant odd\uc0\u283 len\'fdch | uvnit\u345  \{ \} je vy\'9eadov\'e1na\
+			ws = white space\
+			- interval m\uc0\u367 \'9ee m\'edt z\'e1pornou hodnotu\
+			ff = zlomky vte\uc0\u345 in\
+\
+\'97 
+\f1\i0 Stopwatch\
+	\'97 referen\uc0\u269 n\'ed typ\
+	\'97 
+\f0\i System.Diagnostics
+\f1\i0 \
+	\'97 
+\f0\i Start, Stop, Restart, Reset
+\f1\i0 \
+\
+		Stopwatch sw = new Stopwatch();\
+		sw.Start();\
+		\'85\
+		sw.Stop();\
+		Console.WriteLine(sw.Elapsed);\
+		Console.WriteLine(sw.ElapsedMilliseconds);\
+\
+\
+\'8aIFROV\'c1N\'cd POMOC\'cd OPERACE XOR a OPAKOVAN\'ddM KL\'cd\uc0\u268 EM\
+\
+\'97 exclusive or \'97 exkluzivn\'ed disjunkce\
+\'97 symetrick\'e1 kryptografie\
+\
+		
+\f0\i 0 
+\f3\fs24 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 \uc0\u8853  0	0\
+
+\f1\i0\fs26 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 		
+\f0\i 0 
+\f3\fs24 \expnd0\expndtw0\kerning0
+\uc0\u8853  1	1\
+
+\f1\i0\fs26 \kerning1\expnd0\expndtw0 		
+\f0\i 1 
+\f3\fs24 \expnd0\expndtw0\kerning0
+\uc0\u8853  0	1\
+
+\f1\i0\fs26 \kerning1\expnd0\expndtw0 		
+\f0\i 1 
+\f3\fs24 \expnd0\expndtw0\kerning0
+\uc0\u8853  1	0\
+
+\f1\i0\fs26 \kerning1\expnd0\expndtw0 \
+\'97 maskov\'e1n\'ed (ip\'85)\
+\
+\'97 jeliko\'9e je funkce p\uc0\u345 \'edmo implementov\'e1na procesorem, je velmi efektivn\'ed\
+\'97 \'9aifry DES, AES, one time pad, hashovac\'ed fce\
+\
+\'97 primitivn\'ed \'9aifra pouze s operac\'ed XOR\
+\
+
+\f0\i 	otev\uc0\u345 en\'fd text:		01101110\
+	kl\'ed\uc0\u269 :			11101101\
+	\'97\
+	v\'fdstup:		10000011
+\f1\i0 \
+\
+\'97 pokud znovu aplikujeme kl\'ed\uc0\u269 , z\'edsk\'e1me zp\u283 t otev\u345 en\'fd text (lze z\'edskat kl\'ed\u269  aplikov\'e1n\'edm operace XOR na vstupn\'ed text a v\'fdstupn\'ed text)\
+\
+\'97 DES\
+	\'97 symetrick\'e1 blokov\'e1 \'9aifra\
+	\'97 16 rund (opakov\'e1n\'ed) s 64bit blokem dat\
+	\'97 kl\'ed\uc0\u269  64bit (56 + 8 parita)\
+	\'97 ka\'9edou rundu se za\'9aifruje v\'fdstup p\uc0\u345 edchoz\'ed rundy se 48bit sub-kl\'ed\u269 em\
+	\'97 nebezpe\uc0\u269 n\'e1, lze ji prolomit brute-force \'fatokem za m\'e9n\u283  jak 24 hodin\
+\
+\'97 One Time Pad\
+	\'97 kl\'ed\uc0\u269  je stejn\u283  dlouh\'fd jako vstupn\'ed data \'97 teoreticky neprolomiteln\'e9\
+	\'97 kl\'ed\uc0\u269  je generovan\'fd n\'e1hodn\u283 \
+	\'97 v praktick\'e9m vyu\'9eit\'ed je d\'e9lka kl\'ed\uc0\u269 e nev\'fdhodou\
+\
+\'97 hashovac\'ed fce\
+	\'97 MD5\
+	\'97 SHA-2 \'97 standart pro v\uc0\u283 t\'9ainu aplikac\'ed\
+	\'97 podm\'ednky \'97 (skoro) jednosm\uc0\u283 rn\'e9 funkce, nedoch\'e1z\'ed ke koliz\'edm, mezi vstupem a v\'fdstupem je minim\'e1ln\'ed korelace, rozd\'edln\'e9 d\'e9lky vstup\u367  poskytuj\'ed v\'fdstup v\'9edy o stejn\'e9 d\'e9lce\
+	\'97 blokov\'fd p\uc0\u345 \'edstup\
+\
+	\'97 ukl\'e1d\'e1n\'ed hesel \'97 bcrypt, scrypt\
+	\'97 salting \'97 p\uc0\u345 ed hashov\'e1n\'edm je ke vstupu p\u345 id\'e1n n\'e1hodn\'fd text \'97 nelze pou\'9e\'edt rainbow tables (p\u345 edpo\u269 \'edtan\'e9 hodnoty)\
+	\'97 malware\
+	\'97 integrita dat\
+\
+\
+}

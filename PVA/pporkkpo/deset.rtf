@@ -1,0 +1,103 @@
+{\rtf1\ansi\ansicpg1250\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 TimesNewRomanPS-ItalicMT;\f1\froman\fcharset0 TimesNewRomanPSMT;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww25400\viewh13140\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\fi1135\pardirnatural\qc\partightenfactor0
+
+\f0\i\fs20 \cf0 PVA - maturita l\'e9ta p\'e1n\uc0\u283  2045 - PROKOP SCHOVANEC\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\fi1135\pardirnatural\qc\partightenfactor0
+
+\fs36 \cf0 \
+\uc0\u344 et\u283 zcov\'e9 funkce, specifika typu string. Operace v z\'e1sobn\'edku a na hald\u283 .\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\fi1135\pardirnatural\partightenfactor0
+
+\f1\i0\fs26 \cf0 \uc0\u344 ET\u282 ZCOV\'c9 FUNKCE a SPECIFIKA TYPU STRING\
+\
+\'97 String \'97 sekvence znak\uc0\u367  (char), ulo\'9een\'e1 na ur\u269 it\'e9 adrese v pam\u283 ti (heapu/hald\u283 )\
+\'97 unicode (ne ASCII)\
+\'97 string literals, raw string litereals (t\uc0\u345 i uvozovac\'ed znaky)\
+\'97 escapce characters, escaping\
+	\
+	
+\f0\i string zdurKamo = \'84zdrav\'edm m\uc0\u367 j drah\'fd p\u345 \'edteli. to\u357  jak\'e9 nev\'9aedn\'ed po\u269 as\'ed n\'e1m dnes nastalo, \'9ee!?\'93;
+\f1\i0 \
+\
+\'97 immutable \'97 nem\uc0\u283 niteln\'fd \'97 je nutn\'e9 pou\'9e\'edt 
+\f0\i StringBuilder
+\f1\i0 \
+\'97 se stringem lze zach\'e1zet jako s polem\
+\'97 
+\f0\i String.Empty
+\f1\i0  / null string\
+\
+	
+\f0\i string neco = \'84pavel byl jakoze:\\\'93dyk more co to meles\\\'93\'93;
+\f1\i0 \
+\
+\'97 s\uc0\u269 \'edt\'e1n\'ed, 
+\f0\i x.ToString(), Equals(), ==, CompareTo(), ToUpper(), ToLower(), IndexOf()
+\f1\i0 \
+\'97 
+\f0\i Substring(from, len)
+\f1\i0 \
+\'97 
+\f0\i Split(char[] separators)
+\f1\i0  \'97 vrac\'ed pole string\uc0\u367 \
+	\'97 StringSplitOptions.RemoveEmptyEntries\
+\'97 
+\f0\i Replace()
+\f1\i0 \
+\
+\'97 ka\'9ed\'fd objekt v .NET implementuje 
+\f0\i ToString()
+\f1\i0  \'97 vrac\'ed \uc0\u345 et\u283 zcovou reprezentaci\
+	\'97 automaticky vol\'e1na p\uc0\u345 i 
+\f0\i Console.WriteLine()
+\f1\i0 \
+\
+\'97 
+\f0\i String.Format
+\f1\i0 \
+	\'97 form\'e1tovac\'ed string s parametry \'84placeholders\'93 \'97 interoplovan\'fd string\
+	\'97 
+\f0\i $\{0\}\'85\{1\}\'85\{2\}, int, string, neco\'85
+\f1\i0 \
+\
+\'97 
+\f0\i StringBuilder
+\f1\i0 \
+	\
+	
+\f0\i StringBuilder sb = new SringBuilder(\'84sdsdf\'93, capacity);
+\f1\i0 \
+\
+	\'97 
+\f0\i Append(), AppendFormat(), Insert(), Remove(), Replace()
+\f1\i0 \
+\
+\
+OPERACE V Z\'c1SOBN\'cdKU A NA HALD\uc0\u282 \
+\
+\'97 CommonLanguageRuntime\
+\
+\'97 z\'e1sobn\'edk obsahuje hodnotov\'e9 datov\'e9 typy a adresy (pointery) na referen\uc0\u269 n\'ed datov\'e9 typy ulo\'9een\'e9 na hald\u283 \
+	\'97 \'84function stack\'93 \'97 prom\uc0\u283 nn\'e9 inicializovan\'e9 v kontextu fce jsou po jej\'edm navr\'e1cen\'ed automaticky uvoln\u283 ny\
+\
+\'97 vol\'e1n\'ed fc\'ed\
+	\'97 parametry jsou vlo\'9eeny do z\'e1sobn\'edku (v obr\'e1cen\'e9m po\uc0\u345 ad\'ed)\
+	\'97 ulo\'9een\'ed n\'e1vratov\'e9 adresy\
+	\'97 nov\'fd z\'e1sobn\'edkov\'fd r\'e1mec pro metodu\
+	\'97 n\'e1vrat z fce\
+\
+\'97 managed heap, udr\'9euje pointer na dal\'9a\'ed lokaci v pam\uc0\u283 ti, kde bude alokov\'e1n n\u283 jak\'fd dal\'9a\'ed objekt\
+\'97 garbage collector \'97 uvoln\'ed nedosa\'9eiteln\'e9 objekty a zarovn\'e1 haldu\
+\
+\'97 
+\f0\i stackalloc
+\f1\i0 \
+\
+\
+}
