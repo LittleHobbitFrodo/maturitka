@@ -316,6 +316,215 @@ Filtr: `tcp.flags.syn == 1 or tcp.flags.ack == 1`
 - Zpoždění mezi pakety (latence)
 - Neúspěšná spojení
 
+---
+
+# Praktická analýza
+
+## Packet Loss
+
+- [Vysvětlení](./04%20-%20průzkum%20a%20diagnostika%20sítě.md#packet-loss)
+
+#### **Typické příčiny**
+- Přetížená síť
+- Vadný kabel / Wi-Fi signál
+- Chyby na routeru
+
+## Retransmission
+
+Když paket nedorazí, protokol (např. TCP) ho pošle znovu.
+- Wireshark filtr: `tcp.analysis.retransmission`
+
+#### **Typické příčiny**
+- Nestabilní spojení
+- Přetížení linky
+- Špatná kvalita Wi-Fi
+
+#### **Jak se projevuje**
+- Zpomalení komunikace
+- Zvýšené zatížení sítě
+
+#### **Co sledovat**
+- Vysoký počet retransmisí = problém v síti
+- Často souvisí se ztrátou paketů
+
+## Latence
+
+Doba, za kterou paket dorazí z bodu `A` do bodu `B`.
+
+#### **Jak se projevuje**
+- Lag ve hrách
+- Zpožděné reakce webu
+- Sekání videohovorů
+
+#### **Jak ji zjistit**
+- `ping`: sleduj hodnotu v ms
+- `traceroute`: kde vzniká zpoždění
+
+#### **Orientačně**
+- `0`–`20` ms: Výborně
+- `20`–`50` ms: 👍
+- `100`+ ms: no bueno
+
+## Pomalé připojení
+
+#### **Jak se projevuje**
+- Dlouhé načítání stránek
+- Pomalé stahování
+- Buffering videí
+
+#### **Co sledovat**
+- Download / Upload rychlost
+- Kolísání rychlosti
+
+#### **Typické příčiny**
+- Přetížení sítě
+- Omezení ISP
+
+## Postup analýzy
+
+1. Otestuj základ (`ping`)
+    - Zkontroluj latenci a packet loss
+2. Změř rychlost
+    - Porovnej s tím, co máš mít od ISP
+3. Sleduj trasu (`traceroute`)
+    - Najdi, kde se problém objevuje
+4. Zachyť provoz (`Wireshark`)
+    - Hledej retransmise, chyby TCP
+5. Izoluj problém
+    - Wi-Fi vs. kabel
+    - Lokální síť vs. internet
+
+---
+
+# Bezpečnostní analýza
+## Detekce nebezpečného provozu
+
+### Co je podezřelé
+- Neobvyklé IP adresy (např. zahraniční servery bez důvodu)
+- Neznámé porty nebo protokoly
+- Náhlý nárůst provozu (spikes)
+- Komunikace v noci / mimo běžnou dobu
+- Šifrovaný provoz na neobvyklých portech
+
+#### **Analýza**
+Wireshark - Podezřelé domény, podezřelé porty, systémové logy, atd.
+
+## Identifikace síťových útoků
+
+### DDos (**D**istributed **D**enial **of** **S**ervice)
+Extrémní množství požadavků -> přetížení serveru
+
+#### **Jak poznat**
+- Velké množství spojení z různých IP
+- SYN flood (TCP bez dokončení handshake)
+
+
+### Port scanning - `nmap`
+
+Útočník hledá otevřené porty
+
+#### **Jak poznat**
+- Jedna IP testuje mnoho portů rychle za sebou
+
+Wireshark filtr: `tcp.flags.syn == 1 && tcp.flags.ack == 0`
+
+### Man in the middle (MITM)
+
+Útočník odposlouchává komunikaci
+
+#### **Jak poznat**
+- Duplicitní/nečekané odpovědi ARP
+- Duplicitní MAC adresy
+
+### Brute-force
+
+Opakované pokusy o přihlášení
+
+#### **Jak poznat**
+- Mnoho login requestů za krátký čas
+
+
+### Další nástroje pro detekci
+
+- [Snort](https://www.snort.org/) - 🐷
+- [Suricata](https://suricata.io/) - Observe. Protect. Adapt.
+
+
+## Analýza malware komunikace
+
+Cíl: Jak se malware chová v síti
+
+Co malware typicky dělá:
+- Kontaktuje centrální server
+  - Něco jako řídící středisko daného malwaru
+- Stahuje další payload
+- Odesílá data ven (exfiltrace)
+- Používá šifrování nebo obfuskaci
+
+### Co sledovat
+- Náhodně vygenerované domény
+  - `.xyz`, `.top`
+- HTTP(s): Podezřelé URL nebo User-Agent
+- Velikost a frekvence paketů
+  - Malé pravidelné pakety - beaconing
+  - Velké odchozí přenosy - možný únik dat
+
+
+### Nástroje
+- Wireshark
+- [Zeek](https://zeek.org/) - Monitorování sítí
+- [VirusTotal](https://www.virustotal.com/gui/home/upload) - Testování malwaru, domén, atd.
+
+
+## Optimalizace sítě:
+
+### Analýza využití bandwidth
+
+**bandwith** = maximální kapacita připojení/využití
+
+#### **Co sledovat**
+- Celkový provoz (download / upload)
+- Která zařízení spotřebovávají nejvíc dat
+- Jaké aplikace/protokoly (např. video, hry, cloud)
+
+#### **Příznaky problému**
+- Linka je často na 90–100 % využití
+- Náhlé špičky (např. zálohování, streamování)
+- Jeden uživatel „zahltí“ síť
+
+
+#### **Optimalizace**
+- Omezení bandwidth pro některé aplikace
+- Upgrade linky (pokud je trvale přetížená)
+
+### Identifikace bottlenecků
+
+**Bottleneck** = místo, kde se provoz zpomaluje
+- Router
+- Switch
+- Server
+- Wi-Fi
+
+#### **Jak bottleneck najít**
+1. **Postupné testování** - izolace
+    - Testovat jednotlivé části sítě
+      - PC -> Router (OK?)
+      - Router -> Internet (OK?)
+2. **Latence a `traceroute`**
+    - Sledovat, kde skokově roste latence
+3. **Využití jednotlivých zařízení**
+    - Např. CPU routeru často na 100%
+4. **Analýza ve `wireshark`**
+    - [Retransmise](#retransmission)
+    - Zpoždění TCP (TCP delays)
+    - Duplicitní ACK
+
+#### **Typické bottlenecky**
+Wi-Fi - Slabý signál, rušení, příliš mnoho zařízení
+
+Nedostatečný provoz od ISP/operátora
+
+Síťová zařízení - Starý router, špatná konfigurace
 
 
 
