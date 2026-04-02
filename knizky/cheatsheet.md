@@ -10,7 +10,7 @@ Jsou založeny na **přenášení významu**
 - **Synekdocha** = na místo části se užije celku a naopak (př. vrátil se pod rodnou střechu)
 - **Hyperbola** = zveličení, nadsázka
 - **Ironie** = vyjádření záporu kladem
-- **Satyra** = výsměv
+- **Satira** = výsměv
 - **Sarkasmus** = ostrá satyra
 - **Oxymóron** = zdánlivě nelogické spojení dvou slov (živá mrtvola)
 - **Epiteton** = básnický přívlastek

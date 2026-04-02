@@ -1,5 +1,73 @@
 # 05. Analýza síťového provozu
 
+1. [Metody zachytávání síťového provozu](#metody-zachytávání-síťového-provozu)
+    1. [Port mirroring - SPAN (Switched Port ANalyzer)](#port-mirroring---span-switched-port-analyzer)
+        1. [Výhody](#výhody)
+        2. [Nevýhody](#nevýhody)
+    2. [Network taping (odposlechy)](#network-taping-odposlechy)
+        1. [Pasivní](#pasivní)
+            1. [Výhody](#výhody-1)
+            2. [Nevýhody](#nevýhody-1)
+        2. [Aktivní](#aktivní)
+            1. [Výhody](#výhody-2)
+            2. [Nevýhody](#nevýhody-2)
+    3. [Promiskuitní režim síťové karty](#promiskuitní-režim-síťové-karty)
+2. [`tcpdump`](#tcpdump)
+    1. [Switche](#switche)
+    2. [Filtry](#filtry)
+        1. [Podle IP](#podle-ip)
+        2. [Podle protokolu](#podle-protokolu)
+        3. [Podle portu](#podle-portu)
+        4. [Kominace filtrů](#kominace-filtrů)
+3. [Wireshark](#wireshark)
+    1. [Výběr rozhraní](#výběr-rozhraní)
+    2. [Navigace v UI](#navigace-v-ui)
+        1. [Packet list](#packet-list)
+        2. [Packet detail](#packet-detail)
+        3. [Packet bytes](#packet-bytes)
+        4. [Základní ovládání](#základní-ovládání)
+            1. [Start capture](#start-capture)
+            2. [Stop capture](#stop-capture)
+            3. [Capture filters](#capture-filters)
+    3. [Analýza komunikace](#analýza-komunikace)
+        1. [Follow stream](#follow-stream)
+        2. [Rekonstrukce dat](#rekonstrukce-dat)
+    4. [Pokročilé funkce](#pokročilé-funkce)
+        1. [Statistiky](#statistiky)
+            1. [Hierarchie protokolů](#hierarchie-protokolů)
+            2. [Endpoints](#endpoints)
+            3. [Export objeků](#export-objeků)
+            4. [RTT, latence](#rtt-latence)
+        2. [Analýza protokolů](#analýza-protokolů)
+            1. [HTTP](#http)
+            2. [HTTPS](#https)
+            3. [DNS](#dns)
+            4. [DHCP](#dhcp)
+            5. [ARP](#arp)
+            6. [TCP Handshake](#tcp-handshake)
+4. [Praktická analýza](#praktická-analýza)
+    1. [Packet Loss](#packet-loss)
+    2. [Retransmission](#retransmission)
+    3. [Latence](#latence)
+    4. [Pomalé připojení](#pomalé-připojení)
+    5. [Postup analýzy](#postup-analýzy)
+5. [Bezpečnostní analýza](#bezpečnostní-analýza)
+    1. [Detekce nebezpečného provozu](#detekce-nebezpečného-provozu)
+    2. [Identifikace síťových útoků](#identifikace-síťových-útoků)
+        1. [DDos (Distributed Denial of Service)](#ddos-distributed-denial-of-service)
+        2. [Port scanning - `nmap`](#port-scanning---nmap)
+        3. [Man in the middle (MITM)](#man-in-the-middle-mitm)
+        4. [Brute-force](#brute-force)
+        5. [Další nástroje pro detekci](#další-nástroje-pro-detekci)
+    3. [Analýza malware komunikace](#analýza-malware-komunikace)
+        1. [Co sledovat](#co-sledovat-2)
+        2. [Nástroje](#nástroje)
+6. [Optimalizace sítě](#optimalizace-sítě)
+    1. [Analýza využití bandwidth](#analýza-využití-bandwidth)
+    2. [Identifikace bottlenecků](#identifikace-bottlenecků)
+
+---
+
 # Metody zachytávání síťového provozu
 
 ## Port mirroring - SPAN (**S**witched **P**ort **AN**alyzer)
@@ -48,7 +116,7 @@ Funguje podobně jako bridge/switch
 - Při výpadku může přerušit komunikaci
 - Může ovlivnit latenci
 
-### Promiskuitní režim síťové karty
+## Promiskuitní režim síťové karty
 
 Karta přijímá všechny pakety, nejen ty určené pro její MAC adresu
 - Spuštěno pomocí `tcpdump`, `wireshark`, `ip link set eth0 promisc on`
@@ -160,6 +228,9 @@ Data packetu rozepsaná v hexu
 ![stop capture](./assets/wireshark/stop-capture.png)
 
 #### **Capture filters**
+
+Filtrují pakety při zachytávání
+- Pouze ty pakety, které projdou filtrem jsou zachyceny
 
 Do horního pole:
 ![filtering](./assets/wireshark/filters.png)
@@ -476,9 +547,9 @@ Co malware typicky dělá:
 - [VirusTotal](https://www.virustotal.com/gui/home/upload) - Testování malwaru, domén, atd.
 
 
-## Optimalizace sítě:
+# Optimalizace sítě
 
-### Analýza využití bandwidth
+## Analýza využití bandwidth
 
 **bandwith** = maximální kapacita připojení/využití
 
@@ -497,7 +568,7 @@ Co malware typicky dělá:
 - Omezení bandwidth pro některé aplikace
 - Upgrade linky (pokud je trvale přetížená)
 
-### Identifikace bottlenecků
+## Identifikace bottlenecků
 
 **Bottleneck** = místo, kde se provoz zpomaluje
 - Router

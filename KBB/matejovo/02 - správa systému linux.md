@@ -1,4 +1,38 @@
 # Správa systému Linux
+
+1. [Uživatelé a oprávnění](#uživatelé-a-oprávnění)
+    2. [Vyhledání nastavených oprávnění](#vyhledání-nastavených-oprávnění)
+2. [Změna oprávnění](#změna-oprávnění)
+3. [Speciální oprávnění](#speciální-oprávnění)
+4. [Vytvořrní uživatele](#vytvořrní-uživatele)
+5. [Změna hesla](#změna-hesla)
+6. [Editace uživatele](#editace-uživatele)
+7. [Zamknutí účtu](#zamknutí-účtu)
+8. [Odebrání uživatele](#odebrání-uživatele)
+9. [Změna vlastníka souboru](#změna-vlastníka-souboru)
+10. [Informace o uživatelích](#informace-o-uživatelích)
+    1. [`/etc/passwd`](#etcpasswd)
+    2. [`/etc/shadow`](#etcshadow)
+    3. [`/etc/goups`](#etcgoups)
+    4. [Aktuálně příhlášený uživatel](#aktuálně-příhlášený-uživatel)
+    5. [Identifikátory a skupiny](#identifikátory-a-skupiny)
+11. [Skupiny](#skupiny)
+    1. [Práce se skupinamy](#práce-se-skupinamy)
+12. [Package managery](#package-managery)
+    1. [Repozitáře](#repozitáře)
+    2. [Další operace](#další-operace)
+13. [Sestavení ze zdrojáku](#sestavení-ze-zdrojáku)
+    1. [Kompilace](#kompilace)
+    2. [Build systémy](#build-systémy)
+    3. [Workflow](#workflow)
+    4. [Kdy využít kompilaci ze zdroje](#kdy-využít-kompilaci-ze-zdroje)
+    5. [Základní kroky](#základní-kroky)
+14. [`$PATH`](#path)
+    1. [Typické adresáře](#typické-adresáře)
+
+---
+
+
 ## Uživatelé a oprávnění
 
 ### Vyhledání nastavených oprávnění
@@ -109,9 +143,9 @@
     - `-a` = append
   
 ### Zamknutí účtu
-  - Deaktivuje login, soubory zůstávají
-  - `sudo usermod -L skullhacker69`
-  - Odemknutí: `sudo usermod -U skullhacker69`
+- Deaktivuje login, soubory zůstávají
+- `sudo usermod -L skullhacker69`
+- Odemknutí: `sudo usermod -U skullhacker69`
 
 ---
 
@@ -139,19 +173,19 @@ základní info o uživatelích, odkaz na hesla
 
 ---
 
-`/etc/shadow`
+### `/etc/shadow`
 - Obsahuje zašifrovaná hesla
 - Přístup má pouze root
 
 
-`/etc/goups`
+### `/etc/goups`
 - Obsahuje info o skupinách
 
-Aktuálně příhlášený uživatel
+### Aktuálně příhlášený uživatel
 - `whoami`
 - `echo $USER`
 
-Identifikátory a skupiny
+### Identifikátory a skupiny
 - `id`
 - Skupiny konkrétního uživatele: `groups skullhacker69`
 
@@ -162,7 +196,7 @@ Identifikátory a skupiny
 - **Primární** skupina: Každý uživatel jenom jednu
 - **Sekundární** skupina: Každý může mít více
 
-### Práce
+### Práce se skupinamy
 - **Vytvořit**: `grupadd groupa1`
 - **Přidat uživatele** do skupiny: `usermod -aG groupa1 skullhacker69`
 - **Odebrat** uživatele: `gpasswd -d skullhacker groupa1`

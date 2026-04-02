@@ -1,5 +1,64 @@
 # 04. Průzkum a diagnostika sítě
 
+1. [Skenování sítě - `nmap`](#skenování-sítě---nmap)
+    1. [Host discovery - aktivní zařízení](#host-discovery---aktivní-zařízení)
+    2. [TCP sken](#tcp-sken)
+    3. [UDP sken](#udp-sken)
+    4. [Skenování všech portů](#skenování-všech-portů)
+    5. [Skenování některých portů](#skenování-některých-portů)
+        1. [Konkrétní port](#konkrétní-port)
+        2. [Více portů](#více-portů)
+        3. [Rozsah](#rozsah)
+2. [Pokročilé skenování](#pokročilé-skenování)
+    1. [Service scan](#service-scan)
+    2. [Detekce OS](#detekce-os)
+    3. [Různé typy skenů](#různé-typy-skenů)
+        1. [Kombinace](#kombinace)
+        2. [TCP SYN (Half-open sken)](#tcp-syn-half-open-sken)
+        3. [TCP connect (plné spojení)](#tcp-connect-plné-spojení)
+        4. [TCP FIN sken](#tcp-fin-sken)
+        5. [TCP NULL sken](#tcp-null-sken)
+        6. [Xmas sken](#xmas-sken)
+        7. [Agresivní sken](#agresivní-sken)
+    4. [`nmap` script engine](#nmap-script-engine)
+    5. [Typický postup mapování](#typický-postup-mapování)
+3. [ICMP (Internet Control Message Protocol)](#icmp-internet-control-message-protocol)
+    1. [Testování dostupnosti zařízení (ICMP echo - ping)](#testování-dostupnosti-zařízení-icmp-echo---ping)
+    2. [Nástroj `ping`](#nástroj-ping)
+    3. [Interpretace výsledků](#interpretace-výsledků)
+        1. [RTT (Round Trip Time)](#rtt-round-trip-time)
+        2. [Packet loss](#packet-loss)
+        3. [TTL (Time To Live)](#ttl-time-to-live)
+4. [Získání informací o zařízeních](#získání-informací-o-zařízeních)
+    1. [MAC (Media Access Control) adresa](#mac-media-access-control-adresa)
+    2. [ARP (Adress Resolution Protocol)](#arp-adress-resolution-protocol)
+    3. [ARP tabulka](#arp-tabulka)
+    4. [Zjištění MAC adresy zařízení v LAN](#zjištění-mac-adresy-zařízení-v-lan)
+5. [Netcat (`nc`)](#netcat)
+    1. [Navázání TCP spojení](#navázání-tcp-spojení)
+    2. [Navázání UDP spojení](#navázání-udp-spojení)
+    3. [Otevření TCP portu (listener)](#otevření-tcp-portu-listener)
+        1. [TCP](#tcp)
+        2. [UDP](#udp)
+    4. [Posílání souborů](#posílání-souborů)
+    5. [Chat mezi zařízeními](#chat-mezi-zařízeními)
+6. [Nástroje pro diagnostiku](#nástroje-pro-diagnostiku)
+    1. [`traceroute`](#traceroute)
+    2. [Zobrazení síťových spojení](#zobrazení-síťových-spojení)
+    3. [Diagnostika DNS](#diagnostika-dns)
+    4. [Testování dostupnosti portů](#testování-dostupnosti-portů)
+        1. [Netcat](#netcat)
+7. [Řešení problémů s konektivitou](#řešení-problémů-s-konektivitou)
+    1. [Nefunkční konektivita](#nefunkční-konektivita)
+        1. [Zjištění konktivity](#zjištění-konktivity)
+    2. [Pomalé připojení](#pomalé-připojení)
+        1. [Problémy s DNS](#problémy-s-dns)
+        2. [Routovací problémy](#routovací-problémy)
+
+
+---
+
+
 # Skenování sítě - `nmap`
 
 `nmap` přepínače:
@@ -115,7 +174,7 @@ Pomalejší, nápadný, nepotřebuje root privilegia
 
 Naváže plné TCP spojení
 
-## TCP FIN sken
+### TCP FIN sken
 
 `nmap -sF ...`
 
@@ -125,7 +184,7 @@ Pošle tcp `FIN` packet
 
 Používá se pro obcházení některých firewallů
 
-## TCP NULL sken
+### TCP NULL sken
 
 Pošle paket bez bez flagů
 
@@ -135,14 +194,14 @@ Stealth skenování
 
 Používá se pro detekci firewall pravidel
 
-## Xmas sken
+### Xmas sken
 
 `nmap -sX ...`
 
 Obchází některé firewally, paket vypadá jako stromeček
 - Zapnuté flagy: `FIN`, `PSH`, `URG`
 
-## Agresivní sken
+### Agresivní sken
 
 `nmap -A ...`
 
@@ -163,7 +222,7 @@ Nmap obsahuje skripty pro:
 `nmap --script vuln`: Spustí skript pro detekci zranitelností
 
 
-## Typicoký postup mapování
+## Typický postup mapování
 
 1. **Host discovery**: `nmap -sn ...`
 2. **Port scan**: `nmap -sS ...`
@@ -215,8 +274,9 @@ output:
 ```
 
 ## Interpretace výsledků
-### RTT (**R**ound **T**rip **T**ime): Čas, který paketu trvá dorazit do cíle a zpět
-V milisekundách
+### RTT (**R**ound **T**rip **T**ime)
+Čas, který paketu trvá dorazit do cíle a zpět
+- V milisekundách
 
 |RTT|Význam|
 |---|------|
@@ -239,7 +299,7 @@ přetížená síť
 - Špatný kabel
 - Firewall / filtr
 
-### TTL
+### TTL (**T**ime **T**o **L**ive)
 
 **T**ime **T**o **L**ive - v hopech
 

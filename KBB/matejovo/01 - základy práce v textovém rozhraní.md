@@ -1,5 +1,23 @@
 
-# Zaklady prace v terminalovem prostredi
+# Základy práce v terminálovém prostředí
+
+1. [Základní znalost](#základní-znalost)
+2. [Terminologie](#terminologie)
+3. [Práce s programy](#práce-s-programy)
+    1. [manpages](#manpages)
+4. [Čísla manuálu](#čísla-manuálu)
+5. [STDIO a STDERR](#stdio-a-stderr)
+    1. [Směrování](#směrování)
+6. [Logické operátory](#logické-operátory)
+7. [Práce se soubory/adresáři](#práce-se-souboryadresáři)
+    1. [Cesty](#cesty)
+    2. [Zkratky](#zkratky)
+8. [Prohlížení obsahu souborů](#prohlížení-obsahu-souborů)
+9. [Editace souborů](#editace-souborů)
+10. [Vyhledávání](#vyhledávání)
+11. [Wildcards](#wildcards)
+
+---
 
 ## Základní znalost
 - **Spuštění** commandu: napsat command a Enter
@@ -106,7 +124,7 @@ Běžně:
 
 ---
 
-## Práce se soubory/adresari
+## Práce se soubory/adresáři
 - **Vytvorit**: `touch soubor.txt` - `mkdir directory`
 - **Smazat**: `rm soubor.txt` - `rmdir directory`
   - `rm -r` - rekurzivně

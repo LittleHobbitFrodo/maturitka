@@ -1,5 +1,88 @@
 # 03. Počítačové sítě
 
+1. [Historie](#historie)
+    1. [Vznik a vývoj](#vznik-a-vývoj)
+2. [Technologie a protokoly](#technologie-a-protokoly)
+    1. [Packet switching](#packet-switching)
+    2. [TCP - Transmission Control Protocol](#tcp---transmission-control-protocol)
+    3. [IP - Internet Protocol](#ip---internet-protocol)
+3. [TCP/IP model](#tcpip-model)
+    1. [Vrstvy](#vrstvy)
+4. [IP adresy](#ip-adresy)
+    1. [Maska sítě (subnet mask)](#maska-sítě-subnet-mask)
+    2. [Síťová adresa](#síťová-adresa)
+    3. [Broadcast adresa](#broadcast-adresa)
+    4. [IPv4 vs IPv6](#ipv4-vs-ipv6)
+    5. [Veřejná vs privátní IP adresa](#veřejná-vs-privátní-ip-adresa)
+5. [Porty a protokoly](#porty-a-protokoly)
+    1. [Port](#port)
+        1. [Známé porty (well-known ports) (0-1023)](#známé-porty-well-known-ports-0-1023)
+    2. [Protokoly](#protokoly)
+        1. [TCP (Transmission Control Protocol)](#tcp-transmission-control-protocol)
+        2. [UDP (User Datagram Protocol)](#udp-user-datagram-protocol)
+        3. [Aplikační vrstvy](#aplikační-vrstvy)
+            1. [`HTTPS` (443 - TCP)](#https-443---tcp)
+            2. [`DNS` (53 - TCP/UDP)](#dns-53---tcpudp)
+            3. [`SSH` (22 - TCP)](#ssh-22---tcp)
+            4. [`FTP` (21 - TCP)](#ftp-21---tcp)
+6. [Routování](#routování)
+    1. [Router](#router)
+    2. [Routovací tabulka](#routovací-tabulka)
+    3. [Statické routování](#statické-routování)
+    4. [Dynamické routování](#dynamické-routování)
+    5. [Default gateway](#default-gateway)
+    6. [Putování paketů](#putování-paketů)
+        1. [Lokální síť](#lokální-síť)
+        2. [Internet](#internet)
+7. [DNS (Domain Name Service)](#dns-domain-name-service)
+    1. [Princip](#princip)
+    2. [Hierarchie](#hierarchie)
+    3. [Druhy záznamů](#druhy-záznamů)
+    4. [Konfigurace](#konfigurace)
+        1. [DNS resolver](#dns-resolver)
+        2. [Lokální DNS cache](#lokální-dns-cache)
+        3. [`/etc/hosts`](#etchosts)
+        4. [`/etc/resolv.conf`](#etcresolvconf)
+8. [DHCP (Dynamic Host Configuration Protocol)](#dhcp-dynamic-host-configuration-protocol)
+    1. [4 fáze (DORA (the explorer :D)](#4-fáze-dora-the-explorer-d)
+    2. [Konfigurace](#konfigurace-1)
+9. [Síťování v GNU/Linux](#síťování-v-gnulinux)
+    1. [Získání aktuální konfigurace](#získání-aktuální-konfigurace)
+        1. [Fyzické rozhraní: `ip link`](#fyzické-rozhraní-ip-link)
+        2. [Síťové rozhraní: `ip a`](#síťové-rozhraní-ip-a)
+        3. [Routovací tabulka: `ip route`](#routovací-tabulka-ip-route)
+        4. [Zjištění default gateway: `ip route | grep default`](#zjištění-default-gateway-ip-route--grep-default)
+        7. [Zjištění ARP tabulky: `ip neigh` 🐴](#zjištění-arp-tabulky-ip-neigh-)
+    2. [Nastavení síťových rozhraní](#nastavení-síťových-rozhraní)
+        1. [Aktivace a deaktivace rozhraní](#aktivace-a-deaktivace-rozhraní)
+        2. [Přiřazení, odebrání a změna IP konfigurace](#přiřazení-odebrání-a-změna-ip-konfigurace)
+        3. [Zobrazení](#zobrazení)
+    3. [Přidání a odebrání routovacích pravidel](#přidání-a-odebrání-routovacích-pravidel)
+    4. [Nastavení default gateway](#nastavení-default-gateway)
+    5. [Nástroje pro diagnostiku](#nástroje-pro-diagnostiku)
+    6. [Testování konektivity: `ping <IP/domena>`](#testování-konektivity-ping-ipdomena)
+    7. [Trasování cesty paketů: `traceroute <IP/domena>`](#trasování-cesty-paketů-traceroute-ipdomena)
+    8. [Zobrazení síťových spojení](#zobrazení-síťových-spojení)
+    9. [Statistiky síťových rozhraní: `ip -s link`](#statistiky-síťových-rozhraní-ip--s-link)
+    10. [Zobrazení otevřených portů: `ss -ltn`](#zobrazení-otevřených-portů-ss--ltn)
+10. [Konfigurace služeb](#konfigurace-služeb)
+    1. [Konfigurace DNS](#konfigurace-dns)
+        1. [`/etc/bind/named.conf`](#etcbindnamedconf)
+        2. [`/etc/bind/named.conf.options`](#etcbindnamedconfoptions)
+        3. [`/etc/bind/named.conf.local`](#etcbindnamedconflocal)
+        4. [`/etc/bind/example-com.zone`](#etcbindexample-comzone)
+        5. [Restartování služby - aplikace konfigurace](#restartování-služby---aplikace-konfigurace)
+    2. [Konfigurace DHCP](#konfigurace-dhcp)
+        1. [Instalace](#instalace)
+        2. [Výběr interfaců](#výběr-interfaců)
+        3. [Autoritativní DHCP server](#autoritativní-dhcp-server)
+        4. [DNS servery](#dns-servery)
+        5. [Leasing](#leasing)
+        6. [Subnety](#subnety)
+        7. [Start/Restart serveru](#startrestart-serveru)
+
+---
+
 # Historie
 ["Brief" history of internet](https://www.internetsociety.org/internet/history-internet/brief-history-internet/)  
 [wikipedie](https://en.wikipedia.org/wiki/History_of_the_Internet#1973%E2%80%931989:_Merging_the_networks_and_creating_the_Internet)
@@ -37,7 +120,7 @@ A stala se globální komunikační infrastrukturou
 
 ---
 
-## **Packet switching**
+## Packet switching
 - Rozdělení dat na packety
 - Každý packet může jít jinou cestou
 - V destinaci se zase složí
@@ -64,7 +147,7 @@ Zapouzdření dat - každá vrstva přidá vlastní hlavičku
 
 ![TCP/IP model](assets/tcp-ip.png)
 
-## **Vrstvy**
+## Vrstvy
 1. **Application**: Bridge mezi nižšímy vrstvami a uživately (př. HTTP, FTP, DNS)
 2. **Transport**: Zajišťuje spolehlivý přenos dat
     - Basically [TCP](#tcp---transmission-control-protocol) a UDP
@@ -87,14 +170,14 @@ Zapouzdření dat - každá vrstva přidá vlastní hlavičku
     1. Síťová část: `192.168.10`
     2. Hostitelská část: `200`
 
-## **Maska sítě** (subnet mask)
+## Maska sítě (subnet mask)
 - Která část IP adresy patří síti a která zařízení?
 - |IP|Maska|
   |--|-----|
   |`192.168.10.200`|`255.255.255.0`|
   |`11000000.10101000.00001010.11001000`|`11111111.11111111.11111111.00000000`|
   -> Síť je `192.168.10.0/24`
-## **Síťová adresa**
+## Síťová adresa
 - Bit **AND** mezi adresou a její maskou:
 - |Stuff|Desítkově|Binárně|
   |-----|---------|-------|
@@ -102,7 +185,7 @@ Zapouzdření dat - každá vrstva přidá vlastní hlavičku
   |Maska|255.255.255.0|`11111111.11111111.11111111.00000000`|
   |Síťová|192.168.1.0|`11000000.10101000.00000001.00000000`|
 
-## **Broadcast adresa**
+## Broadcast adresa
   - Výpočet: `sitova_adresa | (!mask)`
 
 ## IPv4 vs IPv6
@@ -146,7 +229,7 @@ IP adresa určuje zařízení, port určuje službu
 
 ## Protokoly
 
-#### TCP (**T**ransmission **C**ontrol **P**rotocol)
+### TCP (**T**ransmission **C**ontrol **P**rotocol)
 - [TCP/UDP model](#tcp---transmission-control-protocol)
 
 - Spolehlivý, kontroluje doručení dat
@@ -156,7 +239,7 @@ IP adresa určuje zařízení, port určuje službu
 
 Použití: HTTP, SSH, FTP, ...
 
-#### UDP (**U**ser **D**atagram **P**rotocol)
+### UDP (**U**ser **D**atagram **P**rotocol)
 - Rychlý
 - Nezaručuje doručení paketů
 - Nenavazuje spojení
@@ -170,7 +253,7 @@ Použití: DNS, online hry, streamování, ...
 - Bezpečná verze `HTTP`
 - Používá certifikáty
 
-#### `DNS` (53 - TCP/UDP) 
+#### `DNS` (53 - TCP/UDP)
 **D**omain **N**ame **S**ystem
 - Překládá jména domén na adresy
 
@@ -221,7 +304,7 @@ Vhodné pro větší sítě (WAN)
 
 Protokoly:
 - `RIP` - Cesta s nejméně hopy
-- `OSPF` - Dijkstra algo
+- `OSPF` - Dijkstra algo (weighted graph)
 - `BGP` - mezi poskytovateli
 
 ## Default gateway
@@ -238,7 +321,7 @@ Protokoly:
   - Default gateway: 192.168.1.1
   - IP adresa: 85.160.12.34
 
-### Putování
+### Internet
 
 1. Vytvoření paketu
     - Source IP: 192.168.2.20
@@ -385,7 +468,7 @@ search skola.ssps.cz ssps.cz
 Automaticky přiděluje IP adresu a konfiguruje zařízení
 - Přiděluje: IP adresu, masku sítě, default gateway, defaultní DNS server, atd.
 
-## 4 fáze (DORA (the explorer :D))
+## 4 fáze (DORA (the explorer :D)
 1. **D**iscover  
     **„Je tu nějaký DHCP server?“**
 
@@ -423,7 +506,7 @@ Automaticky přiděluje IP adresu a konfiguruje zařízení
 
 ## Získání aktuální konfigurace
 
-### **Fyzické rozhraní**: `ip link`
+### Fyzické rozhraní: `ip link`
 - fyzická nebo virtuální síťová rozhraní
 - `lo` = loopback
 - `eth0` = ethernet port
@@ -431,7 +514,7 @@ Automaticky přiděluje IP adresu a konfiguruje zařízení
 - `UP/DOWN` = je aktivní?
 - `mtu` = maximálmí velikost rámce
 
-### **Síťové rozhraní**: `ip a`
+### Síťové rozhraní: `ip a`
 - Přidělené IP adresy
 output:  
 ```
@@ -439,7 +522,7 @@ output:
   inet 192.168.1.25/24
 ```
 
-### **Routovací tabulka**: `ip route`
+### Routovací tabulka: `ip route`
 
 output:  
 ```
@@ -454,9 +537,9 @@ Význam:
 | dev eth0        | rozhraní      |
 | src             | zdrojová IP   |
 
-### **Zjištění default gateway**: `ip route | grep default`
+### Zjištění default gateway: `ip route | grep default`
 
-### **Zjištění ARP tabulky**: `ip neigh` 🐴
+### Zjištění ARP tabulky: `ip neigh` 🐴
 - Nebo `arp -n`
 
 output:  
@@ -470,10 +553,10 @@ output:
 
 ## Nastavení síťových rozhraní
 
-### **Aktivace a deaktivace rozhraní**
+### Aktivace a deaktivace rozhraní
 `ip link set eth0 `**`up/down`**
 
-### **Přiřazení, odebrání a změna IP konfigurace**
+### Přiřazení, odebrání a změna IP konfigurace
 `ip addr `**`add/del`**` 192.168.1.10/24 dev eth0`
 - Lze stejně přidat i více adres
 
@@ -481,18 +564,18 @@ Změna:
 `ip addr `**`del`**` 192.168.1.10/24 dev eth0`  
 `ip addr `**`add`**` 192.168.1.10/24 dev eth0`
 
-### **Zobrazení**
+### Zobrazení
 `ip addr show eth0`
 
-## **Přidání a odebrání routovacích pravidel**
+## Přidání a odebrání routovacích pravidel
 `ip route `**`add/del`**` 10.0.0.0/24 via 192.168.1.1`
 
-## **Nastavení default gateway**
+## Nastavení default gateway
 `ip route `**`add/del`**` default via 192.168.1.1`
 
 ## Nástroje pro diagnostiku
 
-### **Testování konektivity**: `ping <IP/domena>`
+### Testování konektivity: `ping <IP/domena>`
 
 output:  
 `64 bytes from 8.8.8.8: icmp_seq=1 ttl=118 time=16.2 ms`
@@ -502,7 +585,7 @@ output:
 
 Omezení počtu paketů: `ping -c 4 <IP/domena>`
 
-### **Trasování cesty paketů**: `traceroute <IP/domena>`
+### Trasování cesty paketů: `traceroute <IP/domena>`
 
 output:  
 ```
@@ -514,7 +597,7 @@ output:
 Každý řádek je router (hop) mezi zdrojem a cílem
 - Routery vrací ICMP zprávy
 
-### **Zobrazení síťových spojení**
+### Zobrazení síťových spojení
 
 Zobrazit všchny spojení: `ss -a`
 - Pouze TCP: `ss -t`
@@ -522,7 +605,7 @@ Zobrazit všchny spojení: `ss -a`
 - Bez dns překladu: `ss -n`
 
 
-### **Statistiky síťových rozhraní**: `ip -s link`
+### Statistiky síťových rozhraní: `ip -s link`
 
 output:
 ```
@@ -538,7 +621,7 @@ output:
 `RX`: Received  
 `TX`: Transmitted
 
-### **Zobrazení otevřených portů**: `ss -ltn`
+### Zobrazení otevřených portů: `ss -ltn`
 
 output:
 
@@ -557,7 +640,7 @@ output:
 
 **Spuštění**: `sudo systemctl start bind9`
 
-### **`/etc/bind/named.conf`**
+### `/etc/bind/named.conf`
 
 example:
 ```
@@ -566,7 +649,7 @@ include "/etc/bind/named.conf.local";
 include "/etc/bind/named.conf.default-zones";
 ```
 
-### **`/etc/bind/named.conf.options`**
+### `/etc/bind/named.conf.options`
 Uchovává globální nastavení DNS serveru
 - Nastavení cache, přesměrování dotazů, atd.
 
@@ -588,7 +671,7 @@ options {
 - `allow-query { <nets> }`: Adresy, které mohou využívat DNS k vyhledávání záznamů
 - `version <string>`: Text, který bude v SOA záznamech reprezentovat verzi serveru
 
-### **`/etc/bind/named.conf.local`**
+### `/etc/bind/named.conf.local`
 Deklarace zón, která má DNS server spravovat
 
 ```
@@ -603,7 +686,7 @@ zone "example.com" IN {
 - `type master`: Tato zóna je `master` zońou, tedy zdrojem pro záznamy v této  zóně.
 - `file /etc/bind/example-com.zone`: umístění soubory s daty zóny
 
-### **`/etc/bind/example-com.zone`**
+### `/etc/bind/example-com.zone`
 Obsahuje záznamy pro konkrétní zónu
 
 ```
@@ -645,10 +728,10 @@ $TTL    1d
 Konfigurační soubor: `/etc/default/isc-dhcp-server`
 
 
-### **Instalace**
+### Instalace
 `sudo apt install isc-dhcp-server`
 
-### **Výběr interfaců**
+### Výběr interfaců
 ```txt
 INTERFACESv4="<interface pro IPv4>"
 INTERFACESv6="<interface pro IPv6>"
@@ -656,17 +739,17 @@ INTERFACESv6="<interface pro IPv6>"
 - Více interfaců rozděleno mezerou
 
 
-### **Autoritativní DHCP server**
+### Autoritativní DHCP server
 - **Autoritativní** = Oficiální správce subnetu
   - Může klientovi říct, že je adresa neplatná (`DHCPNAK`)
 - Přidat `authoritative;` na první řádek
 
-### **DNS servery**
+### DNS servery
 `option domain-name-servers <nameservery>`
 - Více nameserverů rozděleno mezerou
 
 
-### **Leasing**
+### Leasing
 Lease time = Doba propůjčení IP adresy
 
 1. DHCP server **přiřadí** klientovi **adresu**
@@ -679,7 +762,7 @@ Lease time = Doba propůjčení IP adresy
 **Maximální lease time**: `max-lease-time <počet sekund>;`
 - Maximální délká leasu (pokud si klient zažádá o přesnou délku)
 
-### **Subnety**
+### Subnety
 
 Subnety se konfigurují pomocí bloku
 
