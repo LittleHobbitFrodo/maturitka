@@ -211,7 +211,6 @@ Obsahuje:
 - Traceroute
 - Script scanning
 
-
 ## `nmap` script engine
 
 Nmap obsahuje skripty pro:

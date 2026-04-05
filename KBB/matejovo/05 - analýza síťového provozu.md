@@ -185,6 +185,8 @@ Pomocí operátorů `and`, `or`, `not`
 ---
 # Wireshark
 
+[Wireshark wiki](https://wiki.wireshark.org/)
+
 ## Výběr rozhraní
 Po spuštění Wiresharku uvidíš seznam dostupných rozhraní
 
