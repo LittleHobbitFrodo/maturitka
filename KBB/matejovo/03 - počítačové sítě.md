@@ -35,17 +35,17 @@
         1. [Lokální síť](#lokální-síť)
         2. [Internet](#internet)
 7. [DNS (Domain Name Service)](#dns-domain-name-service)
-    1. [Princip](#princip)
-    2. [Hierarchie](#hierarchie)
-    3. [Druhy záznamů](#druhy-záznamů)
+    1. [Princip](./06%20-%20síťové%20protokoly.md#princip)
+    2. [Hierarchie](./06%20-%20síťové%20protokoly.md#hierarchie)
+    3. [Druhy záznamů](./06%20-%20síťové%20protokoly.md#druhy-záznamů)
     4. [Konfigurace](#konfigurace)
         1. [DNS resolver](#dns-resolver)
         2. [Lokální DNS cache](#lokální-dns-cache)
         3. [`/etc/hosts`](#etchosts)
         4. [`/etc/resolv.conf`](#etcresolvconf)
 8. [DHCP (Dynamic Host Configuration Protocol)](#dhcp-dynamic-host-configuration-protocol)
-    1. [4 fáze (DORA (the explorer :D)](#4-fáze-dora-the-explorer-d)
-    2. [Konfigurace](#konfigurace-1)
+    1. [DHCP handshake (DORA (the explorer :D))](./06%20-%20síťové%20protokoly.md#dhcp-handshake-dora-the-explorer-d)
+    2. [Konfigurace](/06%20-%20síťové%20protokoly.md#konfigurace-1)
 9. [Síťování v GNU/Linux](#síťování-v-gnulinux)
     1. [Získání aktuální konfigurace](#získání-aktuální-konfigurace)
         1. [Fyzické rozhraní: `ip link`](#fyzické-rozhraní-ip-link)
@@ -353,55 +353,7 @@ Protokoly:
 
 # DNS (**D**omain **N**ame **S**ervice)
 
-## Princip
-Překlad jmen domén na IP adresy:
-1. Lookup v lokálním cache
-2. Pokud nenalezeno, dotaz jde na **rekurzivní DNS server** (ISP nebo veřejný)
-3. DNS server vyhledá IP adresu nebo dotaz předá jinému DNS serveru
-4. Server pošle IP adresu zpátky
-
-## Hierarchie
-1. **Root** servery
-    - Neznají konkrétní adresy
-    - Ukazují na TLD servery
-2. **TLD** (**T**op-**L**evel **D**omain)
-    - Spravují koncovky (`.cz`, `.com`, ..)
-    - Koncovku `.cz` spravuje `CZ.NIC`
-3. Autoritativní servery
-    - Poskytují finální odpověď
-
-Dotaz -> `Root` -> `TLD` -> `Autoritativní` -> odpověď
-
-
-## Druhy záznamů
-
-**`A`**: Doménu na `IPv4` adresu
-- `google.com` -> `8.8.8.8`
-
-**`AAAA`**: Doménu na `IPv6` adresu
-
-**`CNAME`** (**C**anonical **NAME**)
-- Alias domény: `www.google.com` -> `google.com`
-
-**MX** (**M**ail e**X**change)
-- Určuje poštovní server pro danou doménu
-  - `...@example.com` je spravováno na doméně `mail.example.com`
-
-**PTR** (Pointer)
-- Opak `A` a `AAAA` záznamů
-- Umožňuje tzv. reverse dns lookup, tedy adresu na doménu
-
-**SOA** (**S**tart **O**f **A**uthority)
-- Označuje, že daný DNS server je autoritou pro určitou zónu
-
-**NS** (**N**ame**S**erver)
-- určuje, který DNS server je autoritativní pro danou doménu
-
-
-**TXT**: Textové info
-- SPF (ochrana proti spamům)
-- DKIM (ověření emailu)
-- Ověření vlastnictví domény (např. pro Google služby)
+- [here](./06%20-%20síťové%20protokoly.md#dns-domain-name-service)
 
 
 ## [Konfigurace](#konfigurace-dns)
@@ -465,40 +417,8 @@ search skola.ssps.cz ssps.cz
 ---
 
 # DHCP (**D**ynamic **H**ost **C**onfiguration **P**rotocol)
-Automaticky přiděluje IP adresu a konfiguruje zařízení
-- Přiděluje: IP adresu, masku sítě, default gateway, defaultní DNS server, atd.
 
-## 4 fáze (DORA (the explorer :D)
-1. **D**iscover  
-    **„Je tu nějaký DHCP server?“**
-
-    Zařízení pošle "Je tu nějaký DHCP server?"
-
-
-2. **O**ffer  
-    **„Mohu ti přidělit tuto IP adresu.“**
-
-    DHCP server odpovídá
-    - Odpověď obsahuje:
-      - Navrhovanou **IP** adresu
-      - **Lease** (doba propůjčení adresy)
-      - atd.
-
-
-3. **R**equest
-    **„Tuto IP adresu přijímám.“**
-
-    Zařízení adresu přijme
-    - Vybere si jeden server pokud jich odpovědělo víc
-
-
-4. **A**cknowledge  
-    **„IP adresa je tvoje.“**
-
-    Server potvrdí připsání IP adresy
-
-
-## [Konfigurace](#konfigurace-dhcp)
+- [here](./06%20-%20síťové%20protokoly.md#dhcp-dynamic-host-configuration-protocol)
 
 ---
 

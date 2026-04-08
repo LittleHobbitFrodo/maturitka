@@ -233,8 +233,6 @@ Nmap obsahuje skripty pro:
 
 # ICMP (**I**nternet **C**ontrol **M**essage **P**rotocol)
 
-
-
 IP protokol pro diagnostiku a řízení komunikace
 - Testování dostupnosti
 - Diagnostika trasy
@@ -324,25 +322,7 @@ Rozdělení
 
 ## ARP (**A**dress **R**esolution **P**rotocol)
 
-Převést IP adresu na MAC adresu
-
-Počítač chce poslat paket na zařízení v LAN:
-1. Podívá se do ARP tabulky, když v ní je zařízení zaznamenané, pošle paket
-2. Když zařízení v tabulce není, pošle **ARP request**: `Who has 192.168.33.174?`
-3. Cílové zařízení **odpoví**: `192.168.33.174 is at c4:f7:c1:6b:9c:71`
-4. MAC adresa se uloží do tabulky
-5. Pošle paket
-
-## ARP tabulka
-
-Databáze záznamů o IP a MAC adresách zařízení v lokální síti
-
-Záznamy:
-- Dynamic: vytvoří se automaticky
-- Static: Nastaveny manuálně
-
-
-
+- [here](./06%20-%20síťové%20protokoly.md#arp-adress-resolution-protocol)
 
 ## Zjištění MAC adresy zařízení v LAN
 
@@ -355,8 +335,6 @@ Záznamy:
 output:  
 - `ip neigh`: `fe80::1cb6:38ff:7ebf:f4a1 dev wlp1s0f0 lladdr c4:f7:c1:6b:9c:71 router STALE`
 - `arp -a`: `Obyvaci-pokoj.localdomain (192.168.33.174) at c4:f7:c1:6b:9c:71 [ether] on wlp1s0f0`
-
-
 
 # Netcat (`nc`)
 

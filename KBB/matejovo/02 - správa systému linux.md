@@ -1,7 +1,7 @@
 # Správa systému Linux
 
 1. [Uživatelé a oprávnění](#uživatelé-a-oprávnění)
-    2. [Vyhledání nastavených oprávnění](#vyhledání-nastavených-oprávnění)
+2. [Vyhledání nastavených oprávnění](#vyhledání-nastavených-oprávnění)
 2. [Změna oprávnění](#změna-oprávnění)
 3. [Speciální oprávnění](#speciální-oprávnění)
 4. [Vytvořrní uživatele](#vytvořrní-uživatele)
