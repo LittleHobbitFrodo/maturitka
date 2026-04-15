@@ -12,7 +12,7 @@
 4. **Závěr**: Shrnout jednotlivé body
     - \+ Vlastní názor nebo výzvu k zamyšlení
 
-**Typy**
+**TaT:**
 - Být struční a jasní, vyhněte se zbytečným odbočkám
 - Atraktivní téma
 
@@ -27,7 +27,6 @@ Spíše formálně
 ## [Vypravování](https://www.statnimaturita-cestina.cz/vypravovani)
 
 Písemně vyprávět o něčem, co se stalo
-- Logicky seřazeny tak, aby se čtenář vaší úvahy ve vašem textu neztrácel
 
 **Části**
 1. **Úvod**: Nastínit děj, představit postavy a místo
@@ -43,8 +42,8 @@ Správný pravopis, diakritiku, interpunkci
 
 Logicky popisovat daného člověka, postavu, místo
 - Z více pohledů:
-  - **Vnější** ch.: Jak vypadá, jaké oblečení nosí, nebo jaký má styl
-  - **Vnitřní** ch.:
+  - **Vnější**: Jak vypadá, jaké oblečení nosí, nebo jaký má styl
+  - **Vnitřní**:
     - Člověk: Jaký je, jak se chová, kladné/záporné rysy
     - Místo: Např. pocity:  útulnost, bezpečí nebo pocit pohody
 
