@@ -1,5 +1,65 @@
 # 11 - Virtualizace a kontejnerizace
 
+1. [11 - Virtualizace a kontejnerizace](#11---virtualizace-a-kontejnerizace)
+2. [Virtualizace](#virtualizace)
+   1. [Typy virtualizace](#typy-virtualizace)
+      1. [Plná virtualizace](#plná-virtualizace)
+      2. [Paravirtualizace](#paravirtualizace)
+      3. [Hardwarová virtualizace](#hardwarová-virtualizace)
+   2. [Hypervizory](#hypervizory)
+      1. [Typ 1 - Baremetal](#typ-1---baremetal)
+      2. [Typ 2 - Hosted](#typ-2---hosted)
+   3. [Komponenty VM](#komponenty-vm)
+      1. [Virtuální hardware](#virtuální-hardware)
+      2. [Snapshoty](#snapshoty)
+   4. [Síťování ve virtualizaci](#síťování-ve-virtualizaci)
+      1. [NAT - Překlad adres přes host](#nat---překlad-adres-přes-host)
+      2. [Bridged (most)](#bridged-most)
+      3. [Host-only](#host-only)
+      4. [Internal](#internal)
+
+3. [Kontejnerizace](#kontejnerizace)
+   1. [VM vs kontejner](#vm-vs-kontejner)
+      1. [Virtuální stroj (VM)](#virtuální-stroj-vm)
+      2. [Kontejner](#kontejner)
+
+4. [Docker](#docker)
+   1. [Základní koncepty](#základní-koncepty)
+   2. [Základní příkazy](#základní-příkazy)
+   3. [Dockerfile - Instrukce](#dockerfile---instrukce)
+   4. [Volumes - Persistentní data](#volumes---persistentní-data)
+
+5. [Networking v dockeru](#networking-v-dockeru)
+   1. [Bridge network (výchozí)](#bridge-network-výchozí)
+   2. [Host network](#host-network)
+   3. [Overlay network - clustery](#overlay-network---clustery)
+
+6. [Docker compose](#docker-compose)
+   1. [Příkazy](#příkazy)
+
+7. [Kubernetes (K8s)](#kubernetes-k8s)
+   1. [Základní koncepty](#základní-koncepty-1)
+      1. [Pod](#pod)
+      2. [Service](#service)
+   2. [Deployment](#deployment)
+      1. [Namespace](#namespace)
+
+8. [Bezpečnost virtualizace a kontejnerů](#bezpečnost-virtualizace-a-kontejnerů)
+   1. [Bezpečnost VM](#bezpečnost-vm)
+   2. [VM Escape](#vm-escape)
+   3. [Hardening (zabezpečení)](#hardening-zabezpečení)
+   4. [Bezpečnost kontejnerů](#bezpečnost-kontejnerů)
+      1. [Image security](#image-security)
+      2. [Runtime security](#runtime-security)
+         1. [bezpečnostní mechanismy Linuxu](#bezpečnostní-mechanismy-linuxu)
+      3. [Bezpečnostní rizika](#bezpečnostní-rizika)
+
+9. [Využití v kybernetické bezpečnosti](#využití-v-kybernetické-bezpečnosti)
+   1. [Izolované testovací prostředí](#izolované-testovací-prostředí)
+   2. [Reprodukovatelnost](#reprodukovatelnost)
+   3. [Honeypoty](#honeypoty)
+      1. [Nasazení pomocí kontejnerů](#nasazení-pomocí-kontejnerů)
+
 
 # Virtualizace
 
@@ -298,7 +358,268 @@ Nejsou oddělené pomocí celého OS, ale pomocí funkcí jádra:
 
 # Networking v dockeru
 
-# TODO
+## Bridge network (výchozí)
+
+Docker vytvoří **virtuální síť** (bridge) na hostiteli
+- Každý kontejner dostane vlastní IP adresu
+- Kontejnery spolu komunikují uvnitř této sítě
+- Zvenku přes port mapping
+
+**Příklad**
+- Kontejner běží web na portu 80
+- Port mapping na hostu na port 8080
+
+**Výhody**
+- Izolace (bezpečnější)
+- Jednoduché použití
+
+**Nevýhoda**: Musíš mapovat porty
+
+## Host network
+Kontejner sdílí síť přímo s hostitelem
+- Žádná izolace sítě
+- Kontejner používá stejnou IP jako host
+- Nepotřebuješ port mapping
+
+Aplikace běží na portu 80 -> běží rovnou na hostovi
+
+## Overlay network - clustery
+
+Hlavně Docker Swarm nebo Kubernetes
+- Spojuje kontejnery na více různých serverech
+- Vytváří virtuální síť přes více hostitelů
+- Kontejnery spolu komunikují, jako by byly na jedné síti
+
+**Výhody**
+- Ideální pro cluster / distribuované aplikace
+- Transparentní komunikace mezi kontejnery
+
+**Nevýhody**
+- Složitější nastavení
+- Menší výkon než host network
+
+---
+
+# Docker compose
+
+**Yaml soubor pro automatizaci nasazení** více kontejnerů
+- Definice multi-kontejnerových aplikací (např. web + databáze)
+- Konfigurace v jednom souboru (docker-compose.yml)
+- Jednoduchá orchestrace více služeb
+
+```yaml
+version: "3.8"
+
+services:
+  db:   # kontejner databáze
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: testdb
+
+  web:  # kontejner web serveru
+    image: nginx
+    ports:
+      - "8080:80"
+    depends_on: # db se spusí první
+      - db
+```
+
+## Příkazy
+
+`docker compose up`: Spustí všechny služby  
+`docker compose down`: Zastaví a odstraní všechny kontejnery
+
+---
+
+# Kubernetes (K8s)
+
+Automaticky:
+- Orchestrace kontejnerů
+  - Ve velkém: více clusterů/serverů
+- Škálování
+- Self-healing (když něco spadne, automaticky to restartuje)
+- Load balancing
+
+## Základní koncepty
+### Pod
+Jeden nebo více kontejnerů
+- Sdílí: síť (IP), storage
+- Nespouštíš kontejnery přímo, ale Pody
+
+### Service
+Zajišťuje přístup k Podům
+- Dává jim stálou IP / DNS jméno
+- Funguje jako load balancer
+- Pody se často mění -> zajišťuje stabilní přístup
+
+## Deployment
+
+Definuje „desired state“
+- Kolik Podů má běžet
+- Jaký image použít
+- Kubernetes to automaticky udržuje
+
+### Namespace
+
+Logické rozdělení clusteru
+- Odděluje např. projekty / týmy
+- `dev`, `test`, `prod`, ...
+
+---
+
+# Bezpečnost virtualizace a kontejnerů
+
+## Bezpečnost VM
+**Izolace**: VM běží jako „počítač v počítači“
+- Hostitel k němu nemá přímý přístup (jen přes hypervisor)
+- Když je VM napadený, hostitel by měl zůstat bezpečný
+
+**Oddělení VM mezi sebou**: Každá VM má vlastní OS, paměť, procesy
+- Navzájem se nevidí, pokud to explicitně nepovolíš
+
+## VM Escape
+
+**Největší bezpečnostní hrozba**
+- Útok, kdy se útočník dostane **z VM -> do hypervisoru -> na hostitele**
+- Vzácné ale velmi nebezpečné
+
+## Hardening (zabezpečení)
+
+1. **Aktualizace hypervisoru**
+    - Pravidelné update opravují bezpečnostní chyby
+      - Kvůli VM escape
+2. **Omezení sdílených prostředků**
+    - Vypnout nebo omezit:
+      - Sdílené složky
+      - Clipboard (copy-paste mezi hostem a VM)
+      - USB passthrough
+3. **Síťová segmentace**
+
+## Bezpečnost kontejnerů
+
+### Image security
+
+**Důvěryhodné base images**
+- Používej oficiální nebo ověřené image (např. z Docker Hubu)
+- Vyhýbej se náhodným neznámým repozitářům
+
+**Skenování zranitelností**
+- Kontrola image na známé chyby (CVE)
+- Nástroje: [`Trivy`](https://trivy.dev/), [`Clair`](https://clairproject.org/) (open source)
+
+**Minimalizace velikosti image**
+- Menší image = méně balíčků = méně zranitelností
+- Alpine images
+
+### Runtime security
+
+**Neprivilegované kontejnery**
+- Nespouštět jako root
+- Root v kontejneru = větší riziko útoku na hostitele
+
+**Read-only filesystem**
+- Zakáže zápis do souborového systému
+- Útočník nemůže upravit aplikaci nebo nahrát malware
+
+**Resource limits**
+- Omezení CPU a RAM
+- DoS útokům - „sežrání“ všech zdrojů
+
+#### **bezpečnostní mechanismy Linuxu**
+
+**Seccomp** (**SEC**ure **COMP**uting Mode)
+- Omezuje systémová volání (syscalls)
+
+**AppArmor**: Kontroluje přístup k souborům
+
+**SELinux** (**S**ecurity **E**nhanced **L**inux)
+- Pokročilé řízení přístupů
+
+### Bezpečnostní rizika
+
+**Escape z kontejneru**
+- Horší než u VM - sdílí kernel
+- Útok z kontejneru na hostitele
+
+
+**Zranitelnosti v base image**
+- Staré knihovny = bezpečnostní díry
+- Řešení: pravidelné rebuildy image
+
+**Špatná konfigurace**
+- Běh jako root
+- Otevřené porty
+- Žádné limity
+
+**Secrets management**
+- Hesla, API klíče
+- Ukládat do:
+  - Environment variables
+  - Docker secrets
+  - Kubernetes secrets
+
+---
+
+# Využití v kybernetické bezpečnosti
+
+## Izolované testovací prostředí
+
+**Sandboxing malware**
+- Spouštíš malware v izolovaném prostředí a sleduješ jeho chování
+- VM nebo kontejner
+
+**Penetrační testování**
+- Testování zranitelností systémů
+- Často ve VM (oddělení od reálného systému)
+  - Nebo v kontejnerech (rychlé spuštění)
+
+**Bezpečná analýza**
+- Analýza podezřelých souborů, exploitů, síťového provozu
+- Pak VM smažeš nebo resetuješ -> čistý stav
+
+## Reprodukovatelnost
+Velká výhoda kontejnerů
+
+**Konzistentní prostředí**
+- „funguje u mě“ problém mizí
+- Všichni mají stejné knihovny a verze
+
+**CI/CD pro bezpečnostní nástroje**
+- **CI/CD**: **C**ontinuous **I**ntegration and **C**ontinuous **D**elivery/Deployment
+  - Automatizace (např) buildu a deploymentu
+- **Automatické testování** bezpečnosti
+- **Bezpečnost se kontroluje průběžně**, ne až na konci
+- Např:
+  - Skenování image (Trivy)
+  - Kontrola závislostí
+  - Automatické testy
+
+## Honeypoty
+
+Systém, který láká útočníky
+
+### Nasazení pomocí kontejnerů
+**Rychlé vytvoření falešné služby (např. SSH, web)**
+
+**Rychlá obnova**
+- Když je honeypot kompromitován:
+  - Smažeš kontejner
+  - Spustíš nový
+- Minimální dopad
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
