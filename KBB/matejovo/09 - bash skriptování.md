@@ -1,7 +1,5 @@
 # 09 Bash skriptování
 
-# Obsah
-
 1. [09 Bash skriptování](#09-bash-skriptování)
 
    1. [Shell a Bash](#shell-a-bash)

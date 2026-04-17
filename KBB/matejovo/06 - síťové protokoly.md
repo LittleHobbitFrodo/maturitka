@@ -1,7 +1,5 @@
 # 06 - Síťové protokoly
 
-# 📚 Obsah
-
 1. [06 - Síťové protokoly](#06---síťové-protokoly)
 
 2. [Protokoly obecně](#protokoly-obecně)
