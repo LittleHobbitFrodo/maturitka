@@ -1,0 +1,235 @@
+{\rtf1\ansi\ansicpg1250\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 TimesNewRomanPS-ItalicMT;\f1\froman\fcharset0 TimesNewRomanPSMT;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww25400\viewh13140\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\fi565\pardirnatural\qc\partightenfactor0
+
+\f0\i\fs20 \cf0 PVA - maturita l\'e9ta p\'e1n\uc0\u283  2045 - CENAVOHCS POKORP\
+
+\fs36 \
+Pr\'e1ce s textov\'fdmi soubory, zpracov\'e1n\'ed velk\'fdch textov\'fdch soubor\uc0\u367 .\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\fi565\pardirnatural\partightenfactor0
+
+\f1\i0\fs26 \cf0 PR\'c1CE S TEXTOV\'ddMI SOUBORY\
+\
+\'97 
+\f0\i System.IO
+\f1\i0 \
+\'97 
+\f0\i Directory, Path, File StreamReader, StreamWriter\
+\
+
+\f1\i0 \'97 verbatim string literal \'97 @
+\f0\i \'84\\Program Files\\\'85\'93
+\f1\i0 \
+\'97 relativn\'ed / absolutn\'ed cesta\
+\
+\'97 File\
+	\'97 uspo\uc0\u345 \'e1dan\'e1, pojmenovan\'e1 kolekce z\'e1znam\u367  \'97 data, kter\'e1 spolu souvisej\'ed\
+	\'97 p\uc0\u345 \'edpona\
+	\'97 sekven\uc0\u269 n\'ed p\u345 \'edstup \'97 text\
+	\'97 n\'e1hodn\'fd p\uc0\u345 \'edstup \'97 z\'e1znamy, ne-sekven\u269 n\'ed p\u345 \'edstup k dat\u367 m\
+	\'97 
+\f0\i Create, Change, Open, Read, Write, Close\
+	\'97 
+\f1\i0 hierarchie\
+\
+\'97 
+\f0\i File, Directory, Path
+\f1\i0  \'97 zapisov\'e1n\'ed / \uc0\u269 ten\'ed na jeden z\'e1tah, pr\'e1ce se souborov\'fdm syst\'e9mem\
+\
+\'97 Stream\
+	\'97 sekvence bit\uc0\u367 , ze kter\'e9 \u269 teme, nebo zapisujeme\
+	\'97 r\uc0\u367 zn\'e1 \'falo\'9ei\'9at\u283  \'97 s\'ed\u357 , ram\u283 \u357 , pam\u283 \u357 , File\
+\
+\
+\'97 
+\f0\i StreamReader 
+\f1\i0  \
+	\'97 \uc0\u269 ten\'ed po znac\'edch/\u345 \'e1dc\'edch\
+\
+		
+\f0\i StreamReader sdfssdlfjk = new StreamReader(nazevSouboru);
+\f1\i0 \
+\
+	\'97 
+\f0\i Read
+\f1\i0  \'97 vrac\'ed dal\'9a\'ed znak nebo -1\
+	\'97 
+\f0\i ReadLine
+\f1\i0  \'97 vrac\'ed \uc0\u345 \'e1dek\
+	\'97 
+\f0\i Peek
+\f1\i0  \'97 vrac\'ed dal\'9a\'ed znak nebo -1, nezm\uc0\u283 n\'ed stav\
+\
+\
+\'97 
+\f0\i StreamWriter\
+	\
+		StreamWriter sw = new StreamWriter(cesta, bool append);
+\f1\i0 \
+\
+	\'97 
+\f0\i Write
+\f1\i0  \'97 char\
+	\'97 
+\f0\i WriteLine \'97 
+\f1\i0 string\
+	\'97 
+\f0\i Close
+\f1\i0  \'97 zav\uc0\u345 e aktu\'e1ln\'ed stream, uvoln\'ed sys. zdroje\
+		\'97 p\uc0\u345 i inicializaci uvnit\u345  
+\f0\i using
+\f1\i0  se toto d\uc0\u283 je automaticky\
+		\'97 
+\f0\i Dispose
+\f1\i0 \
+			\
+			
+\f0\i using (var fsRead = new StreamReader (pathToSlovo))\
+			\{\
+				\'85\
+			\}\
+			// fsRead.Dispose nen\'ed nutn\'e9 volat, ani kdy\'9e dojde\
+			// k v\'fdjimce p\uc0\u345 i \u269 ten\'ed ze StreamReader
+\f1\i0 \
+	\'97 
+\f0\i Flush
+\f1\i0 \
+\
+\
+\'97 
+\f0\i File
+\f1\i0 \
+	\'97 
+\f0\i Exists 
+\f1\i0 \'97 path \'97> bool\
+	\'97 
+\f0\i ReadAllLines
+\f1\i0  \'97 path \'97> string[]\
+	\'97 
+\f0\i ReadAllText
+\f1\i0  \'97 path \'97> string\
+	\'97 
+\f0\i Delete
+\f1\i0 \
+\
+\
+\'97 
+\f0\i Directory
+\f1\i0 \
+	\'97 
+\f0\i GetCurrentDirectory
+\f1\i0  \'97> string \'97 pwd\
+	\'97 
+\f0\i SetCurrentDirectory
+\f1\i0  \'97 path\
+\
+	\'97 
+\f0\i DirectoryInfo\
+\
+		DirectoryInfo ksdfhksdjfh = new DirectoryInfo(path);
+\f1\i0 \
+\
+	\'97 vytvo\uc0\u345 \'ed v\'9aechny adres\'e1\u345 e na cest\u283 \
+	\'97 vlastnosti \'97 
+\f0\i Parent, Root, CreationTime, Name
+\f1\i0 \
+\
+\
+\'97 
+\f0\i Path
+\f1\i0 \
+	\'97 
+\f0\i Combine
+\f1\i0  \'97 path1 + path2\
+	\'97 
+\f0\i GetDirectoryName \'97> 
+\f1\i0 path1 - filename\
+	\'97 
+\f0\i GetTempPath\
+
+\f1\i0 	\'97 
+\f0\i GetTempFileName
+\f1\i0  \'97  vytvo\uc0\u345 \'ed do\u269 asn\'fd soubor na disku a vrac\'ed cestu k n\u283 mu\
+\
+\
+FILESTREAM\
+\
+\'97 n\'e1hodn\'fd p\uc0\u345 \'edstup\
+\'97 zapisov\'e1n\'ed, \uc0\u269 ten\'ed, otev\'edr\'e1n\'ed, zav\'edr\'e1n\'ed soubor\u367  v souborov\'e9m syst\'e9mu \'97 umo\'9e\u328 uje 
+\f0\i r
+\f1\i0  a 
+\f0\i w
+\f1\i0  po bytech nebo pol\'edch byt\uc0\u367 \
+		\
+		
+\f0\i FileStream fssss =  new FileStream(string cesta, FileMod mod);
+\f1\i0 \
+\
+\'97 mod \'97 enum \'97 zp\uc0\u367 sob, jak\'fdm se bude p\u345 istupovat k souboru\
+	\'97 Append, Create, CreateNew, Open, Truncate\
+\
+\'97 
+\f0\i Seek
+\f1\i0  \'97 pohyb po streamu\
+		\
+		
+\f0\i long Seek(long pozice, SeekOrigin pocatek); //SeekOrigin + pozice
+\f1\i0 \
+\
+\'97 
+\f0\i SeekOrigin
+\f1\i0  \'97 enum \'97 Begin, Current, End\
+\'97 
+\f0\i WriteByte, ReadByte
+\f1\i0 \
+\
+\'97 
+\f0\i BinaryWriter
+\f1\i0 \
+	\'97 vstup \'97 filestream (nebo stream obecn\uc0\u283 )\
+	\
+		
+\f0\i using (FileStream fs = new FileStream ("BigIntArr.dat", FileMode.Create))\
+		\{\
+			using (BinaryWriter bw = new BinaryWriter (fs))\
+			\{\
+				int SIZE = 2000;\
+				// tady se bude zapisovat Int32 a potom string\
+				bw.Write (SIZE);\
+				bw.Write ("Z\'e1lo\'9en\'ed \'falo\'9ei\'9at\uc0\u283  pro na\'9ae pole.");\
+			\}\
+		\}
+\f1\i0 \
+	\
+	\'97 
+\f0\i Write
+\f1\i0  \'97 overload pro b\uc0\u283 \'9en\'e9 typy\
+	\'97 vlastnost 
+\f0\i BaseStream
+\f1\i0  \'97 odkazuje na stream, ze kter\'e9ho byte stream poch\'e1z\'ed\
+\
+\'97 
+\f0\i BinaryReader
+\f1\i0 \
+	\'97 \'85\
+	\'97 
+\f0\i ReadString, ReadInt32, ReadDecimal
+\f1\i0  \'85\
+\
+\
+SERIALIZACE\
+\
+\'97 p\uc0\u345 eveden\'ed objektu do transportovateln\'e9 / p\u345 enositeln\'e9 podoby \'97 json, xml\
+\'97 
+\f0\i BinaryFormatter
+\f1\i0  \'97 obsolete\
+\
+\
+\
+\
+}

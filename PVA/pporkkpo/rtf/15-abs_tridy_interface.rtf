@@ -1,0 +1,110 @@
+{\rtf1\ansi\ansicpg1250\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 TimesNewRomanPS-ItalicMT;\f1\froman\fcharset0 TimesNewRomanPSMT;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww25400\viewh13140\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\fi565\pardirnatural\qc\partightenfactor0
+
+\f0\i\fs20 \cf0 PVA - maturita l\'e9ta p\'e1n\uc0\u283  2045 - LUBOM\'cdR PLAKAL\
+
+\fs36 \
+ Abstraktn\'ed t\uc0\u345 \'eddy, interface, implementace interface, porovn\'e1n\'ed abstraktn\'ed t\u345 \'eddy a\
+interface. P\uc0\u345 etypov\'e1n\'ed a kontrola typ\u367 .\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\fi565\pardirnatural\partightenfactor0
+
+\f1\i0\fs26 \cf0 ABSTRAKTN\'cd T\uc0\u344 \'cdDA\
+\
+\'97 keyword 
+\f0\i abstract
+\f1\i0 \
+\'97 z\'e1klad d\uc0\u283 d\u283 n\'ed pro ostatn\'ed t\u345 \'eddy \'97 m\'e1 metody bez implementace a tu vy\'9eaduje u d\u283 dic\u367 \
+	\'97 z principu nem\uc0\u367 \'9ee m\'edt instanci\
+	\'97 n\uc0\u283 kter\'e9 metody lze v abs. t\u345 \'edd\u283  implementovat, ty se potom d\u283 d\'ed\
+\
+\'97 !! 
+\f0\i override
+\f1\i0  !!\
+\
+\'97 abs. t\uc0\u345 \'edda m\u367 \'9ee d\u283 dit z \'84klasick\'e9\'93 t\u345 \'eddy \'97 override p\u367 vodn\'ed funkcionality\
+\'97 p\uc0\u345 \'edklad viz. 
+\f0\i moodle
+\f1\i0 \
+\
+\
+INTERFACE\
+\
+\'97 
+\f0\i rozhran\'ed
+\f1\i0 \
+\'97 konvence \'84IThrowable\'93 \'97 \'84public class Dog : IThrowable\'93\'85\
+\'97 speci\'e1ln\'ed typ \'97 \'84kontrakt\'93 pro t\uc0\u345 \'eddy / struktury \'97 ur\u269 uje, jak\'e9 metody maj\'ed b\'fdt implementov\'e1ny, ale ne jak\
+	\'97 co um\'ed / jak to d\uc0\u283 l\'e1 \'97 IMPLEMENTS_A (HAS_A\'85)\
+\
+\'97 \uc0\u269 lenov\'e9 implicitn\u283  public \
+\'97 t\uc0\u345 \'edda m\u367 \'9ee implementovat v\'edce interface\
+\'97 polymorfismus\
+\'97 kolekce t\uc0\u345 \'edd, kter\'e9 n\u283 co implementuj\'ed\
+\
+\'97 le example \'97 
+\f0\i https://moodle.ssps.cz/mod/book/view.php?id=1464&chapterid=276
+\f1\i0 \
+\
+\'97 c# obsahuje mnoho p\uc0\u345 edem definovan\'fdch interface\
+\'97 generick\'fd interface\
+\
+\'97 t\uc0\u345 \'edda, implementuj\'edc\'ed interface, kter\'fd d\u283 d\'ed z jin\'e9ho interface, mus\'ed implementovat v\'9aechny n\'e1le\'9eitosti\
+\
+\
+ABSTRAKTN\'cd T\uc0\u344 \'cdDA VS INTERFACE\
+\
+\'97 abs. t\uc0\u345 d. \'97 v\'fdchoz\'ed implementace fc\'ed (od c# 8.0 lze i u interfac\u367 )\
+\'97 z\'e1kladn\'ed blok pro hierarchii / arbitr\'e1rn\'ed vlastnost (m\uc0\u367 \'9ee zdru\'9eovat)\
+\
+\
+KONTROLA TYP\uc0\u366  / P\u344 ETYPOV\'c1N\'cd\
+\
+\'97 oper\'e1tory \'97 
+\f0\i is, as, typeof
+\f1\i0  \'97 kontrola, zdali je typ kompatibiln\'ed s x, explicitn\'ed p\uc0\u345 evod na jin\'fd typ, 
+\f0\i System.Type 
+\f1\i0 pro dan\'fd typ\
+\
+\'97 
+\f0\i is
+\f1\i0 \
+	\'97 v\'fdraz 
+\f0\i E is T
+\f1\i0 \
+	\'97 
+\f0\i true / false
+\f1\i0 \
+	\'97 vrac\'ed true pokud 	\'97 lze typ p\uc0\u345 ev\'e9st na 
+\f0\i T
+\f1\i0 \
+				\'97 typ je odvozen\'fd, d\uc0\u283 d\'ed, implementuje\'85 
+\f0\i T
+\f1\i0 \
+				\'97 \'85\
+\
+\'97 
+\f0\i as
+\f1\i0 \
+	\'97 explicitn\'ed p\uc0\u345 evod \'97 
+\f0\i E as T
+\f1\i0 \
+	\'97 vrac\'ed 
+\f0\i null
+\f1\i0 , nikoliv v\'fdjimku\
+	\'97 
+\f0\i ( \'85 )necoVariable;
+\f1\i0 \
+\
+\'97 
+\f0\i typeof
+\f1\i0 \
+	\'97 \'85\
+	\'97 pouze aktu\'e1ln\'ed typ, nikoliv po\uc0\u269 \'e1te\u269 n\'ed t\u345 \'edda\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97}

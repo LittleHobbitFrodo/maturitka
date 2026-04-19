@@ -1,0 +1,157 @@
+{\rtf1\ansi\ansicpg1250\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 TimesNewRomanPS-ItalicMT;\f1\froman\fcharset0 TimesNewRomanPSMT;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww25400\viewh12580\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\fi565\pardirnatural\qc\partightenfactor0
+
+\f0\i\fs20 \cf0 PVA - maturita l\'e9ta p\'e1n\uc0\u283  2045 - LUBOM\'cdR PLAKAL\
+
+\fs36 \
+T\uc0\u345 \'eddy, konstruktor, d\u283 di\u269 nost. Polymorfismus. Side effects\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\fi565\pardirnatural\partightenfactor0
+
+\f1\i0\fs26 \cf0 	\uc0\u269 ty\u345 i and\u283 l\'e9 str\'e1\'9en\'ed objektov\u283  orientovan\'e9ho programov\'e1n\'ed\
+		\'97\
+		and\uc0\u283 l abstrakce \'97 se t\u345 \'eddami lze pracovat skrze interface, ani\'9e bychom znali vnit\u345 n\'ed fungov\'e1n\'ed \
+		and\uc0\u283 l zapouzd\u345 en\'ed \'97 mo\'9enost ukr\'fdt implementa\u269 n\'ed detaily a vytvo\u345 en\'ed interface pro pr\'e1ci se t\u345 \'eddou\
+		and\uc0\u283 l d\u283 di\u269 nosti \'97 t\u345 \'eddy mohou d\u283 dit chov\'e1n\'ed a charakteristiky\
+		and\uc0\u283 l polymorfismu \'97 umo\'9e\u328 uje pracovat s podt\u345 \'eddami stejn\u283  jako s jejich rodi\u269 i (t\u345 \'eddy tvo\u345 en\'e9 z\'e1kl. t\u345 \'eddami)\
+		\'97\
+\
+\
+T\uc0\u344 \'cdDY, KONSTRUKTOR, D\u282 DI\u268 NOST\
+\
+\'97 z\'e1sadn\'ed pro OOP\
+\'97 t\uc0\u345 \'edda je \'9aablona pro vytv\'e1\u345 en\'ed objekt\u367  \'97 instanc\'ed t\u345 \'eddy\
+\'97 t\uc0\u345 \'edda 
+\f0\i Objekt
+\f1\i0 \
+(\'97 
+\f0\i UML
+\f1\i0  \'97 unified modelling language \'97 oop obecn\uc0\u283 )\
+\
+\'97 nov\'fd datov\'fd typ \'97 charakterizov\'e1n daty (prom\uc0\u283 nn\'e9\'85), chov\'e1n\'edm (metody)\
+\'97 referen\uc0\u269 n\'ed \'97 alokov\'e1n na hald\u283 , dealokace, GC\
+\'97 d\uc0\u283 di\u269 nost \'97 t\u345 \'edda p\u345 eb\'edr\'e1 vlastnosti, lze d\u283 dit pouze z jedn\'e9 t\u345 \'eddy zd\u283 d\u283 n\'e9 chov\'e1n\'ed lze p\u345 episovat \'97 hierarchie t\u345 \'edd\
+\
+\'97 konstruktor\
+	\'97 p\uc0\u345 edpis ud\'e1lost\'ed, kter\'fd prob\u283 hne p\u345 i vytv\'e1\u345 en\'ed instance t\u345 \'eddy\
+	\'97 \uc0\u345 e\'9a\'ed p\u345 \'edstup k priv\'e1tn\'edm element\u367 m t\u345 \'eddy p\u345 i inicializaci\
+	\'97 nem\'e1 n\'e1vratovou hodnotu, jmenuje se stejn\uc0\u283  jako t\u345 \'edda\
+\
+		
+\f0\i class Human\
+		\{\
+			public string name;\
+			public DateTime;\
+\
+			public Human(string name)\
+  			\{\
+				this.name = name;\
+				birthDay = DateTime.Now;\
+			\}\
+		\}
+\f1\i0 \
+\
+	\'97 keyword 
+\f0\i base
+\f1\i0  \'97 odkazuje na t\uc0\u345 \'eddu, ze kter\'e9 aktu\'e1ln\'ed t\u345 \'edda d\u283 d\'ed\
+		\'97 vyu\'9eit\'ed v konstruktoru \'97 
+\f0\i public Neco(int size, string name, int maxSize) : base (size, name)
+\f1\i0 \
+		\'97 v tomto p\uc0\u345 \'edpad\u283  base zastupuje vol\'e1n\'ed konstruktoru\
+\
+	\'97 statick\'e9 konstruktory\
+\
+	\'97 keyword 
+\f0\i this
+\f1\i0  \'97 odkazuje na aktu\'e1ln\'ed instanci t\uc0\u345 \'eddy\
+		\'97 stejn\'e1 jm\'e9na \uc0\u269 len\u367 \
+\
+			
+\f0\i public class Employee\
+			\{\
+			    private string alias;\
+			    private string name;\
+\
+			    public Employee(string name, string alias)\
+			    \{\
+				        // Use this to qualify the members of the class\
+				        // instead of the constructor parameters.\
+				        this.name = name;\
+				        this.alias = alias;\
+			    \}\
+			\}
+\f1\i0 \
+\
+		\'97 
+\f0\i SomeFunc(this)
+\f1\i0  \'97 p\uc0\u345 ed\'e1v\'e1n\'ed parametr\u367 \
+\
+\'97 
+\f0\i IS-A, HAS-A
+\f1\i0 \
+\
+\
+POLYMORFISMUS\
+\
+\'97 
+\f0\i mnohotvarost
+\f1\i0 \
+\'97 viz. 
+\f0\i \uc0\u269 ty\u345 i and\u283 l\'e9 str\'e1\'9en\'ed objektov\u283  orientovan\'e9ho programov\'e1n\'ed
+\f1\i0 \
+		\
+		\'84Umo\'9e\uc0\u328 uje deklarovat prom\u283 nnou obecn\'e9ho typu a p\u345 i\u345 adit do n\'ed referenci na speci\'e1ln\'ed datov\'fd typ. \
+		Program je potom schopen podle skute\uc0\u269 n\'e9ho typu prom\u283 nn\'e9 rozli\'9ait v hierarchii t\u345 \'edd, \
+		kterou jeho metodu m\'e1 zavolat. \'84\
+\
+\'97 kl\'ed\uc0\u269 ov\'e1 slova 
+\f0\i virtual 
+\f1\i0 a 
+\f0\i override
+\f1\i0 \
+	\'97 
+\f0\i virtual
+\f1\i0  \'97 metoda, u kter\'e9 se p\uc0\u345 edpokl\'e1d\'e1, \'9ee jej\'ed chov\'e1n\'ed bude p\u345 eps\'e1no potomky t\u345 \'eddy, kter\'e9 n\'e1le\'9e\'ed\
+	\'97 
+\f0\i override
+\f1\i0  \'97  metoda, kter\'e1 p\uc0\u345 episuje virtu\'e1ln\'ed metodu ze t\u345 \'eddy, ze kter\'e9 tato t\u345 \'edda d\u283 d\'ed\
+\
+\'97 jin\'fd typ \'97 stejn\'e1 funkce \'97 polymorfismus umo\'9e\uc0\u328 uje tuto funkce volat nez\'e1visle na typu\
+\'97 p\uc0\u345 \'edklady viz. 
+\f0\i https://moodle.ssps.cz/mod/book/view.php?id=1464&chapterid=273
+\f1\i0 \
+\
+\
+SIDE EFFECTS\
+\
+\'97 situace, kdy volan\'e1 fce nebo v\'fdpo\uc0\u269 etn\'ed v\'fdraz m\u283 n\'ed i jin\'fd stav procesu, ne\'9e je n\'e1vratov\'e1 hodnota nebo zm\u283 na parametru odkazovan\'e9ho p\u345 es referenci (pointer)\
+	\'97 
+\f0\i nap\uc0\u345 .:
+\f1\i0  modifikace ne-lok\'e1ln\'ed prom\uc0\u283 nn\'e9, I/O, modifikace statick\'e9 lok\'e1ln\'ed prom\u283 nn\'e9\'85\
+\'97 zdrojem je \uc0\u269 asto chybn\'fd \'fasudek program\'e1tora, ov\'9aem lze i p\u345 ipustit \'famysln\'e9 vedlej\'9a\'ed \'fa\u269 inky \'97 procedur\'e1ln\'ed programov\'e1n\'ed\
+\'97 funk\uc0\u269 n\'ed programov\'e1n\'ed toto eliminuje \'97 monads\
+\
+		
+\f0\i //c side effects\
+		\
+		int neco = 0;\
+		\
+		void fn()\
+		\{\
+			neco++;\
+		\}\
+\
+		fn_second(neco++, neco);\
+		\
+		void Print(char* string)\{ printf(\'84%s\'93, string); \}		//m\'e1 efekt na \'84vn\uc0\u283 j\'9a\'ed sv\u283 t\'93\
+
+\f1\i0 \
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\
+}
