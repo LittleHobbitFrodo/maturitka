@@ -1,0 +1,107 @@
+{\rtf1\ansi\ansicpg1250\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 TimesNewRomanPS-ItalicMT;\f1\froman\fcharset0 TimesNewRomanPSMT;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww25400\viewh13140\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qc\partightenfactor0
+
+\f0\i\fs20 \cf0 PVA - maturita l\'e9ta p\'e1n\uc0\u283  2045 - LUBOM\'cdR PLAKAL\
+
+\fs36 \
+Symetrick\'e9 \'9aifrov\'e1n\'ed, jeho v\'fdhody a nev\'fdhody. Pou\'9eit\'ed kryptovac\'edch knihoven.\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\i0\fs26 \cf0 	SYMETRICK\'c9 \'8aIFROV\'c1N\'cd\
+\
+\'97 k \'9aifrov\'e1n\'ed i de\'9aifrov\'e1n\'ed pou\'9e\'edv\'e1 stejn\'fd kl\'ed\uc0\u269  \'97 nutno zajistit bezpe\u269 n\'fd p\u345 enos kl\'ed\u269 e mezi entitami\
+	\'97 \uc0\u269 ast\'e9 kombinov\'e1n\'ed \'97 kl\'ed\u269  se za\'9aifruje ve\u345 ejn\'fdm kl. asym. \'9aifry\'85\
+\'97 n\'edzk\'e1 v\'fdpo\uc0\u269 etn\'ed n\'e1ro\u269 nost\
+\
+\'97 \'84n\'e1hodn\'e9\'93 generov\'e1n\'ed kl\'ed\uc0\u269 \u367 \
+\
+\'97 proudov\'e9\
+		\'97 vstupn\'ed text je zpracov\'e1v\'e1n po bitech\
+		\'97 RC4, FISH\
+\
+\'97 blokov\'e9\
+		\'97 vstup je rozd\uc0\u283 len na bloky o velikost x, posledn\'ed je dopln\u283 n\
+		\'97 AES, DES\'85\
+\
+\'97 bezpe\uc0\u269 nost\
+		\'97 \'fato\uc0\u269 n\'edk m\u367 \'9ee zn\'e1t vstup, v\'fdstup, kl\'ed\u269 \'85 \'97 sna\'9e\'ed se odvodit zbyl\'e9 \u269 \'e1sti\
+		\'97 kryptoanal\'fdza\
+		\'97 side-channel attack\
+		\'97 bruteforce\
+		\'97 transport kl\'ed\uc0\u269 e? \'97 diffie\'97hellman\
+\
+\'97 RC4\
+	\'97 HTTPS (SSL / TLS), WiFi (WPA / WEP)\
+	\'97 princip\
+		\'97 jest generov\'e1n n\'e1hodn\'fd proud bajt\uc0\u367 \
+		\'97 XOR operace se vstupem\
+		\'97 modulo \'97 pseudon\'e1hodn\'fd kl\'ed\uc0\u269 \
+\
+\'97 AES\
+	\'97 
+\f0\i https://www.youtube.com/watch?v=O4xNJsjtN6E\
+
+\f1\i0 	\'97 rijndael algorithm\
+	\'97 \uc0\u269 ast\'e1 hardwarov\'e1 implementace\
+	\'97 princip\
+		\'97 128 bitov\'fd blok dat (nebo 198, 256)\
+		\'97 
+\f0\i stav
+\f1\i0  \'97 m\uc0\u345 \'ed\'9eka 4x4 byt\u367  bloku (column major)\
+\
+		\'97 expanze kl\'ed\uc0\u269 e \'97 odvozov\'e1n\'ed v\'edce kl\'ed\u269 \u367  ze vstupn\'edho kl\'ed\u269 e\
+		\'97 
+\f0\i AddRoundKey
+\f1\i0  \'97 stav \'9aifry je byte po bytu zkombinov\'e1n s rundovn\'edm kl\'ed\uc0\u269 em pomoc\'ed logick\'e9 operace 
+\f0\i xor\
+		\'97 SubBytes
+\f1\i0  \'97 pomoc\'ed p\uc0\u345 edem definovan\'e9 tabulky je ka\'9ed\'fd byte nahrazen\
+		\'97 
+\f0\i ShiftRows
+\f1\i0  \'97 ka\'9ed\'fd jeden \uc0\u345 \'e1dek stavu \'9aifry se posune doleva o nula byt\u367 , jeden byte, dva, t\u345 i\
+		\'97 
+\f0\i MixColumns
+\f1\i0  \'97 pomoc\'ed p\uc0\u345 edem definovan\'fdch matematick\'fdch operac\'ed (pro ka\'9edou polo\'9eku ve sloupci) se vypo\u269 \'edt\'e1 nov\'fd stav (omezen\'e1 velikost jednoho bytu \'97 finite field arithmetics)\
+		\'97 \'9aifrov\'e1n\'ed rundovn\'edm kl\'ed\uc0\u269 em\
+		\'97 \'85\
+\
+		\'97 9, 11, 13 rund, pot\'e9 fin\'e1ln\'ed runda \'97 pouze 
+\f0\i SubBytes, ShiftRows, AddRoundKey
+\f1\i0  \'97> 10, 12 nebo 14 rund celkov\uc0\u283 \
+	\'97 opera\uc0\u269 n\'ed re\'9eim \'97 AES-GCM \'97 umo\'9e\u328 uje bezpe\u269 n\u283  \'9aifrovat data del\'9a\'ed ne\'9e 128 bit\u367 \
+		\'97 
+\f0\i galois counter mode
+\f1\i0  \'97 counter m\'f3d + tag (\'84checksum\'93 / \'84hash\'93)\
+\
+\
+POU\'8eIT\'cd KRYPTOVAC\'cdCH KNIHOVEN\
+\
+\'97 
+\f0\i System.Security.Cryptography
+\f1\i0  \'97 \'9aifrov\'e1n\'ed / de\'9aifrov\'e1n\'ed, checksum, hashov\'e1n\'ed, pseudon\'e1hodn\'e1 \uc0\u269 \'edsla\
+\
+\'97 AES v c#\
+		\'97 blok 
+\f0\i using
+\f1\i0  (AES implementuje 
+\f0\i IDisposable
+\f1\i0 )\
+		\'97 
+\f0\i .Mode	.Key	.GenerateIV\'85
+\f1\i0 \
+		\'97 vytvo\uc0\u345 en\'ed enkryptoru \'97 
+\f0\i .TransformFinalBlock()
+\f1\i0  \'97> byte[]\
+		\'97 de\'9aifrov\'e1n\'ed \'97 vytvo\uc0\u345 en\'ed dekryptoru \'97 
+\f0\i .TransfromFinalBlock()
+\f1\i0  \'97> byte[] \'97> 
+\f0\i Encoding.GetEncoding(\'84UTF-16\'93).GetString()
+\f1\i0 \
+\
+}

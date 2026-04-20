@@ -1,0 +1,116 @@
+{\rtf1\ansi\ansicpg1250\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 TimesNewRomanPS-ItalicMT;\f1\froman\fcharset0 TimesNewRomanPSMT;\f2\froman\fcharset0 TimesNewRomanPS-BoldItalicMT;
+\f3\froman\fcharset0 Times-Roman;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww25400\viewh13140\viewkind1
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qj\partightenfactor0
+
+\f0\i\fs20 \cf0 PVA - maturita l\'e9ta p\'e1n\uc0\u283  2045 - LUBOM\'cdR PLAKAL\
+
+\fs36 \
+N\'e1vrhov\'e9 vzory, observer, singleton, proxy, struktura projektu.\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qj\partightenfactor0
+
+\f1\i0\fs26 \cf0 N\'c1VRHOV\'c9 VZORY \'97 OBSERVER, SINGLETON, PROXY\
+\
+\'97 
+\f0\i design pattern
+\f1\i0 \
+\'97 obecn\'e9 \uc0\u345 e\'9aen\'ed probl\'e9mu\
+(\'97 paralela s architekturou)?\
+\
+\'97 
+\f0\i Singleton
+\f1\i0 \
+	\'97 zaji\'9a\uc0\u357 uje, \'9ee t\u345 \'edda m\'e1 pouze jednu instanci a poskytuje k n\'ed glob. p\u345 \'edstup, 	sd\'edlen\'e9 zdroje, \'9aet\u345 en\'ed pam\u283 ti\
+	\'97 soukrom\'fd konstruktor \'97 zamezuje vytv\'e1\uc0\u345 en\'ed v\'edce instanc\'ed \'97> tuto jednu 	instanci dr\'9e\'ed statick\'e1 prom\u283 nn\'e1\
+	\'97 ve\uc0\u345 ejn\'e1 st. metoda pomoc\'ed kter\'e9 lze k instanci p\u345 istoupit\
+\
+	\'97 varianty:\
+	\'97 thread-safe:\
+		\'97 nesm\'ed b\'fdt vytvo\uc0\u345 eno v\'edce instanc\'ed sou\u269 asn\u283 \
+		\'97 
+\f0\i lock
+\f1\i0 \
+	\'97 Lazy<T>:\
+		\'97 vytvo\uc0\u345 en\'ed instance a\'9e po jej\'edm prvn\'edm pou\'9eit\'ed\
+	\'97 
+\f0\i p\uc0\u345 \'edklady viz. .src/singletron.cs 
+\f2\b (dod\uc0\u283 lat!!!) 
+\f1\i0\b0 (sp\'ed\'9a viz. moodle :o) )\
+\
+\'97 
+\f0\i Proxy
+\f1\i0 \
+	\'97 slou\'9e\'ed jako z\'e1stupce pro jin\'fd objekt\
+	\'97 kontroluje p\uc0\u345 \'edstup ke k\'fd\'9een\'e9mu objektu \'97 p\u345 idan\'e1 funkcionalita jako\
+	cache, logging, kontrola p\uc0\u345 \'edstupu, odlo\'9een\'e9 vytv\'e1\u345 en\'ed\
+	\'97 posloupnost vol\'e1n\'ed:\
+		\'97 vol\'e1n\'ed metody Proxy\
+		\'97 proveden\'ed intern\'ed logiky Proxy\
+		\'97 delegace po\'9eadavku na intern\'ed 
+\f0\i re\'e1ln\'fd
+\f1\i0  objekt\
+		\'97 proveden\'ed operace, ulo\'9een\'ed do cache proxy, n\'e1vrat v\'fdsledku\
+	\'97 
+\f0\i viz. moodle: \
+	https://moodle.ssps.cz/mod/book/view.php?id=1033&chapterid=230\
+
+\f1\i0 \
+\
+\
+\
+\
+\
+\'97 
+\f0\i Observer
+\f1\i0 \
+	\'97 umo\'9e\uc0\u328 uje objektu spravovat \u345 adu pozorovatel\u367 , kte\u345 \'ed reaguj\'ed na zm\u283 nu\
+	jeho stavu vol\'e1n\'edm sv\'fdch fc\'ed.\
+	\'97 zpracov\'e1n\'ed ud\'e1lost\'ed\
+	
+\f3\fs24 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 {{\NeXTGraphic observer.png \width9240 \height5070 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\
+\
+
+\f1\fs26 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 	\'97 abs. t\uc0\u345 \'edda p\u345 edm\u283 t \'97 metody pro interakci s pozorovateli\
+	\'97 \'85\
+	\'97 
+\f0\i viz. ./src/observer.cs (dotnet run observer.cs)
+\f1\i0 \
+\
+\'97 dal\'9a\'ed n\'e1vrhov\'e9 vzory \'97 inversion of control, builder (moodle\'85)\
+\
+\
+STRUKTURA PROJEKTU\
+\
+\'97 styl struktury aplikace\
+\'97 
+\f0\i souborov\'e1
+\f1\i0 \
+	\'97 jeden jedin\'fd soubor\
+	\'97 unix \'97 
+\f0\i shbang
+\f1\i0 \
+	\'97 jednoduch\'e9 utility / experimenty\
+\
+\'97 
+\f0\i projektov\'e1
+\f1\i0 \
+	\'97 .
+\f0\i csproj
+\f1\i0  \'97 konfigurace kompil\'e1toru\
+	\'97 
+\f0\i dotnet new, dotnet run, dotnet build, dotnet project convert\'85
+\f1\i0 \
+\
+\'97 p\uc0\u345 \'edkazy nejvy\'9a\'9a\'ed \'farovn\u283 \
+	\'97 nen\'ed nutn\'e9 u\'9e\'edvat namespace, class, M	ain\'85\
+	\'97 pouze jeden soubor v projektu \'97> entrypoint\
+\'97 
+\f0\i using
+\f1\i0  \'97 ./src/depend/\'85}

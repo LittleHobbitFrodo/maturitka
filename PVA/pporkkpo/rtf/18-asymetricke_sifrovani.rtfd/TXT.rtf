@@ -1,0 +1,86 @@
+{\rtf1\ansi\ansicpg1250\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 TimesNewRomanPS-ItalicMT;\f1\froman\fcharset0 TimesNewRomanPSMT;\f2\fswiss\fcharset0 Helvetica;
+}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww25400\viewh13140\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\fi565\pardirnatural\qc\partightenfactor0
+
+\f0\i\fs20 \cf0 PVA - maturita l\'e9ta p\'e1n\uc0\u283  2045 - PRINC KRASO\u327 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\fi565\pardirnatural\qc\partightenfactor0
+
+\fs36 \cf0 \
+Asymetrick\'e9 \'9aifrov\'e1n\'ed, princip p\uc0\u345 ed\'e1v\'e1n\'ed kl\'ed\u269 \u367 , jeho v\'fdhody a nev\'fdhody. Pou\'9eit\'ed kryptovac\'edch knihoven.\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\fi565\pardirnatural\partightenfactor0
+
+\f1\i0\fs26 \cf0 ASYMETRICK\'c9 \'8aIFROV\'c1N\'cd, V\'ddHODY a  NEV\'ddHODY\
+\
+\'97 priv\'e1tn\'ed / ve\uc0\u345 ejn\'fd kl\'ed\u269  \'97 \'9aifrov\'e1n\'ed prob\'edh\'e1 ve\u345 ejn\'fdm, de\'9aifrovat lze pouze priv\'e1tn\'edm\
+\'97 mezi kl\'ed\uc0\u269 i mus\'ed z principu existovat matematick\'e9 \'97  jednosm\u283 rn\'e1 fce \'97 nen\'ed nutn\'e9 sd\'edlet kl\'ed\u269 e\
+\'97 https, certifik\'e1ty\'85 \'97 podepisov\'e1n\'ed \'97 vypo\uc0\u269 \'edt\'e1 se hash zpr\'e1vy \'97 ten je p\u345 edm\u283 tem \'9aifrov\'e1n\'ed\
+\'97 mo\'9en\'e9 prolomen\'ed kvantov\'fdm po\uc0\u269 \'edta\u269 em?, bruteforce, sidechannel\
+\
+\
+\
+\'97 RSA\
+\'97 
+\f0\i Rivest-Shamir-Adleman
+\f1\i0 \
+\'97 faktorizace\
+\'97 prvn\'ed syst\'e9m s priv. / ve\uc0\u345 . kl.\
+\'97 pomal\'fd algoritmus \'97 pou\'9e\'edv\'e1 se k \'9aifrov\'e1n\'ed kl\'ed\uc0\u269 \u367 , nikoliv dat (nen\'ed to nutnost \'97 pouze to zvy\'9auje efektivitu)\
+\
+\'97 princip\
+\
+		
+\f2\fs24 {{\NeXTGraphic Pasted Graphic.png \width11400 \height4640 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}
+\f1\fs26 \
+\
+\'97 \'9aifrov\'e1n\'ed / de\'9aifrov\'e1n\'ed \'97 c = p^e (mod n) / p = c^d (mod n)\
+\
+\'97 RSA v c#\
+		\'97 
+\f0\i System.Security.Cryptography
+\f1\i0 \
+		\'97 
+\f0\i using(var rsa = RSA.Create())\
+		
+\f1\i0 \'97 
+\f0\i rsa.KeySize = x\
+
+\f1\i0 		\'97 
+\f0\i publicK / privK = rsa.ExportParameters(includePrivateParameters = true / false)
+\f1\i0 \
+		\'97 
+\f0\i rsa.ImportParameters(k)\
+		
+\f1\i0 \'97 
+\f0\i byte[] res = rsa.Encrypt(data, RSAEncryptionPadding.Pkcs1) 	//definuje, jak se p\uc0\u345 \'edpadn\u283  krat\'9a\'ed zpr\'e1va dopln\'ed na d\'e9lku kl\'ed\u269 e
+\f1\i0 \
+		\'97 ekvivalent 
+\f0\i Decrypt\'85
+\f1\i0 \
+		\'97 dal\'9a\'ed fce. pro ov\uc0\u283 \u345 ov\'e1n\'ed integrity dat\'85 \
+\
+DIFFIEHO-HELLMANOVA V\'ddM\uc0\u282 NA KL\'cd\u268 \u366 \
+\
+\'97 z\uc0\u345 \'edzen\'ed spole\u269 n\'e9ho kl\'ed\u269 e \'97 symetrick\'e9 \'9aifrov\'e1n\'ed\
+\'97 princip\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 		
+\f2\fs24 {{\NeXTGraphic Pasted Graphic 1.png \width9960 \height5760 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}
+\f1\fs26 \
+\
+		\'97 ob\uc0\u283  strany si zvol\'ed soukrom\'fd kl\'ed\u269 \
+		\'97 skrze \'84ve\uc0\u345 ejnou\'93 komunikaci sd\'edl\'ed parametry \'9aifry\
+		\'97 strany si vytvo\uc0\u345 \'ed ve\u345 ejn\'e9 kl\'ed\u269 e pomoc\'ed parametr\u367  \'9aifry\
+		\'97 ty si skrze ve\uc0\u345 ejn\'fd kan\'e1l p\u345 edaj\'ed a vypo\u269 tou spole\u269 n\'fd kl\'ed\u269 !!! juch\u367 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\fi565\pardirnatural\partightenfactor0
+\cf0 \'97 probl\'e9m diskr\'e9tn\'edho logaritmu\
+\'97 man in the middle \'97 \'fato\uc0\u269 n\'edk nav\'e1\'9ee spojen\'ed s ob\u283 ma stranami \'97 data si p\u345 e\u269 te, op\u283 t za\'9aifruje a po\'9ale d\'e1l\'85 \'97 nutn\'e1 autentikace (SRS protocol)}
