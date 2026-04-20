@@ -163,8 +163,7 @@ Vlastní hlavičky aplikace
 ### Atributy cookies
 `HttpOnly`: Nepřístupné z JavaScriptu  
 `Secure`: Jen přes HTTPS  
-`SameSite`: Ochrana proti CSRF útokům
-- [CSRF](https://owasp.org/www-community/attacks/csrf#): **C**ross **S**ite **R**equest **F**orgery
+`SameSite`: Ochrana proti [CSRF](./18%20-%20principy%20bezpečného%20vývoje.md#csrf---cross-site-request-forgery) útokům
 
 ---
 

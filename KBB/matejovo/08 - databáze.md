@@ -53,10 +53,7 @@
 4. [Bezpečnost databází](#bezpečnost-databází)
    1. [Přístupová práva](#přístupová-práva)
    2. [`GRANT` / `REVOKE`](#grant--revoke)
-   3. [SQL Injection](#sql-injection)
-      1. [Princip útoku](#princip-útoku)
-      2. [Prepared statements jako ochrana](#prepared-statements-jako-ochrana)
-      3. [Validace vstupů](#validace-vstupů)
+   3. [SQL Injection](./18%20-%20principy%20bezpečného%20vývoje.md#sql-injection)
    4. [Zálohování](#zálohování)
       1. [Nástroje](#nástroje)
 
@@ -453,38 +450,7 @@ Typy oprávnění:
 
 **Důvod**: Omezení škod při chybě nebo útoku
 
-
-## SQL Injection
-### Princip útoku
-
-Útočník vloží SQL kód do vstupu:
-- ```sql
-  SELECT * FROM users WHERE name = '<input>';
-  ```
-- Útočník vloží: `Franta' OR 1=1 OR name = 'Pepa`
-
-Query pak vypadá:
-  - ```sql
-    SELECT * FROM users WHERE name = 'Franta' OR 1=1 OR name = 'Pepa'`
-    ```
-  - Přečte celou databázi
-
-
-
-
-### Prepared statements jako ochrana
-
-Dovoluje "předkompilovat" query pro oddělení dat a samotného query
-- ```sql
-  SELECT * FROM users WHERE name = ?;
-  ```
-  - `?` je placeholder pro data
-
-### Validace vstupů
-
-Kontrola délky  
-**Povolené znaky**: Zakáže např. `;`, `=`, ... pro zabránění SQL injekcí  
-**Typ dat** (číslo vs text)
+## [SQL Injection](./18%20-%20principy%20bezpečného%20vývoje.md#sql-injection)
 
 ## Zálohování
 
