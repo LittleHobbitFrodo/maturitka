@@ -91,6 +91,10 @@ namespace Observer
 
 			okno.Vyhled = "krasna slecna";
 			okno.Vyhled = "mobilní toaleta ToiToi láska!";
+			okno.Unsubs(jeronym);
+			okno.Vyhled = "pohledny mlady muz";
+
+			okno.Unsubs(karel);
 		}
 	}
 }
