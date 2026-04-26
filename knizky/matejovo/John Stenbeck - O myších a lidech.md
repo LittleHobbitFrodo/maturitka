@@ -113,11 +113,16 @@ Jazyk obecný, hovorový až nespisovný, sprostý
 **Řečnické otázky**:  "Víte, co já si myslím?"
 
 ## Vlastní názor
-
-
-
+Kniha působí velmi silně díky jednoduchému stylu a tragickému konci. Nejvíc zaujme vztah mezi Georgem a Lenniem, který ukazuje opravdové přátelství, ale i tíhu odpovědnosti. Dílo je krátké, ale emocionálně velmi intenzivní.
 
 ## Symbolika
-- navíc
+
+**Farma**: Svoboda a sen  
+**Myši**: Slabost, křehkost  
+**Lennie**: Nevinnost, ale i nebezpečí
 
 ## Význam díla
+
+- Jedno z nejznámějších děl americké literatury
+- Silná kritika společnosti během krize
+- Nadčasové téma přátelství a lidské samoty
