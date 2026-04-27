@@ -1,4 +1,4 @@
-# Jmeno autora - Dílo
+# Jan Werich - Fimfárum
 
 ## Literární druh a žánr
 - **Druhy**: Epika

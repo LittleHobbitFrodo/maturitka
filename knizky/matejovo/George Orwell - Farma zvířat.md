@@ -1,5 +1,7 @@
 # George Orwell - Farma zvířat
 
+[Audiokniha](https://www.youtube.com/watch?v=a9TDZdQ3qnY&list=PLGjK_-aWMBD1s8n8kSLCDRpWGV_YdgX49)
+
 - [Lit. druhy a žánry](https://rozbor-dila.cz/literarni-formy-pojmy-druhy-a-zanry/)
 
 
