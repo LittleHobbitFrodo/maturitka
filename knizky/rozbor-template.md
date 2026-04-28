@@ -1,7 +1,7 @@
 # Jmeno autora - Dílo
 
 ## Literární druh a žánr
-- **Druhy**: Epika
+- **Druhy**: Epika, Drama, Lyrika
   - ich-forma/er-forma
 - **Žánry**: Pohádka, román, ...
   - Popis žanru
