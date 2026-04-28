@@ -112,5 +112,5 @@ Jako malý jsem se filmu bál :((
 
 ## Význam díla
 
-- Kniha ukazuje, že pohádka může být prostředkem kritiky společnosti
+- Kniha ukazuje, že pohádka může být prostředkem kritiky společnosti  
 - Ovlivnila další generace čtenářů i autorů díky svému humoru a nadčasovosti

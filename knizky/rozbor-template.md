@@ -23,6 +23,7 @@
 ### Zařazení do kontextu světové literatury
 Autoři související dobou a/nebo žánrem
 - alespoň 3 (ke každýmu alesp. 1 dílo)
+- proč tihle autoři?
 
 ## Děj
 - Pár vět - max odstavec
