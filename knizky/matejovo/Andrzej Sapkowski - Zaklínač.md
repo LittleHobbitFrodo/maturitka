@@ -6,7 +6,7 @@
 - **Druh**: Epika
   - Vyprávění příběhu, děj má postavy a vývoj
   - Převážně er-forma (třetí osoba)
-- **Žánr**: fantasy (povídkový cyklus + románová sága)
+- **Žánr**: Fantasy (povídkový cyklus + románová sága)
   - Svět s magií, nestvůrami, vlastními pravidly
   - Inspirace slovanskou mytologií a pohádkami
   - Prolínání klasické pohádky s temnější realistickou linkou

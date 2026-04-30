@@ -1,10 +1,10 @@
 # Jmeno autora - Dílo
 
 ## Literární druh a žánr
-- **Druhy**: Epika, Drama, Lyrika
+- **Druhy**: Epika, Drama, Lyrika - popsat
   - ich-forma/er-forma
 - **Žánry**: Pohádka, román, ...
-  - Popis žanru
+  - Popis žanru více do podrobna
 
 - [info](https://rozbor-dila.cz/literarni-zanry-literatura/)
 
@@ -18,7 +18,8 @@
 
 ### Zařazení do kontextu literatury
 - Období tvorby
-- Proud tvorby?
+- Proud tvorby
+- Obojí vysvětlit
 
 ### Zařazení do kontextu světové literatury
 Autoři související dobou a/nebo žánrem
@@ -26,7 +27,7 @@ Autoři související dobou a/nebo žánrem
 - proč tihle autoři?
 
 ## Děj
-- Pár vět - max odstavec
+- Pár odstavců
 
 ## Hlavní myšlenka a motiv
 - hlavní myšlenka a motiv objevující se v díle
