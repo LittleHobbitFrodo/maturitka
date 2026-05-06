@@ -109,23 +109,46 @@ Různí přátelé a známí
 
 ## Kompozice
 
+Rok vydání: 1971
 
+**Struktura**: Soubor povídek - epizodická struktura
 
-- Kdy kniha vysla, rozdělení na kapitoly/povídky/strofy, ...
-- kompoziční postupy - chronologická, retrospektivní, rámcová, řetězová, zrcadlová
-- vyprávěcí postupy - přímá, nepřímá, polopřímá řeč
-- typy promluv - vypravěč (ich/er forma), dialogy, monology
+**Kompoziční postupy**
+- Převážně chronologický
+- Místy retrospektiva (vzpomínky)
+
+**Typy promluv**
+- Ich-forma (vypravěč = autor)
+- Dialogy mezi postavami
+- Vnitřní monology
 
 ## Jazykové prostředky
-- jakém jazyce napsáno - spisovně, hovorvě, slang, ...
-- tropy a figury - ironie, personofokace, ...
-  - nejlépe i přiklady
-- verš + rým (a druhy)
+
+**Jazyk**
+- Spisovný, ale místy hovorový
+- Jednoduchý a srozumitelný
+
+**Tropy a figury**
+- Metafora: „Řeka jako živá bytost“
+- Personifikace: Příroda „ožívá“
+- Ironie: V líčení některých situací
+- Kontrast: Šťastné dětství × válečné utrpení
 
 ## Vlastní názor
 
+Dílo působí velmi autenticky a emotivně. Silnou stránkou je kontrast mezi idylickým dětstvím a tragédií války. Autor dokáže jednoduchým jazykem vyjádřit hluboké myšlenky. Nejzajímavější je postava otce, která dodává příběhům humor i napětí.
 
 ## Symbolika
-- navíc
+
+**Srnec**: Symbol krásy, nevinnosti a přírody
+  - Jeho smrt = ztráta nevinnosti
+
+**Ryby a řeka**: Klid, svoboda, únik od reality
+
+**Válka**: Zlo, které narušuje harmonii života
 
 ## Význam díla
+- Přibližuje období 2. světové války z osobního pohledu
+- Ukazuje, že i v těžkých časech lze najít krásu a lidskost
+- Dodnes je součástí maturitní četby a má silný emocionální dopad na čtenáře
+
