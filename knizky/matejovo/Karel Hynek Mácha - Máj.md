@@ -1,5 +1,7 @@
 # Karel Hynek Mácha - Máj
 
+- [pdf](https://www.lupomesky.cz/maj/)
+
 ## Literární druh a žánr
 - **Druhy**: Lyricko epická báseň - převažuje lyrika
   - Převážně er-forma, místy subjektivní lyrické pasáže blízké ich-formě
