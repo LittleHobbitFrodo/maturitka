@@ -1,0 +1,115 @@
+{\rtf1\ansi\ansicpg1250\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 TimesNewRomanPS-ItalicMT;\f1\froman\fcharset0 TimesNewRomanPSMT;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww25400\viewh13140\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qc\partightenfactor0
+
+\f0\i\fs20 \cf0 KBB - maturita l\'e9ta p\'e1n\uc0\u283  2045 - NOJONO\
+
+\fs36 \
+Anal\'fdza s\'ed\uc0\u357 ov\'e9ho provozu\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\i0\fs26 \cf0 METODY ZACHYT\'c1V\'c1N\'cd S\'cd\uc0\u356 OV\'c9HO PROVOZU\
+\
+\'97 port mirroring (SPAN)\
+	\'97 p\uc0\u345 epos\'edl\'e1n\'ed kopi\'ed paket\u367  na vyhrazen\'fd port na switchi\
+\'97 network tapping\
+	\'97 um\'edst\uc0\u283 n\'ed specializovan\'e9ho hardwaru mezi dva uzly s\'edt\u283 \
+	\'97 pasivn\'ed \'97 zachyt\'e1v\'e1 ve\'9akerou komunikaci (3 porty)\
+	\'97 aktivn\'ed \'97 zachyt\'e1v\'e1 komunikaci mezi uzly + komunikaci s po\uc0\u269 \'edta\u269 em, na kter\'e9m data zachyt\'e1v\'e1me (4 porty)\
+\'97 promiskuitn\'ed re\'9eim s\'ed\uc0\u357 . k.\
+	\'97 umo\'9e\uc0\u328 uje s\'ed\u357 ov\'e9 kart\u283  zachyt\'e1vat ve\'9aker\'fd provoz, nejen ten, kter\'fd je potenci\'e1ln\u283  ur\u269 en pro jinou MAC\
+	\'97 dal\'9a\'edm \uc0\u269 l\'e1nkem je software pro pr\'e1ci s t\u283 mito daty\
+\
+TCPDUMP\
+\
+\'97 p\uc0\u345 \'edkazy\
+	\
+	
+\f0\i tcpdump -D \'97> list interfaces\
+	tcpdump -i eth0 \'97> capture on interface (mo\'9enost any)\
+	\
+	filtry:\
+	host, port (range), dst \'85, src \'85, \
+	\uc0\u345 et\u283 zen\'ed \'97 and, or, \\(\'85or\'85 \\), not\
+	udp, tcp\
+	net\
+\
+	-w file.pcap \'97> v\'fdstup do souboru\
+	-r file.pcap \'97> \uc0\u269 te soubor\
+	-c 200 \'97> zachyt\'ed 200 paket\uc0\u367 \
+	-s 0 \'97> cel\'fd paket\
+	-X \'97> hexdump + ascii\
+	-A \'97> pouze ascii\
+	-xx kompletn\'ed hexdump\
+	-n DNS off\
+	
+\f1\i0 \
+WIRESHARK\
+\
+\'97 GUI klient pro anal\'fdzu, filtrov\'e1n\'ed, zachyt\'e1v\'e1n\'ed paket\uc0\u367 \
+\'97 capture filter / display filter\
+\
+\'97 capture filter syntax \'97 velmi podobn\'fd syntax jako tcpdump\
+	\
+	
+\f0\i host [IP]\
+	(src / dst) net 192.168.0.0/24 \'97> cel\'e1 pods\'ed\uc0\u357 \
+	port 233\
+	\
+	host www.example.com and not (port 80 or port 25)\
+	\
+	tcp portrange 1401-2399
+\f1\i0 \
+\
+\'97 display filter syntax\
+	\
+	
+\f0\i ip.src / dst == 192.168.1.1\
+
+\f1\i0 	\
+	
+\f0\i && || ! (and, or, not)\
+\
+	tcp.port, udp.port, .srcport .dstport\
+	http, arp, tcp, udp, ip, icmp, dns, tls\
+\
+	udp contains 81:60:03\
+	frame contains HTTP / 1.1\'93\
+\
+	tcp.flags.syn == 1\
+\
+	dns.qry.name == \'84sdfsdf.com\'93
+\f1\i0 \
+\
+\'97 menubar \'97> analytics \'97> Endpoint / Protocol Hierarchy / TCP Stream Graphs\
+\'97 File \'97> Export Objects \'97 export soubor\uc0\u367  v komunikaci (tcpflow)\
+\
+PRAKTICK\'c1 ANAL\'ddZA\
+\
+\'97 packet loss\
+\'97 retransmission \'97 TCP \'97 paket nedoraz\'ed, pos\'edl\'e1 se znovu (ws \'97 
+\f0\i tcp.analysis.retransmission
+\f1\i0 )\
+\
+\'97 bezpe\uc0\u269 nostn\'ed anal\'fdza\
+	\'97 podez\uc0\u345 el\'fd provoz \'97 nmap port scan (SYN ACK \'97 ws \'97 
+\f0\i tcp.flags.syn == 1 && tcp.flags.ack == 0
+\f1\i0 )\
+	\'97 OS fingerprinting \'97 opera\uc0\u269 n\'ed syst\'e9my se v hodnot\'e1ch jist\'fdch \u269 \'e1st\'ed paketu rozch\'e1zej\'ed \'97 lze je identifikovat\
+	\'97 ARP cache poisioning \'97 MitM attack \'97 \'fato\uc0\u269 n\'edk zam\u283 n\'ed svoj\'ed MAC a MAC sm\u283 rova\u269 e, adresu ponech\'e1 \'97 \'84st\'e1v\'e1\'93 se sm\u283 rova\u269 em \
+	\'97 DoS, DDoS\
+\
+	\'97 mallware \'97 DNS tunneling, podobn\'e9 techniky \'97 specifick\'e9 strings\
+\
+\'97 optimalizace \
+	\'97 bandwidth\
+	\'97 MTU \'97 maximum transmission unit (?)\
+		\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+}

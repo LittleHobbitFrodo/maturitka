@@ -1,0 +1,223 @@
+{\rtf1\ansi\ansicpg1250\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 TimesNewRomanPS-ItalicMT;\f1\froman\fcharset0 TimesNewRomanPSMT;\f2\fswiss\fcharset0 Helvetica;
+}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww25400\viewh13140\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qc\partightenfactor0
+
+\f0\i\fs20 \cf0 KBB - maturita l\'e9ta p\'e1n\uc0\u283  2045 - NOJONO\
+
+\fs36 \
+Asymetrick\'e1 kryptografie, podpisy a certifik\'e1ty\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\i0\fs26 \cf0 ASYMETRICK\'c1 KRYPTOGRAFIE\
+\
+\'97 k \'9aifrov\'e1n\'ed a de\'9aifrov\'e1n\'ed je pou\'9e\'edvan\'fd p\'e1r kl\'ed\uc0\u269 \u367  \'97 ve\u345 ejn\'fd, soukrom\'fd \'97 a jejich matematick\'e1 prov\'e1zanost\
+\'97 ve\uc0\u345 ejn\'fd kl\'ed\u269  \'97 \'9aifrov\'e1n\'ed zpr\'e1v pro majitele ve\u345 ejn\'e9ho, ov\u283 \u345 en\'ed digi podpisu\
+\'97 soukrom\'fd \'97 nesm\'ed b\'fdt uve\uc0\u345 ejn\u283 n, de\'9aifrov\'e1n\'ed zpr\'e1v, vytvo\u345 en\'ed digi podpisu\
+\
+\'97 oproti symetrick\'fdm kl\'ed\uc0\u269 \u367 m\
+	\'97 pomal\'e9 algoritmy\
+	\'97 \'9aifrov\'e1n\'ed mal\'fdch dat (symetrick\'e9 kl\'ed\uc0\u269 e)\
+	\'97 snadn\'e1 distribuce\
+\
+\'97 vyu\'9eit\'ed\
+	\'97 \'9aifrov\'e1n\'ed kr\'e1tk\'fdch zpr\'e1v\
+	\'97 v\'fdm\uc0\u283 na kl\'ed\u269 \u367  \'97 TLS\
+	\'97 digit\'e1ln\'ed podpisy \'97 vytvo\uc0\u345 en\'ed soukrom\'fdm, ov\u283 \u345 en\'ed ve\u345 ejn\'fdm (+hash)\
+	\'97 autentizace - ssh, challenge-response protokoly\
+\
+ALGORITMY ASYMETRICK\'c9 KRYPTOGRAFIE\
+\
+\'97 RSA\
+	\'97 rivest-shamir-adleman\
+	\'97 nejroz\'9a\'ed\uc0\u345 en\u283 j\'9a\'ed\
+	\'97 z\'e1kladn\'edm principem je obt\'ed\'9enost faktorizace velk\'fdch \uc0\u269 \'edsel \'97 rozklad na prvo\u269 \'edseln\'e9 \u269 initele\
+	\'97 kl\'ed\uc0\u269  \'97 2048 / 4096\
+	\'97 {\field{\*\fldinst{HYPERLINK "https://radojcic.cz/kbb/prezentace/5_asymetricka.pdf"}}{\fldrslt v\'edce}}!!!!\
+	\'97 digit\'e1ln\'ed certifik\'e1ty\
+\
+\'97 Diffie-Hellman\
+	\'97 princip dohodnut\'ed kl\'ed\uc0\u269 e mezi dv\u283 ma stranami\
+	\'97 MitM n\'e1chylnost \'97 \'fato\uc0\u269 n\'edk poslouch\'e1 od za\u269 \'e1tku a zpr\'e1vu de\'9aifruje a znovu za\'9aifruje pro protistranu\
+	\'97 diskr\'e9tn\'ed logaritmus \'97 \
+\
+\'97 ECDH\
+	\'97 eliptic curve diffie-hellman\
+	\'97 umo\'9e\uc0\u328 uje krat\'9a\'ed kl\'ed\u269 e se zachov\'e1n\'edm bezpe\u269 nosti\
+	\'97 diskr\'e9tn\'ed log. u eliptick\'fdch k\uc0\u345 ivek\
+\
+\'97 ECC\
+	\'97 eliptic curve cryptography\
+	\'97 256b ECC = 3072b RSA \'97> efektivn\uc0\u283 j\'9a\'ed\
+	\'97 ECDSA \'97 digit\'e1ln\'ed podpisy\
+	\'97 Ed25519 \'97 modern\'ed p\uc0\u345 \'edstup\
+	\'97 n\'e1hodn\'fd bod na e. k\uc0\u345 ivce \'97 jeho d. log.\
+\
+	
+\f2\fs24 {{\NeXTGraphic Pasted Graphic.png \width4320 \height5860 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}
+\f1\fs26 \
+\
+DIGIT\'c1LN\'cd PODPISY\
+\
+\'97 op\uc0\u283 t vyu\'9e\'edv\'e1 matematick\'e9ho vztahu mezi p\'e1rem kl\'ed\u269 \u367 \
+\'97 \'9aifrov\'e1n\'ed hashe n\uc0\u283 \u269 eho souk. kl\'ed\u269 em \'97 ov\u283 \u345 en\'ed ve\u345 ejn\'fdm\
+\
+\'97 vlastnosti\
+	\'97 autenticita\
+	\'97 integrita\
+	\'97 nepopiratelnost\
+\
+\'97 form\'e1ty\
+	\'97 detached signature\
+	\'97 enveloped signature\
+	\'97 enveloping signature\
+\
+\'97 kde?!\
+	\'97 pdf\
+	\'97 blockchain, krypto\
+	\'97 bankovn\'ed transakce\
+	\'97 code-signing\
+	\'97 email\
+\
+PKI\
+\
+\'97 public key infrastructure\
+\'97 syst\'e9m pro spr\'e1vu ve\uc0\u345 ejn\'fdch kl\'ed\u269 \u367  a certifik\'e1t\u367 \
+\'97 propojen\'ed identity s ve\uc0\u345 ejn\'fdm kl\'ed\u269 em \'97 zaru\u269 uje ji\
+\
+\'97 jednotliv\'e9 komponenty\
+\
+	
+\f2\fs24 {{\NeXTGraphic Pasted Graphic 1.png \width4280 \height4940 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}
+\f1\fs26 \
+\
+	\'97 CA\
+		\'97 certifika\uc0\u269 n\'ed autorita\
+		\'97 na p\uc0\u345 \'edkaz RA vyd\'e1v\'e1 certifik\'e1ty\
+		\'97 \uc0\u269 esk\'e1 po\'9ata, eIdentity, prvn\'ed certifika\u269 n\'ed autorita\
+	\'97 RA\
+		\'97 registra\uc0\u269 n\'ed autorita\
+		\'97 ov\uc0\u283 \u345 uje a zaru\u269 uje p\u345 \'edslu\'9anost kl\'ed\u269 e konkr\'e9tn\'edmu subjektu\
+	\'97 certifik\'e1t \'97 digit\'e1ln\'ed dokument \'97 ve\uc0\u345 ejn\'fd kl\'ed\u269  subjektu + podpis CA + jm\'e9no subjektu\
+	\'97 CRL\
+		\'97 cert. revocation list\
+		\'97 ov\uc0\u283 \u345 en\'ed platnosti certifik\'e1tu\
+		\'97 nap\uc0\u345 .: p\u345 i kompromitaci kl\'ed\u269 e \
+	\'97 OCSP \'97 online certificate status protocol \'97 rychlej\'9a\'ed ne\'9e CRL\
+\
+DIGIT\'c1LN\'cd CERTIFIK\'c1TY\
+\
+\'97 el. dokument propojuj\'edc\'ed subjekt s ve\uc0\u345 ej. kl\'ed\u269 em\
+\'97 podeps\'e1n CA\
+\'97 standart pro uchov\'e1n\'ed X.509\
+\'97 d\uc0\u283 len\'ed do t\u345 \'edd \'97 podle z\'e1va\'9enosti\
+\
+\'97 obsah certifik\'e1tu\
+	\'97 ve\uc0\u345 ejn\'fd kl\'ed\u269  subjektu	\
+	\'97 informace o subjektu\
+	\'97 informace o CA\
+	\'97 doba platnosti\
+	\'97 s\'e9riov\'e9 \uc0\u269 \'edslo\
+	\'97 digit\'e1ln\'ed podpis CA\
+	\'97 vyu\'9eit\'ed\
+\
+\'97 typy\
+	\'97 podle ov\uc0\u283 \u345 en\'ed\
+	\'97 domain validation\
+	\'97 organization validation\
+	\'97 extended validation \'97 zelen\'fd prou\'9eek\
+\
+\'97 chain of trust\
+	\'97 Root CA \'97 self-signed \'97 hlavn\'ed autorita \'97 v prohl\'ed\'9ee\uc0\u269 i nebo OS\
+	\'97 intermidiate CA \'97 podepsan\'e1 Root CA\
+	\'97 end entity \'97 server, u\'9eivatel\'85\
+	\'97 prohl\'ed\'9ee\uc0\u269 e obsahuj\'ed seznam d\u367 v\u283 ryhodn\'fdch CA\
+\
+\'97 ve\uc0\u345 ejn\'e9 CA\
+	\'97 zadax \'97 
+\f0\i Let\'92s encrypt
+\f1\i0  \'97 domain validation\
+	\'97 DigiCert, Comodo, GlobalSign \'97 komer\uc0\u269 n\'ed\
+\
+\'97 intern\'ed CA\
+\
+SSL / TLS CERTIFIK\'c1TY\
+\
+\'97 SSL \'97 secure sockets layer\
+\'97 TLS \'97 transport layer security\
+\
+\'97 HTTPS, email, VPN tunely\
+\
+\'97 TLS handshake\
+	\'97 klient se p\uc0\u345 ipoj\'ed\
+	\'97 server za\'9ale sv\uc0\u367 j certifik\'e1t\
+	\'97 klient ov\uc0\u283 \u345 \'ed platnost certifik\'e1tu\
+	\'97 v\'fdm\uc0\u283 na kl\'ed\u269 e pro symetrick\'e9 \'9aifrov\'e1n\'ed\
+	\'97 juhu jupi sifrovana komunikace!!\
+\
+BEZPE\uc0\u268 N\'c1 SPR\'c1VA KL\'cd\u268 \u366 \
+\
+\'97 generov\'e1n\'ed kl\'ed\uc0\u269 \u367  \'97 bezpe\u269 n\'e9 gener\'e1tory, dostate\u269 n\'e1 d\'e9lka kl\'ed\u269 e\
+\
+\'97 ulo\'9een\'ed kl\'ed\uc0\u269 \u367 \
+	\'97 HSM \'97 hardware security module \'97 hardware kl\'ed\uc0\u269 enka\
+	\'97 TPM \'97 trusted platform module \'97 \uc0\u269 ip v po\u269 \'edta\u269 i \'97 kl\'ed\u269 e pro de\'9aifrov\'e1n\'ed disku, kontrola boot procesu\
+	\'97 AWS KMS, Vault, KeePassXC?\
+	\'97 \'9aifrovan\'e9 soubory\
+\
+\'97 ochrana soukrom\'e9ho kl\'ed\uc0\u269 e\
+	\'97 siln\'fd passphrase\
+	\'97 omezen\'e1 pr\'e1va p\uc0\u345 \'edstupu\
+	\'97 z\'e1loha\
+	\'97 nesd\'edlet!!!\
+\
+\'97 kl\'ed\uc0\u269 nick\'e1 rotace\
+	\'97 \'85\
+	\'97 key rollover \'97 postupn\'fd p\uc0\u345 echod\
+\
+\'97 zneplatn\uc0\u283 n\'ed\
+	\'97 CRL\
+	\'97 OCSP\
+	\'97 \'85\
+\
+PRAKTICK\'c9 N\'c1STROJE\
+\
+\'97 OpenSSL\
+	\'97 generov\'e1n\'ed kl\'ed\uc0\u269 \u367 , certifik\'e1t\u367 \
+	\'97 \'9aifrov\'e1n\'ed de\'9aifrov\'e1n\'ed\
+	\'97 CSR \'97 certificate signing request\
+\
+	
+\f0\i openssl genrsa -out private_key.pem 2048\
+	openssl rsa -in private_key.pem -pubout -out public_key.pem\
+\
+	openssl rsautl -encrypt -inkey public.pem -pubin -in file.txt -out file.enc\
+	openssl rsautl -decrypt -inkey private.pem -in file.enc -out file_decrypted.txt
+\f1\i0 \
+\
+\'97 PGP / GPG\
+	\'97 PGP \'97 pretty good privacy\
+	\'97 \'9aifrov\'e1n\'ed, podepisov\'e1n\'ed\
+	\'97 GPG \'97 gnu privacy guard \'97 implementace\
+	\'97 mail \'9aifrov\'e1n\'ed, soubory\
+	\'97 web of trust \'97 nen\'ed centr\'e1ln\'ed CA, lid\'e9 si potvrzuj\'ed kl\'ed\uc0\u269 e navz\'e1jem\
+\
+\'97 SSH\
+	\'97 Ed25519, RSA\
+	\'97 
+\f0\i ssh-keygen
+\f1\i0  \
+	\'97 nen\'ed t\uc0\u345 eba heslo\
+\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+
+\f0\i .\'95*\'95.\
+}

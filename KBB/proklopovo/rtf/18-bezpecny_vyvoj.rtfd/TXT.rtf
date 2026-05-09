@@ -1,0 +1,196 @@
+{\rtf1\ansi\ansicpg1250\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 TimesNewRomanPS-ItalicMT;\f1\froman\fcharset0 TimesNewRomanPSMT;\f2\fswiss\fcharset0 Helvetica;
+}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww25400\viewh13140\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qc\partightenfactor0
+
+\f0\i\fs20 \cf0 KBB - maturita l\'e9ta p\'e1n\uc0\u283  2045 - NOJONO\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qc\partightenfactor0
+
+\fs36 \cf0 \
+Principy bezpe\uc0\u269 n\'e9ho v\'fdvoje\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\i0\fs26 \cf0 Z\'c1KLADY\
+\
+\'97pro\uc0\u269 ?\
+	\'97 \'fajmy na reputaci\
+	\'97 n\'e1klady na prevenci / n\'e1pravu\
+	\'97 zm\'edrn\uc0\u283 n\'ed dopad\u367  bezpe\u269 nostn\'edch incident\u367 \
+\
+\'97 principy\
+	\'97 security by design \'97 bezpe\uc0\u269 nost aplikace je jeden prim\'e1rn\'edch postoj\u367 , ne n\u283 co, co se doh\'e1n\'ed jako posledn\'ed\
+	\'97 defense in depth \'97 v\'edce bezpe\uc0\u269 nostn\'edch vrstev (klidn\u283  i redundantn\'edch)\
+	\'97 principle of least privilege \'97 subjekt m\'e1 nejmen\'9a\'ed nutn\'e9 opr\'e1vn\uc0\u283 n\'ed pro spr\'e1vn\'e9 fungov\'e1n\'ed (datab\'e1ze, u\'9eivatel\'e9\'85)\
+	\'97 fail secure \'97 \'84bezpe\uc0\u269 n\'e9 selh\'e1n\'ed\'93 \'97 analogie se z\'e1mkem \'97 p\u345 i v\'fdpadku proudu z\'e1mek z\u367 stane zam\u269 en\'fd (fail safe \'97 odemkne se)\
+\
+\'97 OWASP top 10\
+	\'97 
+\f0\i Open Worldwide Application Security Project
+\f1\i0 \
+	\'97 souhrn 10 nej\uc0\u269 ast\u283 j\'9a\'edch bezpe\u269 nostn\'edch selh\'e1n\'ed za minul\'fd rok\
+	\'97 aktu\'e1ln\'ed verze, jak se jich vyvarovat a tak\'85\
+\
+INJECTION \'daTOKY\
+\
+\'97 SQLi\
+	\'97 vkl\'e1d\'e1n\'ed zlot\uc0\u345 il\'fdch SQL dotaz\u367  do u\'9eivatelsk\'fdch vstup\u367 \
+	\'97 typy \'97 classic, blind, time-based (ov\uc0\u283 \u345 en\'ed p\u345 \'edtomnosti zraniteln\'e9ho vstupu pomoc\'ed \u269 asov\'fdch funkc\'ed SQL)\
+\
+	\'97 zraniteln\'fd SQL query dotaz \'97 
+\f0\i SELECT * FROM Neco WHERE Id = \'82vstup\'91
+\f1\i0 \
+	\'97 \'fato\uc0\u269 n\'edk\u367 v vstup \'97 
+\f0\i Franta' OR 1=1 OR name = 'Pepa \'97>
+\f1\i0  z\'edsk\'e1 data z cel\'e9 datab\'e1ze\
+\
+	\'97 ochrana:\
+		\'97 prepared statements\
+		\'97 ORM \'97 object relational mapping \'97 vrstva abstrakce nad datab\'e1z\'ed \'97 nen\'ed nutn\'e9 vytv\'e1\uc0\u345 et SQL po\'9eadavky p\u345 \'edmo\
+			\'97 mapov\'e1n\'ed \uc0\u269 \'e1st\'ed datab\'e1ze na re\'e1ln\'e9 objekty v prog. j.\
+		\'97 validace a sanitace vstup\uc0\u367 \
+		\'97 princip t\uc0\u283 ch nejmen\'9a\'edch opr\'e1vn\u283 n\'ed p\u345 ece!\
+\
+\'97 command injection\
+	\'97 spou\'9at\uc0\u283 n\'ed syst\'e9mov\'fdch p\u345 \'edkaz\u367  \'97 zneu\'9eit\'ed\
+	\'97 ochrana:\
+		\'97 nespou\'9at\uc0\u283 t p\u345 \'edmo u\'9eivatelsk\'e9 vstupy jako p\u345 \'edkazy\
+		\'97 whitelist \
+		\'97 escaping speci\'e1ln\'edch zank\uc0\u367 \
+\
+CROSS-SITE SCRIPTING\
+\
+\'97 \'fato\uc0\u269 n\'edk vlo\'9e\'ed \'9akodliv\'fd javascript do str\'e1nky, kterou si potom jin\'fd u\'9eivatel zobraz\'ed\
+\
+\'97 typy\
+	\'97 non-persistent (reflected) \'97 v URL\
+	\'97 persistent (stored) \'97 \'9akodliv\'fd skript je ulo\'9een\'fd na serveru \'97 spust\'ed se ka\'9ed\'e9mu\
+	\'97 DOM-based \'97 zm\uc0\u283 na struktury dokumentu \'97 vykreslov\'e1n\'ed u\'9eivatelsk\'e9ho vstupu \'97 <script> \'85 </script>\
+\
+	\'97 clickjacking?\
+\
+\'97 dopady XSS\
+	\'97 k\uc0\u345 \'e1de\'9e citliv\'fdch session dat\
+	\'97 defacement\
+	\'97 p\uc0\u345 esm\u283 rov\'e1n\'ed\
+	\'97 logov\'e1n\'ed\
+\
+\'97 ochrana:\
+	\'97 validace a sanitace vstup\uc0\u367 \
+	\'97 Http-Only flag pro su\'9anky\
+	\'97 content security policy \'97 dynamick\'e1 ochrana proti XSS \'97 z\'e1kaz inline skript\uc0\u367 , remote skript\u367 , formul\'e1\u345 \u367 , unsafe js\'85\
+	\'97 output encoding \'97 escaping speci\'e1ln\'edch znak\uc0\u367  podle kontextu\
+\
+CROSS-SITE REQUEST FORGERY\
+\
+\'97 zneu\'9eit\'ed identity d\uc0\u367 v\u283 \u345 ovan\'e9ho (privilegovan\'e9ho) u\'9eivatele pro prov\'e1d\u283 n\'ed nekal\'fdch \'famysl\u367 \
+\
+\'97 nap\uc0\u345 \'edklad pomoc\'ed obr\'e1zku \'97 
+\f0\i <img src=\'84my-bank.example.com\'93>
+\f1\i0 \
+\
+	
+\f2\fs24 {{\NeXTGraphic Pasted Graphic.png \width12440 \height5900 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}
+\f1\fs26 \
+	\'97 prohl\'ed\'9ee\uc0\u269  automaticky dopln\'ed cookies\
+\
+\'97 skryt\'e9 formul\'e1\uc0\u345 e\
+\
+\'97 ochrana:\
+	\'97 CSRF tokeny \'97 ka\'9ed\'fd formul\'e1\uc0\u345  m\'e1 unik\'e1tn\'ed token\
+	\'97 Same-Site cookies\
+	\'97 kontrola Origin, Referer\
+	\'97 re-autentizace\
+\
+AUTENTIZACE A AUTORIZACE\
+\
+\'97 autentizace \'97 ov\uc0\u283 \u345 en\'ed u\'9eivatele, identity / autorizace \'97 souhlas, schv\'e1len\'ed, umo\'9en\u283 n\'ed p\u345 \'edstupu\'85\
+\
+\'97 bezpe\uc0\u269 n\'e1 autentizace\
+	\'97 bezpe\uc0\u269 n\'e9 ukl\'e1d\'e1n\'ed hesel \'97 bcrypt, Argon2 \'97 pomal\'e9 hashovac\'ed funkce (
+\f0\i viz. ot\'e1zka \uc0\u269 .12
+\f1\i0 )\
+	\'97 salt\
+	\'97 v\'edce-faktorov\'e1 autentizace \'97 zn\'e1m, m\'e1m, jsem\
+	\'97 ochrana proti bruteforce \'fatok\uc0\u367 m\
+\
+\'97 session management\
+	\'97 bezpe\uc0\u269 n\'e9 session ID\
+	\'97 timeout \'97 automatick\'e9 odhl\'e1\'9aen\'ed\
+	\'97 session invalidation \'97 p\uc0\u345 i odhl\'e1\'9aen\'ed\
+	\'97 ochrana cookies\
+\
+\'97 autorizace\
+	\'97 role based access control\
+	\'97 server-side ov\uc0\u283 \u345 en\'ed opr\'e1vn\u283 n\'ed\
+	\'97 {\field{\*\fldinst{HYPERLINK "https://owasp.org/Top10/2025/A01_2025-Broken_Access_Control/"}}{\fldrslt owasp}} \'97 broken access control\
+\
+VALIDACE VSTUP\uc0\u366 \
+\
+\'97 principy validace\
+	\'97 mantra \'97 
+\f0\i Nikdy ned\uc0\u367 v\u283 \u345 uj u\'9eivatelsk\'e9mu vstupu!
+\f1\i0 \
+	\'97 server-side (nutnost) / client-side (lze se j\'ed vyhnout)\
+	\'97 whitelist p\uc0\u345 \'edstupn\'fdch hodnot (blacklist je tak\'e9 p\u345 \'edupstn\'fd)\
+\
+\'97 typy validace\
+	\'97 s\'e9mantick\'e1 (data d\'e1vaj\'ed smysl v dan\'e9m kontextu) a syntaktick\'e1 (data maj\'ed n\uc0\u283 jakou strukturu)\
+	\'97 podle datov\'e9ho typu \'97 datum, int, string, \'85 \'97 type casting / conversion, vestav\uc0\u283 n\'e9 valid\'e1tory, range\
+	\'97 regex \'97 email, tel. \uc0\u269 ., \
+	\'97 d\'e9lka\
+	\'97 typ souboru, velikost souboru\'85\
+\
+\'97 sanitace\
+	\'97 odstran\uc0\u283 n\'ed nebezpe\u269 n\'fdch znak\u367 \
+	\'97 HTML entity encoding \'97 z >  se stane &gt; \'85\
+	\'97 URL encoding \'97 % + hex hodnota\
+\
+BEZPE\uc0\u268 N\'c1 KONFIGURACE\
+\
+\'97 citliv\'e9 \'fadaje \'97 bacha na git\
+\'97 .
+\f0\i gitignore
+\f1\i0 \
+\'97 enviroment variables \'97 citliv\'e1 data nejsou p\uc0\u345 \'edmo v k\'f3du, odkaz pomoc\'ed env \'97 python, \'85\
+\'97 secret management \'97 Hashicorp Vault, AWS secrets manager \'97 API, SSH, \'85 kl\'ed\uc0\u269 e\
+\
+\'97 error handling\
+	\'97 nezobrazovat u\'9eivatel\uc0\u367 m\
+	\'97 logov\'e1n\'ed\
+	\'97 SQL dotazy, Stack Trace, intern\'ed errory\'85\
+\
+\'97 security HTTP headers\
+	\'97 CSP \'97 content security policy \'97 \'85\
+	\'97 X-Content-Type-Options \'97 nut\'ed prohl\'ed\'9ee\uc0\u269  respektovat nastaven\'fd MIME typ obsahu \'97 
+\f0\i nosniff
+\f1\i0 \
+	\'97 X-Frame-Options \'97 zakazuje iFrame \'97 clickjacking\
+	\'97 HSTS \'97 Strict Transport Security \'97 born to HTTP, forced to HTTPS\
+\
+BEZPE\uc0\u268 N\'dd V\'ddVOJOV\'dd CYKLUS\
+\
+\'97 SDLC \'97 
+\f0\i Secure Development Life Cycle
+\f1\i0 \
+\'97 cyklus:\
+	\'97 pl\'e1nov\'e1n\'ed \'97 threat modeling, sec. guidelines\
+	\'97 v\'fdvoj \'97 secure coding guidelines, code review\
+	\'97 testov\'e1n\'ed \'97 sec. testing, pen-testing\
+	\'97 nasazen\'ed \'97 monitoring, hardening\
+	\'97 \'fadr\'9eba \'97 incident response, patch mgmt.  \
+\
+ODKAZY\
+\
+\'97 \'85\
+\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+
+\f0\i .\'95*\'95.\
+}

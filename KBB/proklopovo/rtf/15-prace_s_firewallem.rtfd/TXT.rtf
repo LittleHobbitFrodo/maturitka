@@ -1,0 +1,257 @@
+{\rtf1\ansi\ansicpg1250\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 TimesNewRomanPS-ItalicMT;\f1\froman\fcharset0 TimesNewRomanPSMT;\f2\fswiss\fcharset0 Helvetica;
+}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww25400\viewh13140\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qc\partightenfactor0
+
+\f0\i\fs20 \cf0 KBB - maturita l\'e9ta p\'e1n\uc0\u283  2045 - NOJONO\
+
+\fs36 \
+Pr\'e1ce s firewallem\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\i0\fs26 \cf0 FIREWALLY OBECN\uc0\u282 \
+\
+\'97 software / hardware pro filtrov\'e1n\'ed s\'ed\uc0\u357 ov\'e9ho provozu na z\'e1klad\u283  definovan\'fdch pravidel\
+\'97 kontrola provozu\
+\
+\'97 druhy\
+	\'97 s\'ed\uc0\u357 ov\'fd \'97 dedikovan\'fd prvek v s\'ed\u357 ov\'e9 topologii\
+	\'97 host-based \'97 integrovan\'fd software v opera\uc0\u269 n\'edm syst\'e9mu\
+	\'97 aplika\uc0\u269 n\'ed \'97 \'farove\u328  aplikac\'ed \'97 HTTPS\
+\
+\'97 stavov\'e9 \'97 berou v potaz cel\'fd komunika\uc0\u269 n\'ed stream\
+\'97 bezstavov\'e9 \'97 kontroluj\'ed jednotliv\'e9 pakety\
+\
+\'97 OSI/OSI \'97 s\'ed\uc0\u357 ov\'e1 a transportn\'ed vrstva (logicky)\
+\
+\'97 kde?\
+	\'97 dedikovan\'fd hardware\
+	\'97 u\'9eivatelsk\'e9 stanice\
+	\'97 routery, p\uc0\u345 ep\'edna\u269 e\
+	\'97 cloud\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f2\fs24 \cf0 {{\NeXTGraphic Pasted Graphic.jpg \width3465 \height2595 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}
+\f1\fs26 lol proc je tak malej bahahahaha\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+TERMINOLOGIE\
+\
+\'97 chain\
+	\'97 \uc0\u345 et\u283 zec pravidel aplikovan\'fdch na komunikaci\
+	\'97 INPUT\
+	\'97 OUTPUT\
+	\'97 FORWARD\
+	\'97 PREROUTING\
+	\'97 POSTROUTING\
+\
+\'97 tabulky\
+	\'97 filter \'97 pravidla pro filtrov\'e1n\'ed (iptables default)\
+	\'97 NAT \'97 pravidla pro p\uc0\u345 ekl\'e1d\'e1n\'ed adres\
+	\'97 mangle \'97 ozna\uc0\u269 ov\'e1n\'ed paket\u367  pro dal\'9a\'ed zpracov\'e1n\'ed, modifikace paket\u367 \
+	\'97 raw \'97 
+\f0\i This table is used mainly for configuring exemptions from connection tracking in combination with the NOTRACK target. \'97 manpages
+\f1\i0 \
+\
+\'97 pravidlo\
+	\'97 podm\'ednka \'97> akce\
+	\'97 match \'97 podm\'ednka pro v\'fdb\uc0\u283 r paketu\
+	\'97 target / action \'97 akce, kter\'e9 bude s paketem provedena\
+\
+\'97 c\'edle (target / action)\
+	\'97 ACCEPT\
+	\'97 DROP\
+	\'97 REJECT \'97 ICMP odpov\uc0\u283 \u271 \
+	\'97 LOG \'97 loguje paket, pokra\uc0\u269 uje\
+	\'97 RETURN \'97 n\'e1vrat do p\uc0\u345 edchoz\'edho \u345 et\u283 zce?\
+	\'97 QUEUE \'97 userspace queue\
+\
+\'97 politika\
+	\'97 v\'fdchoz\'ed pravidlo\
+	\'97 default ACCEPT\
+	\'97 default DROP\
+\
+NAT\
+\
+\'97 network address translation \'97 p\uc0\u345 eklad adres mezi s\'edt\u283 mi \'97 (lok\'e1ln\'ed s\'edt\u283  192.168\'85 \'97> internet)\
+\'97 sd\'edlen\'ed ve\uc0\u345 ejn\'e9 IP adresy mezi v\'edce za\u345 \'edzen\'edmi\
+\'97 \'84skryt\'ed v s\'edti\'93 \'97 
+\f0\i asi David
+\f1\i0 \
+\
+\'97 SNAT\
+	\'97 Source \'85\
+	\'97 zm\uc0\u283 na zdrojov\'e9 IP adresy (lok\'e1ln\'ed \'97> internet)\
+	\'97 POSTROUTING\
+\
+\'97 DNAT\
+	\'97 Destination \'85\
+	\'97 zm\uc0\u283 na c\'edlov\'e9 IP (internet \'97> lok\'e1ln\'ed)\
+	\'97 PREROUTING\
+\
+\'97 Masquerade\
+	\'97 SNAT pro dynamick\'e9 IP adresy\
+	\'97 umo\'9e\uc0\u328 uje na\'9aemu po\u269 \'edta\u269 i st\'e1t se br\'e1nou do internetu\
+	\'97 MitM \'fatok \'97 \'fato\uc0\u269 n\'edk se chov\'e1 jako default gateway (arp spoofing, rogue DHCP server) \'97 odposlouch\'e1v\'e1 na\'9a\'ed komunikaci\
+\
+\'97 port forwarding\
+	\'97 sm\uc0\u283 rov\'e1n\'ed port\u367  \'97 na zvn\u283 j\'9aku nedostupn\'fd port budeme p\u345 esm\u283 rov\'e1vat provoz z dostupn\'e9ho portu (8080 \'97> 80 intern\'ed web server)\
+	\'97 intern\'ed slu\'9eby \'97> internet\
+\
+\'97 ulo\'9een\'e1 / b\uc0\u283 \'9e\'edc\'ed (aktu\'e1ln\u283  nasazen\'e1) pravidla\
+\
+GNU/LINUX FIREWALLY\
+\
+\'97 iptables, nftables, firewalld, ufw\
+\
+\'97 
+\f0\i iptables
+\f1\i0 \
+	\'97 z\'e1kladn\'ed syntax: 
+\f0\i iptables [tabulka] [akce] [chain] [match] [target]
+\f1\i0 \
+	\'97 vyps\'e1n\'ed pravidel \'97 
+\f0\i -L / -L -v -n (+ \'97line-numbers)\
+	\'97 
+\f1\i0 spr\'e1va pravidel:\
+		\'97 -A \'97 append\
+		\'97 -I \'97 insert \'97 vlo\'9een\'ed na pozici\
+		\'97 -D \'97 delete\
+		\'97 -R \'97 replace\
+		\'97 -F \'97 flush \'97 smaz\'e1n\'ed v\'9aech pravidel\
+	\'97 definice pravidel (match):\
+		\'97 -p \'97 protocol\
+		\'97 -s \'97 source IP \
+		\'97 -d \'97 dst IP\
+		\'97 -i \'97 in-interface\
+		\'97 -o \'97 out-interace\
+		\'97 \'97sport\
+		\'97 \'97dport\
+		\'97 -m \'97 match options\
+		\'97 -m conntrack \'97ctstate \'97 stav spojen\'ed (NEW, ESTABLISHED, RELATED)\
+	\'97 nastaven\'ed v\'fdchoz\'ed politiky:\
+		\'97 -P INPUT DROP\
+		\'97 -P FORWARD DROP\
+		\'97 -P OUTPUT ACCEPT\
+	\'97 ukl\'e1d\'e1n\'ed / obnova:\
+		\'97 
+\f0\i iptables-save > /etc/iptables/blablablabl.v1\
+		\'97 iptables-restore < /etc/iptables/shfkshdgkjbjk.v1
+\f1\i0 \
+		\'97 iptables-persistent
+\f0\i \
+\
+	\'97 
+\f1\i0 z\'e1kladn\'ed \'fakony:\
+\
+
+\f0\i 		sudo iptables -A INPUT -i lo -j ACCEPT\
+		sudo iptables -A OUTPUT -o lo -j ACCEPT\
+\
+		sudo iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT\
+		sudo iptables -A OUTPUT -m conntrack --ctstate ESTABLISHED -j ACCEPT\
+\
+		sudo iptables -A INPUT -s 203.0.113.51 -j DROP
+\f1\i0 \
+\
+		\'85\
+\
+	\'97 ma\'9akar\'e1da\
+		\'97 odkomentovat 
+\f0\i /etc/sysctl.conf
+\f1\i0 \
+		\'97 
+\f0\i sudo sysctl -p
+\f1\i0 \
+		\'97 
+\f0\i sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+\f1\i0 \
+\
+\'97 
+\f0\i nftables
+\f1\i0 \
+	\'97 modern\uc0\u283 j\'9a\'ed n\'e1hrada ipt \'97 jednotn\'fd syntax pro IPv4 a v6 \'97 \u269 iteln\u283 j\'9a\'ed konfigurace\
+	\'97 
+\f0\i nft list ruleset
+\f1\i0  \
+	\'97 
+\f0\i nft add table / chain / rule
+\f1\i0 \
+\
+\'97 
+\f0\i firewalld
+\f1\i0 \
+	\'97 z\'f3ny \'97 automatick\'e1 konfigurace podle nasazen\'ed syst\'e9mu (public, local, web, trusted, internal, block, dmz)\
+	\'97 z\'e1klad:\
+		\'97 
+\f0\i firewall-cmd \'97state\
+		\'97 firewall-cmd --list-all\
+		\'97 firewall-cmd --add-service=http\
+		\'97 firewall-cmd --add-port=8080/tcp\
+		\'97 firewall-cmd --runtime-to-permanent
+\f1\i0 \
+\
+\'97 
+\f0\i ufw
+\f1\i0 \
+	\'97 zjednodu\'9aen\'e1 spr\'e1va iptables\
+	\'97 
+\f0\i ufw enable / ufw disable - 
+\f1\i0 zapnut\'ed/vypnut\'ed\
+	\'97 
+\f0\i ufw status verbose - 
+\f1\i0 zobrazen\'ed stavu\
+	\'97 
+\f0\i ufw allow 22/tcp - 
+\f1\i0 povolen\'ed SSH\
+	\'97 
+\f0\i ufw deny from 192.168.1.100 - 
+\f1\i0 blokov\'e1n\'ed IP\
+	\'97 
+\f0\i ufw default deny incoming - 
+\f1\i0 v\'fdchoz\'ed politika\
+\
+LOGOV\'c1N\'cd A MONITORING\
+\
+\'97 iptables \'97 target LOG \'97 
+\f0\i iptables -A INPUT -j LOG --log-prefix "FIREWALL: "\
+
+\f1\i0 \'97 zobrazen\'ed\
+	\'97 
+\f0\i journalctl -k | grep "IN=.*OUT=.*"
+\f1\i0 \
+	\'97 
+\f0\i /var/log/kern.log
+\f1\i0  nebo 
+\f0\i /var/log/messages
+\f1\i0 \
+\
+\'97 bezpe\uc0\u269 nostn\'ed v\'fdhody\
+\
+BEZPE\uc0\u268 NOSTN\'cd POLITIKY\
+\
+\'97 princip nejmen\'9a\'edch opr\'e1vn\uc0\u283 n\'ed\
+\'97 doporu\uc0\u269 en\'ed:\
+	\'97 povolit loopback\
+	\'97 pouze established a related spojen\'ed\
+	\'97 pot\uc0\u345 ebn\'e9 slu\'9eby\
+	\'97 logov\'e1n\'ed odm\'edtnut\'e9ho provozu\
+\
+\'97 dokumentov\'e1n\'ed konfigurace\
+	\'97 iptables \'97 
+\f0\i \'85 -m comment \'97comment \'84snad to funguje kuc\'ed nevim no\'93
+\f1\i0 \
+\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+
+\f0\i .\'95*\'95.\
+{\field{\*\fldinst{HYPERLINK "https://tldp.org/HOWTO/IPCHAINS-HOWTO-4.html"}}{\fldrslt ummmm}}\
+}

@@ -1,0 +1,191 @@
+{\rtf1\ansi\ansicpg1250\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 TimesNewRomanPS-ItalicMT;\f1\froman\fcharset0 TimesNewRomanPSMT;\f2\fswiss\fcharset0 Helvetica;
+}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww25400\viewh13140\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qc\partightenfactor0
+
+\f0\i\fs20 \cf0 KBB - maturita l\'e9ta p\'e1n\uc0\u283  2045 - NOJONO\
+
+\fs36 \
+Malware a jeho anal\'fdza\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\i0\fs26 \cf0 MALWARE OBCECN\uc0\u282 \
+\
+\'97 malware = malicious software \'97 software, kter\'fd bez v\uc0\u283 dom\'ed majitele vykon\'e1v\'e1 v\'9aelijak\'e9 \'fakony, se kter\'fdmi by majitel nesouhlasil \'97 do syst\'e9mu se dost\'e1v\'e1 bez v\u283 dom\'ed majitele\
+\'97 druhy\
+	\'97 trojsk\'fd k\uc0\u367 \u328 \
+	\'97 worm, virus\
+	\'97 botnet\
+	\'97 root-kit \'97 sada program\uc0\u367 , kter\'e1 maskuje p\u345 \'edtomnost malwaru \'97 maz\'e1n\'ed soubor\u367 , skr\'fdv\'e1n\'ed proces\u367 , syst\'e9mov\'fdch \'fadaj\u367 \'85\
+	\'97 backdoor\
+	\'97 ransomware\
+	\'97 spyware\
+	\'97 adware\
+	\'97 spam\
+	\'97 scam\
+	\'97 phishing\
+	\'97 crypto-ware \'97 t\uc0\u283 \'9ei\u269 ka kryptom\u283 n\
+\
+VIRTUALIZACE PRO BEZPE\uc0\u268 NOU ANAL\'ddZU MALLWARU\
+\
+\'97 pro\uc0\u269 ? \'97 izolace, snapshoty \'97 opakovatelnost, kontrolovan\'e9 prost\u345 ed\'ed\
+\
+\'97 z\'e1kladn\'ed predispozice VM pro anal\'fdzu malwaru\
+	\'97 s\'ed\uc0\u357 ov\'e1 izolace \'97 host-only, internal, bez s\'edt\u283 \
+	\'97 kontrola provozu\
+	\'97 simulace internetov\'e9ho p\uc0\u345 ipojen\'ed\
+\
+	\'97 snapshoty\
+	\'97 p\uc0\u345 ed anal\'fdzou \'97 rychl\'fd n\'e1vrat do bezpe\u269 n\'e9ho stavu\
+\
+	\'97 z\'e1kladn\'ed bezpe\uc0\u269 nost\'ed opat\u345 en\'ed\
+	\'97 deaktivace sd\'edlen\'e9ho souborov\'e9ho syst\'e9mu\
+	\'97 deaktivace sd\'edlen\'e9ho clipboradu\
+	\'97 drag-n-drop funkce\
+\
+	\'97 monitorovac\'ed n\'e1stroje\
+	\'97 process monitor, wireshark\'85\
+	\'97 skripty pro sb\uc0\u283 r dat\
+\
+\'97 rizika\
+	\'97 malware detekuje vm \'97> jin\'e9 chov\'e1n\'ed \'97 obt\'ed\'9en\'e1 detekce, specifick\'fd payload\
+	\'97 anti-vm techniky \'97 kontrola hw, \
+	\'97 \uc0\u269 asov\'e1n\'ed \'97 m\u283 \u345 en\'ed d\'e9lky trv\'e1n\'ed instrukc\'ed oproti re\'e1ln\'e9mu hw\
+	\'97 artefakty virtualizace \'97 drivery, registry, n\'e1zvy za\uc0\u345 \'edzen\'ed\
+	\'97 telemetrie, u\'9eiv. chov\'e1n\'ed\'85\
+\
+\'97 VM escape\
+	\'97 malware unikne do hostitelsk\'e9ho syst\'e9mu\
+	\'97 hypervisor zranitelnost, po s\'edti \'97> aktualizace, odpojen\'ed od s\'edt\uc0\u283 \
+	\'97 zneu\'9eit\'ed kernel-level zranitelnost\'ed \'97 shared resources\
+\
+\'97 vhodn\'e9 hypervisory pro anal\'fdzu malwaru\
+	\'97 qemu/kvm	\
+	\'97 specializovan\'fd sandbox \'97 cuckoo sandbox\
+	\'97 virtualbox\
+	\'97 vmware\
+\
+ANAL\'ddZA SPUSTITELN\'ddCH SOUBOR\uc0\u366 \
+\
+\'97 statick\'e1:\
+	\'97 kontrola hashe bin\'e1rn\'edho souboru\
+	\'97 MD5, SHA-256\
+	\'97 virustotal, malware bazaar, hybridanalysis\
+\
+	\'97 
+\f0\i strings
+\f1\i0 \
+	\'97 \uc0\u269 iteln\'e9 textov\'e9 \u345 et\u283 zce v bin. souboru\
+	\'97 p\uc0\u345 \'edkazy, url, IP, obdobn\'e9 n\'e1pov\u283 dy / indicie\
+\
+	\'97 packer\
+	\'97 malware je ukryt\'fd v dal\'9a\'edm bin\'e1rn\'edm souboru \'97 prakticky znemo\'9e\uc0\u328 uje statickou anal\'fdzu\
+	\'97 typ obfuskace\
+	\'97 detekce \'97 signatury packer\uc0\u367 , entropy analysis \'97 variace mezi vzorky bin\'e1rn\'edch soubor\u367 \
+	\'97 DIE (detect it easy), PEiD \'97 windows\
+\
+	\'97 anal\'fdza pou\'9e\'edvan\'fdch knihoven\
+	\'97 statick\'e9 / dynamick\'e9 / dynamick\'e9 za b\uc0\u283 hu\
+	\'97 umo\'9e\uc0\u328 uje n\'e1m odhalit, jakou funkcionalitu malware vy\'9eaduje\
+	\'97 
+\f0\i lld (linux), dependency walker (windows)
+\f1\i0 \
+\
+	\'97 export / import funkce\
+	\'97 funkce, kter\'e9 program nab\'edz\'ed ostatn\'edm / funkce, kter\'e9 vyu\'9e\'edv\'e1\
+	\'97 PE \'97 portable executable\
+	\'97 PE header\
+	\'97 
+\f0\i objdump, readelf (lincox) / PE explorer (bimbomwss)\
+
+\f1\i0 \
+	\'97 struktura spustiteln\'fdch soubor\uc0\u367 \
+	\'97 PE \'97 windows \'97 DOS header, PE header, Optional header\
+	\'97 sekce \'97 text, data, rdata, rsrc\
+	\'97 ELF \'97 executable and linkable format \'97 linux\
+	\'97 ELF header, program headers, section headers\
+	\'97 data, rodata, text, bss\
+\
+	
+\f2\fs24 {{\NeXTGraphic Pasted Graphic.png \width8420 \height4160 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}
+\f1\fs26 \
+\
+	
+\f2\fs24 {{\NeXTGraphic Pasted Graphic 1.jpg \width7845 \height4305 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}
+\f1\fs26 \
+\
+	\'97 
+\f0\i binwalk
+\f1\i0 \
+	\'97 vyhled\'e1v\'e1n\'ed a extrakce packed soubor\uc0\u367  v bin\'e1rn\'edm souboru\
+	\'97 
+\f0\i binwalk xxx
+\f1\i0  \'97 hled\'e1n\'ed\
+	\'97 
+\f0\i binwalk -e xxx
+\f1\i0  \'97 extrakce\
+\
+\'97 dynamick\'e1\
+	\'97 spou\'9at\uc0\u283 n\'ed a monitorov\'e1n\'ed malwaru ve VM\
+	\'97 sandbox \'97 automatizovan\'e9 testov\'e1n\'ed \'97 hl\'e1\'9aen\'ed o chov\'e1n\'ed malwaru (GFI sandbox\'85) \'97 omezen\'e9 mo\'9enosti\
+	\'97 \'85\
+\
+	\'97 monitorov\'e1n\'ed chov\'e1n\'ed malwaru\
+	\'97 s\'ed\uc0\u357 ov\'fd provoz \'97 wireshark\
+	\'97 syst\'e9mov\'e1 vol\'e1n\'ed, fs I/O\
+	\'97 registry \'97 p\uc0\u345 ed / po\
+\
+	\'97 windows\
+		\'97 Process Monitor \'97 
+\f0\i procmon
+\f1\i0 \
+		\'97 monitoruje prakticky v\'9aechno \'97 registry, threads, syscalls, s\'ed\uc0\u357 \
+		\'97 
+\f0\i filemon + regmon
+\f1\i0 \
+\
+		\'97 process explorer\
+		\'97 na\uc0\u269 ten\'e9 DLL, procesy, handles, s\'ed\u357 \
+\
+		\'97 
+\f0\i regshot
+\f1\i0 	\
+		\'97 porovn\'e1v\'e1n\'ed registr\uc0\u367 \
+\
+		\'97 simulov\'e1n\'ed s\'edt\uc0\u283 \
+		\'97 odhalen\'ed komunikace malwaru s C2 (command-and-control) serverem\
+		\'97 
+\f0\i netcat
+\f1\i0 \
+		\'97 
+\f0\i ApateDNS
+\f1\i0  \'97 DNS spoofing \'97 odpov\'edd\'e1 na lok\'e1ln\'ed DNS po\'9eadavky dle na\'9a\'ed libosti\
+\
+	\'97 linux\
+		\'97 
+\f0\i strace
+\f1\i0 \
+		\'97 monitorov\'e1n\'ed syst\'e9mov\'fdch vol\'e1n\'ed\
+		\'97 parametry a n\'e1vratov\'e9 hodnoty\
+	\
+		\'97 {\field{\*\fldinst{HYPERLINK "https://www.man7.org/linux/man-pages/man2/ptrace.2.html"}}{\fldrslt 
+\f0\i ptrace}}\
+		\'97 process trace\
+\
+ODKAZY\
+\
+\'97 {\field{\*\fldinst{HYPERLINK "https://kea.nu/files/textbooks/humblesec/practicalmalwareanalysis.pdf"}}{\fldrslt practical malware analysis}}\
+\'97 \'85\
+\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+
+\f0\i .\'95*\'95.\
+}

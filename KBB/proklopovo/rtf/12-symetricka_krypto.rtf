@@ -1,0 +1,195 @@
+{\rtf1\ansi\ansicpg1250\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 TimesNewRomanPS-ItalicMT;\f1\froman\fcharset0 TimesNewRomanPSMT;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww25400\viewh13140\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qc\partightenfactor0
+
+\f0\i\fs20 \cf0 KBB - maturita l\'e9ta p\'e1n\uc0\u283  2045 - bububu\
+
+\fs36 \
+Symetrick\'e1 kryptografie a hashovac\'ed funkce\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\i0\fs26 \cf0 \'daVOD DO KRYPTOGRAFIE\
+\
+\'97 kryptologie \'97 v\uc0\u283 da o \'9aifr\'e1ch, kryptografie, kryptoanal\'fdza\
+\'97 kryptografie \'97 tvorba \'9aifer, \'9aifrov\'e1n\'ed\
+\'97 kryptoanal\'fdza \'97 prolamov\'e1n\'ed \'9aifer\
+\'97 otev\uc0\u345 en\'fd text / plain text \'97 ne\'9aifrovan\'fd text\
+\'97 cipher text / \'9aifrovan\'fd text\
+\'97 kl\'ed\uc0\u269 \
+\'97 key-space \'97 mno\'9eina v\'9aech mo\'9en\'fdch kl\'ed\uc0\u269 \u367 \
+\
+\'97 CIA triad \'97 Confidentiality, Integrity, Authenticity\
+\
+HISTORIE KRYPTOGRAFIE\
+\
+\'97 star\'fd Egypt, Mezopot\'e1mie, Indie \'97 mechanick\'e9 ukr\'fdv\'e1n\'ed informac\'ed\
+\'97 Julius Caesar \'97 vynalezl jednu z prvn\'edch \'9a\'edfer \
+\'97 obdob\'ed do 20. stolet\'ed \'97 \'84primitivn\'ed\'93 kryptografie \'97 od 1. pol. 20. stolet\'ed za\uc0\u269 \'ednaj\'ed b\'fdt vyu\'9e\'edv\'e1ny k \'9aifrov\'e1n\'ed komplexn\'ed pom\u367 cky a p\u345 \'edstroje \'97 modern\'ed kryptografie\
+\
+\'97 transpozice\
+	\'97 p\uc0\u345 euspo\u345 \'e1d\'e1n\'ed znak\u367  podle pravidla\
+	\'97 sloupcov\'e1 transpozice \'97 rozd\uc0\u283 len\'ed textu do tabulky (podle kl\'ed\u269 e) \'97 ka\'9ed\'e9mu p\'edsmenu kl\'ed\u269 e je p\u345 i\u345 azeno \u269 \'edslo podle jeho abecedn\'edho po\u345 ad\'ed \'97 podle po\u345 ad\'ed jsou vyps\'e1ny jednotliv\'e9 sloupce\
+	\'97 skytala\
+\
+\'97 substituce\
+	\'97 nahrazen\'ed znak\uc0\u367  jin\'fdmi podle pravidla\
+	\'97 caesarova \'9aifra, vigen\'e9rova \'9aifra\
+\
+\'97 steganografie\
+	\'97 skr\'fdv\'e1n\'ed informac\'ed do jin\'e9ho m\'e9dia\
+	\'97 je nutn\'e9 domluvit kl\'ed\uc0\u269  pro \'84de\'9aifrov\'e1n\'ed\'93\
+\
+\'97 one time pad (OTP)\
+	\'97 teoreticky neprolomiteln\'e1 \'9aifra\
+	\'97 d\'e9lka kl\'ed\uc0\u269 e je identick\'e1 s d\'e9lkou zpr\'e1vy \'97> nev\'fdhody\
+	\'97 XOR\
+\
+\'97 permutace, difuze\
+\
+SYMETRICK\'c1 KRYPTOGRAFIE\
+\
+\'97 z\'e1kladn\'edm principem je \'9aifrov\'e1n\'ed a de\'9aifrov\'e1n\'ed stejn\'fdm kl\'ed\uc0\u269 em \'97 problematika p\u345 enosu kl\'ed\u269 e\
+\'97 matematick\'fd vztah mezi kl\'ed\uc0\u269 em a daty je relativn\u283  primitivn\'ed \'97 rychl\'e9 \'9aifrov\'e1n\'ed, vhodn\'e9 pro velk\'e9 obnosy dat\
+\'97 v\'edce u\'9eivatel\uc0\u367  \'97 v\'edce kl\'ed\u269 \u367  :( \'97> 
+\f0\i Eso es una mierda, mi amigo naranja!!!
+\f1\i0 \
+\
+\'97 blokov\'e9 \'9aifry\
+	\'97 sv\'e9 operace prov\'e1d\'ed na bloku bit\uc0\u367  pevn\'e9 velikosti (padding)\
+	\'97 XOR\
+\
+	\'97 AES\
+		\'97 advanced encryption standart\
+		\'97 128 bitov\'fd blok dat (nebo 198, 256), stejn\uc0\u283  velk\'fd kl\'ed\u269 \
+
+\f0\i 		\'97 https://www.youtube.com/watch?v=O4xNJsjtN6E
+\f1\i0 \
+		\'97 rijndael algorithm\
+		\'97 princip (prd moment)\
+			\'97 stav \'97 m\uc0\u345 \'ed\'9eka 4x4 byt\u367  bloku (column major)\
+			\'97 expanze kl\'ed\uc0\u269 e \'97 odvozov\'e1n\'ed v\'edce kl\'ed\u269 \u367  ze vstupn\'edho kl\'ed\u269 e\
+			\'97 AddRoundKey \'97 stav \'9aifry je byte po bytu zkombinov\'e1n s rundovn\'edm kl\'ed\uc0\u269 em pomoc\'ed logick\'e9 operace xor\
+			\'97 SubBytes \'97 pomoc\'ed p\uc0\u345 edem definovan\'e9 tabulky je ka\'9ed\'fd byte nahrazen\
+			\'97 ShiftRows \'97 ka\'9ed\'fd jeden \uc0\u345 \'e1dek stavu \'9aifry se posune doleva o nula byt\u367 , jeden byte, dva, t\u345 i\
+			\'97 MixColumns \'97 pomoc\'ed p\uc0\u345 edem definovan\'fdch matematick\'fdch operac\'ed (pro ka\'9edou polo\'9eku ve sloupci) se vypo\u269 \'edt\'e1 nov\'fd stav (omezen\'e1 velikost jednoho bytu \'97 finite field arithmetics)\
+			\'97 \'9aifrov\'e1n\'ed rundovn\'edm kl\'ed\uc0\u269 em\
+			\'97 \'85\
+		\'97 
+\f0\i openssl enc -in data.txt -out data.enc.txt -e -aes-256-cbc -pbkdf2 -pass pass:04157fca6154ecb8ed81b7706871e2a9i
+\f1\i0 \
+	\
+	\'97 DES\
+		\'97 data encryption standart\
+		\'97 historick\'fd standart\
+		\'97 kl\'ed\uc0\u269  \'97 56b :( (8b parity checking)\
+		\'97 16 podkl\'ed\uc0\u269 \u367 \
+		\'97 velikost bloku 64b\
+		\'97 3DES \'97 triple des \'97 efektivn\'ed d\'e9lka kl\'ed\uc0\u269 e \'97 168 / 112\
+\
+	\'97 re\'9eimy blokov\'fdch \'9aifer\
+		\'97 ECB\
+			\'97 electronic codebook\
+			\'97 vstup je rozd\uc0\u283 len na bloky \'97 ty jsou zvl\'e1\'9a\u357  za\'9aifrov\'e1ny\
+\
+		\'97 CBC\
+			\'97 cipher block chaining\
+			\'97 IV\
+			\'97 v\'fdsledek p\uc0\u345 edchoz\'edho bloku je pou\'9eit jako IV pro blok dal\'9a\'ed\
+\
+		\'97 CTR\
+			\'97 counter mode\
+			\'97 efektivn\uc0\u283  d\u283 l\'e1 z blokov\'e9 \'9aifry proudovou\
+			\'97 \uc0\u269 \'edta\u269  \'97 counter \'97 funkce, kter\'e9 generuje po sob\u283  jdouc\'ed hodnoty, a garantuje, \'9ee se nebudou opakovat (co nejd\'e9le)\
+			\'97 nonce\
+	\
+		\'97 GCM\
+			\'97 galois counter mode\
+			\'97 v\'fdsledkem tag \'97 hash cel\'e9 \'9aifry \'97 integrita, autentizace\
+\
+\'97 proudov\'e9 \'9aifry\
+	\'97 \'9aifruj\'ed bit po bitu nebo byte po bytu\
+	\'97 IV\
+	\'97 generuj\'ed pseudon\'e1hodn\'fd proud dat \'97 kl\'ed\uc0\u269 \
+	\'97 XOR\
+	\'97 vhodn\'e9 pro \'84realtime\'93 \'9aifrov\'e1n\'ed \'97 n\'edzk\'e1 latence\
+	\'97 kl\'ed\uc0\u269  se nesm\'ed opakovat\
+\
+	\'97 OTP \'97 \'85\
+	\'97 RC4\
+		\'97 WEP, WPA, TLS, SSL (do roku 2015)\
+		\'97 dnes pova\'9eov\'e1na za nebezpe\uc0\u269 nou\
+		\'97 operuje s polem 256 byt\uc0\u367 \
+		\'97 kl\'ed\uc0\u269  m\u367 \'9ee m\'edt a\'9e 255 byt\u367 \
+		\'97 IV = kl\'ed\uc0\u269 \
+	\'97 ChaCha20\
+		\'97 generuje keystream \'97 XOR s OT (otev\uc0\u345 en\'fdm textem) \'97 RC4 d\u283 l\'e1 to sam\'e9\
+		\'97 kl\'ed\uc0\u269  odvozuje podle vnit\u345 n\'ed tabulky\
+		\'97 rychl\'e1, modern\'ed\
+		\'97 {\field{\*\fldinst{HYPERLINK "https://radojcic.cz/kbb/prezentace/6_proudove_sifry.pdf"}}{\fldrslt \'85}}\
+		\'97 kl\'ed\uc0\u269  pro aktu\'e1ln\'ed 512b blok se generuje v 20 rund\'e1ch\
+	\'97 Salsa20\
+		\'97 p\uc0\u345 edch\u367 dce chacha20\
+		\'97 podobn\'fd princip\
+\
+HASHOVAC\'cd FUNKCE\
+\
+\'97 ide\'e1ln\'ed hashovac\'ed fce \'97 jednosm\uc0\u283 rn\'e9 funkce, konstantn\'ed d\'e9lka v\'fdstupu, p\u345 i mal\'e9 zm\u283 n\u283  vstupu se v\'fdstup drasticky m\u283 n\'ed, minim\'e1ln\'ed kolize, deterministick\'e1\
+\
+\'97 popul\'e1rn\'ed hashovac\'ed algoritmy\
+	\'97 MD5\
+		\'97 128 bit\uc0\u367 \
+		\'97 nalezeny kolize\
+		\'97 checksums\
+\
+	\'97 SHA-1\
+		\'97 160b\
+		\'97 nalezeny kolize\
+\
+	\'97 SHA-2 (SHA-256, -512)\
+		\'97 bezpe\uc0\u269 n\'fd, prakticky standart\
+\
+	\'97 SHA-3\
+		\'97 SHA-2 alternativa\
+		\'97 jin\'e1 konstrukce\
+\
+	\'97 BLAKE2, BLAKE3\
+		\'97 modern\'ed\
+\
+\'97 ukl\'e1d\'e1n\'ed hesel\
+	\'97 salting (proti rainbow tables)\
+	\'97 bcrypt, scrypt, argon2\
+\
+\'97 integrita soubor\uc0\u367 , dat\
+\
+\'97 identifikace mallwaru\
+\
+\'97 \'fatoky\
+	\'97 bruteforce\
+	\'97 dictionary attack\
+	\'97 rainbow tables\
+	\'97 rule-based\
+		\'97 hashcat\
+		\'97 john the ripper\
+	\'97 mask-attack \'97 definov\'e1n\'ed p\uc0\u345 ibli\'9en\'e9ho vzoru hesla \'97 efektivn\u283 j\'9a\'ed\
+\
+APLIKACE SYMETRICK\'c9 KRYPTOGRAFIE\
+\
+\'97 \'9aifrov\'e1n\'ed disk\uc0\u367  \'97 bitlocker, LUKS, FileVault\
+\'97 \'9aifrovan\'e9 komunikace \'97 TLS/SSL, VPN tunely\
+\
+\'97 bezp. spr. kl. (bezpe\uc0\u269 n\'e1 spr\'e1va kl\'ed\u269 \u367 )\
+	\'97 dostatek n\'e1hody\
+	\'97 bezpe\uc0\u269 n\'e9 ulo\'9een\'ed\
+	\'97 rotace\
+	\'97 derivace kl\'ed\uc0\u269 \u367  \'97 v\'fdpo\u269 etn\u283  n\'e1ro\u269 n\'e1 funkce na v\'fdpo\u269 et hashe (keepassXC \'97 nastaven\'ed, jak dlouho bude trvat hashov\'e1n\'ed kl\'ed\u269 e) \'97 pbkdf2, scrypt\
+\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+
+\f0\i .\'95*\'95.\
+}

@@ -1,0 +1,264 @@
+{\rtf1\ansi\ansicpg1250\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 TimesNewRomanPS-ItalicMT;\f1\froman\fcharset0 TimesNewRomanPSMT;\f2\fswiss\fcharset0 Helvetica;
+}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww25400\viewh13140\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qc\partightenfactor0
+
+\f0\i\fs20 \cf0 KBB - maturita l\'e9ta p\'e1n\uc0\u283  2045 - NOJONO\
+
+\fs36 \
+S\'ed\uc0\u357 ov\'e9 protokoly\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\i0\fs26 \cf0 OBECN\'c1 DEFINICE\
+\
+= konvence, \uc0\u269 i standart, kter\'fd definuje zp\u367 sob komunikace, form\'e1t dat a dal\'9a\'ed aspekty\'85\
+\'97 protokoly podle TCP/IP modelu\
+	\'97 aplika\uc0\u269 n\'ed vrstva \'97 DNS, HTTP/S, SSH, IMAP, DHCP\
+	\'97 transportn\'ed vrstva \'97 TCP, UDP\
+	\'97 s\'ed\uc0\u357 ov\'e1 vrstva \'97 IP, ICMP, ARP\
+	\'97 s\'ed\uc0\u357 ov\'e9 rozhran\'ed \'97 Ethernet, PPP, ADSL, WiFi\u269 \
+\'97 n\'e1stroje pro pr\'e1ci s protokoly\
+	\'97 netcat\
+	\'97 ping\
+	\'97 dig\
+	\'97 curl\
+	\'97 \'85\
+\
+TCP/UDP\
+\
+\'97 Transmission Control Protocol\
+	\'97 garance spolehliv\'e9ho p\uc0\u345 ipojen\'ed \'97 retransmission, reordering\'85\
+	\'97 d\uc0\u283 l\u283 n\'ed dat z aplika\u269 n\'ed vrstvy do segment\u367  (MTU \'97 maximum transmission unit)\
+	\'97 po\uc0\u345 adov\'e1 \u269 \'edsla paketu\
+	\'97 3w handshake \'97 datagram s p\uc0\u345 \'edznakem SYN, n\'e1hodn\'e9 po\u345 adov\'e9 \u269 \'edslo x (klient) \'97> SYN ACK, n\'e1hodn\'e9 \u269 \'edslo y, x+1 (server) \'97> ACK, x+1, y+1\
+	\'97 SYN flood (podm\'ednkou je, \'9ee server alokuje prost\uc0\u345 edky p\u345 ed obdr\'9een\'edm ACK)\
+	\'97 ukon\uc0\u269 en\'ed spojen\'ed \'97 FIN, x (klient) \'97> ACK, x+1, FIN, y (server) \'97> ACK y+1 (klient)\
+\
+\'97 User Datagram Protocol\
+	\'97 negarantuje spolehliv\'fd p\uc0\u345 enos (ne\u345 e\'9a\'ed, zdali druh\'e1 strana paket obdr\'9eela) \'97> bez z\'e1ruky doru\u269 en\'ed\
+	\'97 ne\uc0\u345 e\'9a\'ed po\u345 ad\'ed paket\u367 \
+	\'97 zna\uc0\u269 n\u283  jednodu\'9a\'9a\'ed\
+\
+DHCP\
+\
+\'97 Dynamic Host Configuration Protocol\
+\'97 automatick\'e9, dynamick\'e9 p\uc0\u345 i\u345 azov\'e1n\'ed adres za\u345 \'edzen\'edm v s\'edti (+ default gateway, maska, DNS servery, NTP\'85)\
+\'97 lease, address pool, \'84registrovan\'e9\'93 adresy\
+\'97 handshake\
+	\'97 klient port 68 UDP / server port 67 UDP\
+	\'97 
+\f0\i viz. 03-psi
+\f1\i0 \
+\
+DNS\
+\
+\'97 Domain Name Resolution Protocol, port 53\
+\'97 p\uc0\u345 eklad dom\'e9n na IP\
+\'97 dig \'97 vrac\'ed odpov\uc0\u283 \u271  DNS serveru pro dom\'e9nu\
+\'97 nslookup \'97 \'85\
+\'97 host \'97 \'85 \'97 podporuje reverse lookup a p\uc0\u345 ednostn\'ed DNS server p\u345 ed z\'e1znamy v /etc/resolv.conf\
+\
+\'97 diagnostika \
+	\'97 sudo resolvectl flush-caches\
+	\'97 default gateway\
+	\'97 \'85\
+\
+ARP\
+\
+\'97 Address Resolution Protocol\
+\'97 p\uc0\u345 eklad IP adres na MAC adresy\
+\'97 komunikace v lok\'e1ln\'ed s\'edti\
+\'97 
+\f0\i ip neigh, arp -a
+\f1\i0 \
+\'97 cache \'97 /proc/net/arp\
+	\'97 vy\uc0\u269 i\'9at\u283 n\'ed \'97 
+\f0\i ip neigh flush dev eth0 / ip -s -s neigh flush all / arp -d 192.168.1.101i
+\f1\i0 \
+\
+ICMP\
+\
+\'97 Internet Control Message Protocol\
+\'97 kan\'e1l pro slu\'9eebn\'ed informace \'97 dostupnost\
+\'97 neslou\'9e\'ed k p\uc0\u345 enosu dat\
+\'97 protokol je zpracov\'e1v\'e1n p\uc0\u345 ed aplika\u269 n\'ed vrstvou \'97 t\'e9 je doru\u269 ena chybov\'e1 hl\'e1\'9aka\
+\'97 
+\f0\i Echo Request \'97 Echo Reply, Destination Unreachable, Redirect, Time Exceeded (TTL)
+\f1\i0 \
+\'97 traceroute \'97 postupn\uc0\u283  inkrementuje TTL \'97 vrac\'ed next hop dokud paket nedoraz\'ed\
+\
+NTP\
+\
+\'97 Network Time Protocol \'97 port 123\
+\'97 synchronizace \uc0\u269 asu\
+\'97 UTC \'97 coordinated universal time\
+\'97 specificky po\uc0\u269 \'edt\'e1 se zdr\'9een\'edm paket\u367 \
+\
+	
+\f2\fs24 {{\NeXTGraphic Pasted Graphic.png \width4340 \height2340 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}
+\f1\fs26 \
+\
+\'97 stratum \'97 hierarchie za\uc0\u345 \'edzen\'ed (viz. obr\'e1zek) \'97 vzd\'e1lenost od zdroje\
+	\'97 stratum 0 \'97 atomov\'e9 hodiny \'97> stratum 1 \'97> prim\'e1rn\'ed ntp server \'97> stratum 2\'85\
+\
+\'97 konfigurace \'97 ntpd\
+	\'97 /etc/ntp.conf\
+	\'97 	server 0.pool.ntp.org iburst prefer\
+		server 192.168.1.100 iburst\
+\
+	\'97 kontrola \'97 
+\f0\i ntpq -p
+\f1\i0 \
+	\'97 driftfile \'97 /var/lib/ntp/ntp.drift\
+	\'97 statsdir\
+\
+\'97 time-shifting attack \'97 mitm \'97 \'fato\uc0\u269 n\'edk vr\'e1t\'ed \u269 as \'97 selh\'e1n\'ed ov\u283 \u345 ov\'e1n\'ed TLS certifik\'e1t\u367 , selh\'e1n\'ed log\u367 , cron\
+	\'97 prevence \'97 autentizace (symetrick\'e9 kl\'ed\uc0\u269 e) \'97 NTS (Network Time Security)\
+	\'97 firewall\
+	\'97 v\'edce server\uc0\u367 \
+	\'97 monitorov\'e1n\'ed\
+\
+SSH\
+\
+\'97 Secure SHell \'97 port 22\
+\'97 emulovan\'fd shell na vzd\'e1len\'e9m za\uc0\u345 \'edzen\'ed\
+\'97 n\'e1hrada za telnet, rlogin, rsh\'85\
+\
+\'97 diffie-hellman \'97 v\'fdm\uc0\u283 na kl\'ed\u269 e pro \'9aifrov\'e1n\'ed komunikace\
+\
+\'97 p\uc0\u345 ihl\'e1\'9aen\'ed:\
+	\'97 heslo\
+	\'97 p\'e1r kl\'ed\uc0\u269 \u367  (ve\u345 ejn\'fd \'97 server, soukrom\'fd \'97 klient) \'97 ~/.ssh/authorized_keys\
+		\'97 generov\'e1n\'ed \'97 
+\f0\i ssh-keygen -t rsa
+\f1\i0  \'97> .ssh/id_rsa.pub a .ssh/id_rsa\
+		\'97 
+\f0\i ssh_add
+\f1\i0 \
+		\'97 
+\f0\i ssh-copy-id -i ~/.ssh/id_rsa.pub alice@192.0.2.44/home/alice/.ssh/authorized_keys
+\f1\i0 \
+\
+\'97 known_hosts \'97 hash ve\uc0\u345 ejn\'e9ho kl\'ed\u269 e serveru\
+\
+\'97 konfigurace\
+	\'97 install openssh-client / server\
+	\'97 systemctl enable ssh, start sshd\
+	\'97 firewall (
+\f0\i sudo iptables -A INPUT -p tcp --dport ssh -j ACCEPT
+\f1\i0 )\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\i \cf0 	\'97 juchu
+\f1\i0 \
+\
+\'97 scp \'97 sou\uc0\u269 \'e1st ssh\
+	\'97 
+\f0\i scp [src] [dst]
+\f1\i0 \
+	\'97 milan@192.168.1.23:/home/milan/Pictures/\'85\
+\
+\'97 tunelov\'e1n\'ed\
+	\'97 local port forwarding \'97 
+\f0\i ssh -L [LOCAL_IP:]LOCAL_PORT:DESTINATION:DESTINATION_PORT [USER@]SSH_SERVER\
+		\'97 -N -f \'97 
+\f1\i0 background job\
+		\'97 p\uc0\u345 ipojen\'ed skrze server do datab\'e1ze\
+	\'97 remote port fwd \'97 
+\f0\i ssh -R 8080:127.0.0.1:3000 -N -f user@remote.host
+\f1\i0 \
+		\'97 server \'97 local machine \'97 webappp\
+	\'97 dynamic \'97 SOCK proxy\
+\
+\'97 /etc/ssh/sshd_config\
+\
+HTTP/S\
+\
+\'97 Hyper Text Transfer Protocol (Secure) \'97 port 80 (443)\
+\'97 request \'97> response (one directional)\
+\'97 ne\'9aifrovan\'fd\
+\'97 
+\f0\i curl -X GET example.com/index.html
+\f1\i0 \
+\
+\'97 struktura po\'9eadavku\
+\
+	
+\f0\i GET /index.html HTTP/1.1\
+	Host: example.com
+\f1\i0 \
+\
+\'97 po\'9eadavky\
+	\'97 GET, POST, PUT, DELETE\
+\
+\'97 response k\'f3dy ({\field{\*\fldinst{HYPERLINK "https://http.cat/"}}{\fldrslt ko\uc0\u269 k}})\
+	\'97 1xx \'97 info\
+	\'97 2xx \'97 success\
+		\'97 200 \'97 OK\
+		\'97 201 \'97 created\
+		\'97 202 \'97 accepted\
+	\'97 3xx \'97 redirection\
+		\'97 301 \'97 moved permanently\
+		\'97 302 \'97 found\
+	\'97 4xx \'97 client failure\
+		\'97 400 \'97 bad req\
+		\'97 401 \'97 unauthorized\
+		\'97 403 \'97 forbidden\
+		\'97 404 \'97 not found\
+	\'97 5xx \'97 server failure\
+		\'97 500 \'97 internal\
+		\'97 502 \'97 bad gateway\
+		\'97 503 \'97 service unavailable\
+\
+\'97 HTTPS\
+	\'97 SSL, TLS\
+	\'97 nav\'e1z\'e1n\'ed spojen\'ed \'97 certifik\'e1t (server) \'97> ov\uc0\u283 \u345 en\'ed (klient) \'97> v\'fdm\u283 na kl\'ed\u269 \u367 \
+	\'97 certifik\'e1ty \'97 dom\'e9na, pub key, podpis autority\
+	\'97 CA \'97 certifika\uc0\u269 n\'e1 autorita\
+\
+VPN\
+\
+\'97 Virtual Private Network\
+\'97 propojen\'ed po\uc0\u269 \'edta\u269 \u367  do jedn\'e9 soukrom\'e9 s\'edt\u283  skrze internet\
+\
+\'97 OpenVPN\
+	\'97 SSL / TLS \'9aifrov\'e1n\'ed, autentizace\
+	\'97 cert / TLS key\
+	\'97 komplexn\'ed topologie \'97 site-site, client-site\
+\
+\'97 WireGuard\
+	\'97 ChaCha20, Curve\'85 \'97 rychl\'e9 modern\'ed kryptografick\'e9 konstrukce\
+	\'97 asymterick\'e9 \'9aifrov\'e1n\'ed \'97 p2p\
+\
+\'97 IPsec\
+	\'97 sada protokol\uc0\u367  pro zabezpe\u269 en\'ed IP komunikace\
+	\'97 zabezpe\uc0\u269 en\'ed na s\'ed\u357 ov\'e9 vrstv\u283 \
+	\'97 ov\uc0\u283 \u345 ov\'e1n\'ed \'97 odpov\'edd\'e1 paket odesilateli? \'97 \'9aifrov\'e1n\'ed \'97 strany se dohodnou na zp\u367 sobu, \'9aifruje se cel\'fd paket (krom hlavi\u269 ky)\
+\
+	\'97 AH \'97 Authentication Header \'97 autentizace, integria\
+	\'97 ESP \'97 Encapsulating Sec. Payload \'97 \'9aifrov\'e1n\'ed paket\uc0\u367 \
+\
+\'97 L2TP\
+	\'97 Layer 2 Tunneling Protocol\
+	\'97 kombinace s IPsec \'97 L2TP pouze zapouzd\uc0\u345 uje data do tunelu\
+\
+DAL\'8a\'cd\'85\
+\
+\'97 RDP \'97 Remote Desktop Protocol\
+\'97 FTP \'97 File Transfer Protocol\
+\'97 POP3 / IMAP \'97 Post Office Protocol / Internet Message Access Protocol\
+\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+
+\f0\i konec\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\i0 \cf0 (obr\'e1zek \'97 wikipedia.org)\
+}

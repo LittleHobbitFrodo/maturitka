@@ -1,0 +1,237 @@
+{\rtf1\ansi\ansicpg1250\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 TimesNewRomanPS-ItalicMT;\f1\froman\fcharset0 TimesNewRomanPSMT;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww25400\viewh13140\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qc\partightenfactor0
+
+\f0\i\fs20 \cf0 KBB - maturita l\'e9ta p\'e1n\uc0\u283  2045 - znovuzrozeni magora\
+
+\fs36 \
+Bash skriptov\'e1n\'ed\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\i0\fs26 \cf0 SHELL A BASH\
+\
+\'97 shell \'97 interpreter p\uc0\u345 \'edkaz\u367  / bash \'97 jedna z mnoha implementac\'ed\
+\'97 dal\'9a\'ed implementace:\
+	\'97 zsh\
+	\'97 fish\
+	\'97 dash\
+	\'97 rozd\'edln\'e9 chov\'e1n\'ed \'97 na\'9aept\'e1v\'e1n\'ed, pr\'e1ce s ENV, konfigurace, zshrc, bashr\'85\
+\
+\'97 bash\
+	\'97 nejroz\'9a\'ed\uc0\u345 en\u283 j\'9a\'ed\
+	 \'97 bourne again shell \'97 roz\'9a\'ed\uc0\u345 en\'ed bourne shell, ksh, csh, sh\
+	\'97 POSIX compliant\
+	\'97 tab, kl\'e1vesov\'e9 zkratky\
+	\'97 regul\'e1rn\'ed v\'fdrazy\
+\
+\'97 dostupn\'e9 shelly \'97 
+\f0\i /etc/shells\
+
+\f1\i0 \'97 aktu\'e1ln\'ed shell \'97 
+\f0\i $SHELL
+\f1\i0 \
+\'97 zm\uc0\u283 na v\'fdchoz\'edho shellu\
+	\'97 
+\f0\i chsh
+\f1\i0 \
+	\'97 potencion\'e1ln\uc0\u283  nebezpe\u269 n\'e9, pokud zad\'e1me \'9apatnou cestu\
+\
+TVORBA A SPU\'8aT\uc0\u282 N\'cd SKRIPTU\
+\
+\'97 konvence .sh\
+\'97 shebang \'97 \'9abeng \'97 #!/bin/bash\
+	\'97 v\'9edy na za\uc0\u269 \'e1tku souboru\
+	\'97 ur\uc0\u269 uje, \'9ee se m\'e1 zbytek interpretovat jako p\u345 \'edkazy\
+	\'97 python, perl\'85\
+\
+\'97nutn\'e9 nastavit opr\'e1vn\uc0\u283 n\'ed pro spou\'9at\u283 n\'ed\
+	\'97 
+\f0\i chmod +x \'85
+\f1\i0 \
+\
+\'97 koment\'e1\uc0\u345 e \'97 
+\f0\i # \'85
+\f1\i0 \
+\
+PROM\uc0\u282 NN\'c9\
+\
+\'97 definov\'e1n\'ed\
+	\'97 
+\f0\i neco=\'84blabla\'93
+\f1\i0 \
+	\'97 
+\f0\i define
+\f1\i0  \'97 umo\'9e\uc0\u328 uje specifikovat typ (integer, asociativn\'ed pole\'85)\
+		\'97 -A \'97 asociativn\'ed pole\
+		\'97 -a \'97 pole\
+		\'97 -f \'97 funkce\
+		\'97 -i \'97 integer\
+\
+\'97 p\uc0\u345 \'edstup\
+	\'97 
+\f0\i $neco
+\f1\i0  \
+	\'97 substituce\
+\
+\'97 konvence \'97 UPPERCASE\
+\
+\'97 prom\uc0\u283 nn\'e9 prost\u345 ed\'ed\
+	\'97 v\'fdchoz\'ed prom\uc0\u283 nn\'e9\
+	\'97 HOME, PWD, PATH, USER, SHELL\
+	\'97 n\'e1vratov\'e1 hodnota programu \'97 $? (fish \'97 $status)\
+\
+U\'8eIVATELSK\'dd VSTUP\
+\
+\'97 prom\uc0\u283 nn\'e9 argument\u367 \
+	\'97 $1 - $9 ($0 \'97 n\'e1zev skriptu)\
+	\'97 v\'9aechny argumenty separ\'e1tn\uc0\u283  \'97 $@ (jeden string \'97 $*)\
+	\'97 $# \'97 po\uc0\u269 et argument\u367 \
+\
+\'97 vstup od u\'9eivatele \'97 
+\f0\i read  OUT_VAR
+\f1\i0 \
+	\'97 p\uc0\u345 e\'edna\u269 e\
+	\'97 -p \'97 prompt\
+	\'97 -s \'97 assword\
+	\'97 IFS \'97 internal field separator \'97 podle znaku v t\'e9to prom\uc0\u283 nn\'e9 se input rozd\u283 l\'ed do v\'edce v\'fdstupn\'edch prom\u283 nn\'fdch\
+\
+PODM\'cdNKY\
+\
+\'97 syntax\
+\
+	
+\f0\i if [ \'85 ]; then\
+		\'85\
+	elif\kerning1\expnd-1\expndtw-4
+ [\'85]; then\
+		\'85\
+	else\
+		\'85\
+	fi
+\f1\i0 \
+\
+\'97 [[]] \'97 v\'edce funkcionality \'97 regex, nejsou nutn\'e9 uvozovky, globbing \'97 implementace li\'9a\'ed\
+\
+\'97 aritmetick\'e9 bin\'e1rn\'ed operace\
+	\'97 A op B\
+	\'97 -eq \'97 ==\
+	\'97 -ne \'97 !=\
+	\'97 -lt \'97 <\
+	\'97 -le \'97 <=\
+	\'97 -gt \'97 >\
+	\'97 -ge \'97 >=\
+\
+\'97 \uc0\u345 et\u283 zcov\'e9 oper\'e1tory\
+	\'97 == != > <\
+	\'97 -n \'97 not null\
+	\'97 -z \'97 null\
+\
+\'97 souborov\'e9\
+	\'97 -e \'97 existuje\
+	\'97 -f \'97 existuje (soubor)\
+	\'97 -d \'97 existuje (adres\'e1\uc0\u345 )\
+	\'97 -rwx \'97 m\'e1 opr\'e1vn\uc0\u283 n\'ed\kerning1\expnd0\expndtw0 \
+\
+CYKLY\
+\
+\'97 for loops \'97 c-like\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\i \cf0 	for ((i = 0 ; i < 10 ; i++)); do\
+		echo \'84$i\'93\
+	done
+\f1\i0 \
+\
+\'97 list for loops\
+\
+
+\f0\i 	for i in \{1..10\}; do\
+		echo "Hello Friend"\
+	done
+\f1\i0 \
+	\'85\
+	
+\f0\i for i in /var/*; do\
+		echo $i \
+	done\
+	\'85\
+	for neco in $@; do\
+		echo "$neco"\
+	done
+\f1\i0 \
+\
+\'97 cyklus while\
+\
+
+\f0\i 	while [ \'85 ]; do\
+		bllablabla p\uc0\u345 \'edkazy\'85\
+	done
+\f1\i0 \
+\
+FUNKCE\
+\
+\'97 syntax\
+\
+	
+\f0\i function udelej_to_a_to () \{\
+		\'85\
+		echo $1\'85$9		# argumenty\
+		local VAR=9765\
+		\'85\
+		return 0\
+	\}\
+	\'85\
+	udelej_to_a_to 12 \'84juchu\'93\'85\
+	
+\f1\i0 \
+\
+N\'c1VRATOV\'c9 HODNOTY\
+\
+\'97 0 \'97 jo / 1-255 \'97 ne\
+\'97 funkce \'97 return x, skript \'97 exit x\
+\'97 echo $?\
+\
+LOGICK\'c9 OPER\'c1TORY A \uc0\u344 ET\u282 ZEN\'cd\
+\
+\'97 
+\f0\i viz. ot\'e1zka 1 (termin\'e1lov\'e9 prost\uc0\u345 ed\'ed)
+\f1\i0 \
+\
+DAL\'8a\'cd\'85\
+\
+\'97 z\'e1pis do souboru \'97 > / >>\
+\'97 v\'fdpo\uc0\u269 et \'97 $((\'85))\
+\'97 command substitution \'97 $(\'85) / \'82\'85\'91\
+\'97 
+\f0\i let
+\f1\i0  \'97 p\uc0\u345 i\u345 azen\'ed v\'fdsledku operace do prom\u283 nn\'e9\
+\
+	
+\f0\i let \'84NECO=3\'93 \'84VEC=43\'93 \'84VYSLEDEK=VEC**NECO-NECO*2\'93\
+	\'85
+\f1\i0 \
+	\'97 podporuje logick\'e9, matematick\'e9 a bitov\'e9 operace\
+\
+\'97 \uc0\u269 ten\'ed souboru\
+	\'97 
+\f0\i $(cat soubror.txt)
+\f1\i0 \
+	\
+	
+\f0\i while read rardek;\
+		echo $rardek\
+	done < soubror.txt
+\f1\i0 \
+\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+
+\f0\i .\'95*\'95.\
+{\field{\*\fldinst{HYPERLINK "https://github.com/dylanaraps/pure-bash-bible"}}{\fldrslt bible}}\
+}
