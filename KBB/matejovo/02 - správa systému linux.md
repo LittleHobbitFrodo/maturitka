@@ -40,6 +40,7 @@
 - **Zobrazení** - `ls -l` - `ls -la`
 
 > `-rw-r--r--. 1 sam sam  358 17. led 22.32 Cargo.toml`
+- `...@` a `...+`: access-control na macu
 
 | `-rw-r--r--.` | `1` | `sam` | `sam` | `358` | `17. led 22.32` | `Cargo.toml`|
 |-------------|-----|-------|-------|-------|-----------------|-------------|
@@ -49,15 +50,16 @@
 
 #### Oprávnění
 
+|`r`|`w`|`x`
+|---|---|---|
+|**r**ead|**w**rite|e**x**ecute|
+
+---
+
 | d | rwx | rwx | rwx |
 |---|-----|-----|-----|
 |**d**ir| owner | group | other|
 
----
-
-|`r`|`w`|`x`
-|---|---|---|
-|**r**ead|**w**rite|e**x**ecute|
 
 ---
 
@@ -91,7 +93,7 @@
 ## Speciální oprávnění
 **SUID** - **S**et **U**ser **ID**
 - Spustí s právy vlastníka
-  - `sudo`, `passwd`
+  - `sudo` - soubor `passwd`
   - `chmod u+s [file|dir]`
   - `chmod 4755 [file|dir]`
 
@@ -252,8 +254,8 @@ základní info o uživatelích, odkaz na hesla
 ### Build systémy
 > Automatizace sestavování  
 
-**Proč**: Ruční sestavování je neudržitelné (u větších projrktů)
-- Efektivita: Zzkompilují se jenom změněné části  
+**Proč**: Ruční sestavování je neudržitelné (u větších projektů)
+- Efektivita: Zkompilují se jenom změněné části  
 **Příklady**:
 - `make`: Klasika na linuxu (bohužel)
 - `cmake`: Překládá konfiguraci do jiných build systémů

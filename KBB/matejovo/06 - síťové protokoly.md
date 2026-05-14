@@ -87,6 +87,8 @@
     1. [`SMTP`](#smtp)
     2. [`POP3 / IMAP`](#pop3--imap)
 
+---
+
 # Protokoly obecně
 ## Co jsou to protokoly a k čemu slouží
 **Soubor pravidel**, podle kterých spolu zařízení komunikují
@@ -191,33 +193,21 @@ Automaticky přiděluje IP adresu a konfiguruje zařízení
 - IP adresa, maska sítě, default gateway, defaultní DNS server, atd.
 
 ## DHCP handshake (DORA (the explorer :D))
-1. **D**iscover  
-    **„Je tu nějaký DHCP server?“**
+1. **D**iscover - **„Je tu nějaký DHCP server?“**
+2. **O**ffer - **„Mohu ti přidělit tuto IP adresu.“**
 
-    Zařízení pošle "Je tu nějaký DHCP server?"
-
-
-2. **O**ffer  
-    **„Mohu ti přidělit tuto IP adresu.“**
-
-    DHCP server odpovídá
+    - DHCP server odpovídá
     - Odpověď obsahuje:
       - Navrhovanou **IP** adresu
       - **Lease** (doba propůjčení adresy)
       - atd.
-
-
-3. **R**equest
-    **„Tuto IP adresu přijímám.“**
-
-    Zařízení adresu přijme
+3. **R**equest - **„Tuto IP adresu přijímám.“**
+    - Zařízení adresu přijme
     - Vybere si jeden server pokud jich odpovědělo víc
 
 
-4. **A**cknowledge  
-    **„IP adresa je tvoje.“**
-
-    Server potvrdí připsání IP adresy
+4. **A**cknowledge - **„IP adresa je tvoje.“**
+    - Server potvrdí připsání IP adresy
 
 [**Konfigurace**](./03%20-%20počítačové%20sítě.md#konfigurace-dhcp)
 
@@ -247,6 +237,7 @@ Překlad jmen domén na IP adresy:
 2. **TLD** (**T**op-**L**evel **D**omain)
     - Spravují koncovky (`.cz`, `.com`, ..)
     - Koncovku `.cz` spravuje `CZ.NIC`
+    - Ukazují na autoritativní servery
 3. Autoritativní servery
     - Poskytují finální odpověď
 
@@ -263,22 +254,22 @@ Dotaz -> `Root` -> `TLD` -> `Autoritativní` -> odpověď
 **`CNAME`** (**C**anonical **NAME**)
 - Alias domény: `www.google.com` -> `google.com`
 
-**MX** (**M**ail e**X**change)
+**`MX`** (**M**ail e**X**change)
 - Určuje poštovní server pro danou doménu
   - `...@example.com` je spravováno na doméně `mail.example.com`
 
-**PTR** (Pointer)
+**`PTR`** (Pointer)
 - Opak `A` a `AAAA` záznamů
 - Umožňuje tzv. reverse dns lookup, tedy adresu na doménu
 
-**SOA** (**S**tart **O**f **A**uthority)
+**`SOA`** (**S**tart **O**f **A**uthority)
 - Označuje, že daný DNS server je autoritou pro určitou zónu
 
-**NS** (**N**ame**S**erver)
+**`NS`** (**N**ame**S**erver)
 - určuje, který DNS server je autoritativní pro danou doménu
 
 
-**TXT**: Textové info
+**`TXT`**: Textové info
 - SPF (ochrana proti spamům)
 - DKIM (ověření emailu)
 - Ověření vlastnictví domény (např. pro Google služby)
@@ -357,9 +348,9 @@ Diagnostika, hlášení chyb a řízení komunikace
 
 ## Typy ICMP zpráv
 **Chybové zprávy**
-- Destination Unreachable: Cílový host nebo síť není dostupná  
-- Time Exceeded: Vypršel TTL (traceroute)  
-- Redirect: Router doporučuje lepší cestu
+- **Destination Unreachable**: Cílový host nebo síť není dostupná  
+- **Time Exceeded**: Vypršel TTL (traceroute)  
+- **Redirect**: Router doporučuje lepší cestu
 
 **Informační zprávy**
 - Echo request/reply: ping
@@ -406,9 +397,9 @@ Každý router
 **Používá**
 - UDP port 123
 - Algoritmy pro výpočet:
-- Offset (rozdíl času)
-- Delay (zpoždění)
-- Jitter (kolísání)
+  - Offset (rozdíl času)
+  - Delay (zpoždění)
+  - Jitter (kolísání)
 
 ## Stratum - hierarchie NTP serverů
 
@@ -506,7 +497,7 @@ Bezpečný vzdálený přístup k systému
 **Připojení na server**: `ssh user@server`
 - Např: `ssh student@192.168.1.43`
 
-**Specifikace portu**: `ssh --p <port> user@server`
+**Specifikace portu**: `ssh -p <port> user@server`
 
 ## SSH tunelování
 
@@ -611,7 +602,7 @@ Bezstavový (stateless) -> každý požadavek je nezávislý
 - `200` OK
 - `201` CREATED
 
-**`3xx*`**: Přesměrování
+**`3xx`**: Přesměrování
 - `301` Moved Permanently
 - `302` Found
 
@@ -721,7 +712,7 @@ Sada protokolů pro zabezpečení IP komunikace
 
 **Režimy**
 - Transport mode: Šifruje jen payload
-- Tunnel mode: 3ifruje celý paket (typické pro VPN)
+- Tunnel mode: Šifruje celý paket (typické pro VPN)
 
 **Typy použití**
 - Site-to-site: Propojení dvou sítí (pobočky firmy)
@@ -777,7 +768,7 @@ Při správném nastavení:
 
 ## Nebezpečné protokoly
 
-**`FTP`**: Nešifrované `sftp`
+**`FTP`**: Nešifrované `sftp`  
 **`HTTP`**: Nešifrovaná komunikace
 
 
@@ -794,7 +785,7 @@ Hesla lze snadno odposlechnout
 [**`(S)FTP`**](#sftp---interaktivní): Přenos souborů  
 
 
-### `SMTP`**
+### **`SMTP`**
 Odesílání e-mailů
 
 E-mailoví klienti -> server

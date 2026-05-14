@@ -57,7 +57,7 @@
 **Minimalizace škod** – Čím rychlejší reakce, tím menší dopad  
 **Rychlá obnova provozu** – Firma funguje dál  
 **Splnění zákonů a regulací**: např. GDPR
-**Ochrana reputace** –Ffirma neztratí důvěru zákazníků
+**Ochrana reputace** – Firma neztratí důvěru zákazníků
 
 ---
 

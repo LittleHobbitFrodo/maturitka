@@ -297,7 +297,7 @@ V Okně "Follow tcp stream":
 **PROČ?**
 - Rychlý předhled co se děje v síti
   - Identifikace problémů nebo podezřelého chování
-    - Např. `70 % TCP` → běžný web, ale `20 % DNS` → může být podezřelé (např. tunneling)
+    - Např. `70% TCP` → běžný web, ale `20% DNS` → může být podezřelé (např. tunneling)
 
 ![protocol hierarchy](./assets/wireshark/protocol-hierarchy.png)
 
@@ -306,7 +306,7 @@ V Okně "Follow tcp stream":
 **KDE?**: Menubar -> `Statistics` -> `Endpoint`
 
 **CO?**
-- Seznam IP (a MAC) adres a jejich počty odeslaný, přijatých paketů
+- Seznam IP (a MAC) adres a jejich počty odeslaných, přijatých paketů
   - \+ Objem dat
 
 **PROČ?**

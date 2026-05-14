@@ -315,7 +315,7 @@ Protokoly:
 
 ## Putování paketů
 ### Lokální síť
-- Komputor posílající data: 192.168.2.20
+- Komputor posílající data: 192.168.1.20
   - Cíl: 142.250.74.36
 - Router:
   - Default gateway: 192.168.1.1
@@ -329,7 +329,7 @@ Protokoly:
 
     IP není v síťi => pošle na default gateway
 2. Lokální router
-    Zapouzdřeno do ethernetového rámce
+    - Zapouzdřeno do ethernetového rámce
     - Source MAC: MAC zdroj. PC
     - Dest MAC: MAC routeru
 3. NAT (**N**etwork **A**ddress **T**ranslation)
@@ -370,6 +370,7 @@ Systémová komponenta, většinou `systemd-resolved`, `bind` nebo `dnsmasq`
 - [Arch wiki](https://wiki.archlinux.org/title/Systemd-resolved)
 - Conf. soubor: `/etc/systemd/resolved.conf`
   - nebo `/usr/lib/systemd/resolved.conf` 🤷‍♂️
+
 Ukázka:
 ```ini
 [Resolve]

@@ -62,7 +62,7 @@
 # Skenování sítě - `nmap`
 
 `nmap` přepínače:
-- `-sn`: Vypne port scan
+- `-sn`: Vypne port scan (ping scan)
 - `-V`: Použije verbose output
 - `-sV`: Skenuje porty pro version info spuštěných služeb
 - `-p`: Skenuje pouze specifické porty
@@ -159,7 +159,7 @@ Analyzuje:
 
 `nmap -sS ...`
 
-Rychlý, relativně nenápadné skenování
+Rychlé, relativně nenápadné skenování
 
 Požádá o spojejí, ale když server odpoví, uzavře spojení
 1. nmap: `SYN`
@@ -225,8 +225,8 @@ Nmap obsahuje skripty pro:
 
 1. **Host discovery**: `nmap -sn ...`
 2. **Port scan**: `nmap -sS ...`
-3. **Service detection**: `nmap -sV ...`
-4. **OS detection**: `nmap -O ...`
+3. **OS detection**: `nmap -O ...`
+4. **Service detection**: `nmap -sV ...`
 5. **Vulnebrality scripts**: `nmap --script vuln ...`
 
 ---
@@ -290,8 +290,7 @@ Packets: Sent = 4, Received = 4, Lost = 0 (0% loss)
 ```
 
 **Příčiny**:
-
-přetížená síť
+- Přetížená síť
 - Wi-Fi rušení
 - Špatný kabel
 - Firewall / filtr
@@ -478,7 +477,7 @@ Ncat: 0 bytes sent, 0 bytes received in 0.05 seconds.
 5. Firewall - `sudo iptables `
 
 
-### Zjištění konktivity
+### Zjištění konketivity
 
 1. `ping 8.8.8.8`
 2. `traceroute`

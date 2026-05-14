@@ -37,9 +37,9 @@
 ---
 
 ## Terminologie
-- **Terminál** - rozhrani pro textovy vystup (obecne)
+- **Terminál** - rozhraní pro textový výstup (obecne)
   - Prenasi 
-	- **Emulátor** - emuluje chovani starych terminalu
+	- **Emulátor** - emuluje chování starých terminálů
 	- `gnome-terminal`, `konsole`, `xterm`, ...
 
 - **Shell** - program cte prikazy od uzivatele, interpretuje je
@@ -48,8 +48,9 @@
 - **Bash** - **B**ourne **A**gain **SH**ell
 	- Nejčastější defaultní shell v linuxu
 	- shell, skriptovací jazyk, interpret příkazů
+  - **ZSH** - Bash-compliant shell, novější a používanější
 - **TTY** - **T**ele**TY**pewriter
-	- dnes: zarizeni pro textovou komunikaci
+	- Dnes: zarizeni pro textovou komunikaci
 		
 ---
 
@@ -114,7 +115,7 @@ Běžně:
 - Provedení příkazů v závislosti na exit kódu
 1. **`&&`** - Při úspěchu
     - `cmd1 && cmd2` - `cmd2` jenom když `cmd1` uspěje
-2. **`||`&& - Při neúspěchu
+2. **`||`** - Při neúspěchu
     - `cmd1 || cmd2` - `cmd2` jenom když `cmd1` selže
 3. **`;`** - exitkód se ignoruje - oddělení příkazů
 
@@ -130,7 +131,7 @@ Běžně:
   - `rm -r` - rekurzivně
 - **Vypisování**: `ls` - `ls -a` vypíše i skryté
 - **Kopírování**: `cp` - `cp -R` (rekurzivně)
-- **Přesouvání/přejmenování**: `mv file.txt dir/file.txt`/`mv old.txt new.txt`
+- **Přesouvání/přejmenování**: `mv file.txt dir/file.txt` nebo `mv old.txt new.txt`
 
 ### Cesty
 - Absolutní: `/home/user/file.txt`
