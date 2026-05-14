@@ -1,0 +1,215 @@
+{\rtf1\ansi\ansicpg1250\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 TimesNewRomanPS-ItalicMT;\f1\froman\fcharset0 TimesNewRomanPSMT;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww25400\viewh13140\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qc\partightenfactor0
+
+\f0\i\fs20 \cf0 KBB - maturita l\'e9ta p\'e1n\uc0\u283  2045 - \'8aKVRZ SLY\u268 \
+
+\fs36 \
+Datab\'e1ze\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\i0\fs26 \cf0 \'daVOD DO DATAB\'c1Z\'cd\
+\
+= strukturovan\'e9 ukl\'e1dan\'ed dat (\uc0\u345 \'e1dky, sloupce)\
+\'97 oproti b\uc0\u283 \'9en\'e9mu souboru umo\'9e\u328 uje lehce vyhled\'e1vat / ukl\'e1dat velk\'e9 mno\'9estv\'ed dat\
+\'97 DBMS \'97 Database Management System \'97 software pro interagov\'e1n\'ed s datab\'e1z\'ed \'97 MySQL, PostgresSQL\'85\
+\
+\'97 rela\uc0\u269 n\'ed SQL datab\'e1ze\
+	\'97 data ulo\'9een\'e1 v tabulce \'97 vztah (relace) mezi sloupci a \uc0\u345 \'e1dky\
+	\'97 SQL \'97 structured query language \'97 jazyk pro interakci s rela\uc0\u269 n\'ed datab\'e1z\'ed\
+\
+\'97 NoSQL datab\'e1ze\
+	\'97 not only SQL / non-relational\
+	\'97 vyu\'9e\'edvaj\'ed jin\'fd z\'e1znam dat (key-valu p\'e1r, dokument)\
+	\'97 mo\'9en\'e1 podpora SQL\
+	\'97 stav\uc0\u283 n\'e9 pro \'9ak\'e1lovatelnost \'97 big data :(\
+	\'97 MongoDB\
+\
+\'97 in memory datab\'e1ze\
+	\'97 IMDb\
+	\'97 v RAM\uc0\u283 ti \'97 vysok\'e1 rychlost, mo\'9en\'e1 ztr\'e1ta dat, ceny RAM?\
+	\'97 Redis\
+\
+\'97 vyu\'9eit\'ed\
+	\'97 webov\'e9 aplikace \'97 informace o u\'9eivatel\'edch, hesla\
+	\'97 chat \'97 discord\
+	\'97 logy \'97 transakce, p\uc0\u345 ihl\'e1\'9aen\'ed, aktivita\
+\
+RELA\uc0\u268 N\'cd DATAB\'c1ZE\
+\
+\'97 tabulka \'97 udr\'9euje z\'e1znamy (relace)\
+\'97 \uc0\u345 \'e1dky \'97 z\'e1znamy\
+\'97 sloupce \'97 atributy z\'e1znam\uc0\u367 \
+\'97 prim\'e1rn\'ed kl\'ed\uc0\u269  \'97 atribut (nebo atributy) z\'e1znamu, kter\'e9 zaru\u269 uj\'ed jeho jednozna\u269 nost\
+\'97 ciz\'ed kl\'ed\uc0\u269  \'97 foreign key \'97 vztah mezi tabulkami \'97 jeden nebo v\'edce atribut\u367 , kter\'e9 jsou prim\'e1rn\'edm kl\'ed\u269 em pro z\'e1znam v jin\'e9 tabulce\
+\
+\'97 datov\'e9 typy\
+	\'97 INT\
+	\'97 VARCHAR\
+	\'97 TEXT\
+	\'97 FLOAT / DECIMAL\
+	\'97 DATE / DATETIME\
+	\'97 BOOLEAN\
+\
+	\'97 NOT NULL\
+\
+\'97 vztahy mezi tabulkami\
+	\'97 1 : 1 \'97 \
+	\'97 1 : many \'97\
+	\'97 many : many \'97 dv\uc0\u283  prov\'e1zan\'e9 tabulky\
+\
+SQL (SRUCTURED QUERY LANGUAGE)\
+\
+\'97 % \'97 jak\'e1koliv hodnota (\'84abc%\'93) \'97 pattern matching\
+\'97 * \'97 jak\'e1koliv hodnota v konetxtu tabulek\
+\
+\'97 SELECT\
+	\'97 
+\f0\i SELECT sloupA, sloupB FROM tabulka;\
+	\'97 SELECT * FROM tabulka;\
+	\'97 SELECT * FROM tabulka WHERE podminka; \'97 Jmeno = \'84Drzkomlat\'93 / Vek > 100\'85\
+	\'97 SELECT * FROM tabulka ORDER BY sloupec ASC/DESC;\
+	\'97 SELECT * FROM tabulka LIMIT 10;
+\f1\i0 \
+\
+\'97 INSERT / UPDTE / DELETE\
+	\'97 INSERT INTO tabulka (sloupec1, sloupec2) VALUES (hodnota1, hodnota2);\
+	\'97 UPDATE tabulka SET sloupec = hodnota WHERE podminka;\
+	\'97 DELETE FROM tabulka WHERE podminka;\
+\
+\'97 struktura\
+	\'97 CREATE DATABASE nazev_databaze;\
+	\'97 CREATE TABLE nazev_tabulky (\'85)\
+	\'97 ALTER TABLE tabulka ADD sloupec VARCHAR(100);\
+	\'97 ALTER TABLE tabulka DROP COLUMN sloupec;\
+	\'97 ALTER TABLE tabulka MODIFY sloupec INT;\
+\
+\'97 JOIN \'97 spojov\'e1n\'ed tabulek\
+	\'97 INNER \'97 matching\
+	\'97 LEFT, RIGHT \'97> v\'9aechny z x strany + matching z druh\'e9\
+\
+\'97 DROP :/\
+	\'97 DROP TABLE tabulka;\
+	\'97 DROP DATABASE databaze;\
+\
+\'97 agrega\uc0\u269 n\'ed fce\
+	\'97 COUNT, SUM, AVG, MIN, MAX\
+\
+BEZPE\uc0\u268 NOST\
+\
+\'97 u\'9eivatel\'e9 a pr\'e1va\
+	\'97 v\'edce u\'9eivatel\uc0\u367  m\'e1 p\u345 \'edstup do datab\'e1ze\
+	\'97 opr\'e1vn\uc0\u283 n\'ed\
+		\'97 SELECT, INSERT, UPDATE, DELETE\
+	\'97 
+\f0\i GRANT SELECT ON studenti TO uzivatel;
+\f1\i0 \
+	\'97 
+\f0\i REVOKE SELECT ON studenti FROM uzivatel;
+\f1\i0 \
+\
+\'97 SQL injection\
+	\'97 zneu\'9eit\'ed chyby v interpretaci dotazu\
+	\'97 nalezen\'ed obna\'9een\'e9ho SQL vstupu v aplikaci \'97> query\
+	\'97 sestaven\'ed \'9akodliv\'e9ho query (single quote, character escaping) \'97 n\'e1sleduje SQL p\uc0\u345 \'edkaz\
+	\'97 d\uc0\u367 vodem je neov\u283 \u345 ovan\'fd a nefiltrovan\'fd u\'9eivatelsk\'fd vstup \'97 input validation\
+	\'97 blind sql injection \'97 aplikace nedok\'e1\'9ee spr\'e1vn\uc0\u283  interpretovat neo\u269 ek\'e1van\'fd v\'fdstup \'97 nutn\'e9 h\'e1dat (error messages)\
+\
+\'97 princip least privilege\
+	\'97 omezen\'ed p\uc0\u345 \'edstup jednotliv\'fdch \'84u\'9eivatel\u367 \'93 datab\'e1ze na jejich pot\u345 ebn\'e9 minimum \'97> endpoint prohled\'e1vaj\'edc\'ed datab\'e1zi by nem\u283 l m\'edt pr\'e1vo zapisovat\
+	\'97 logicky se nejedn\'e1 o \uc0\u345 e\'9aen\'ed SQLi, ale minimalizuje dopad\
+\
+\'97 prepared statement\
+	\'97 query \'84template\'93 \'97> p\uc0\u345 edkompilov\'e1n \'97> hodnoty jsou pouze dosazov\'e1ny \'97> p\u345 i SQL injection \'fatoku sel\'9ee, nebo nevr\'e1t\'ed v\'fdsledek\
+\
+	
+\f0\i INSERT INTO products (name, price) VALUES (?, ?);
+\f1\i0 \
+\
+\'97 pravideln\'e9 z\'e1lohov\'e1n\'ed (cron)\
+	\'97full back-up, incremental (pouze zm\uc0\u283 ny do posledn\'ed z\'e1lohy), differencial (zm\u283 ny od posledn\'ed pln\'e9 z\'e1lohy)\
+\'97 
+\f0\i mysqldump
+\f1\i0  \'97 
+\f0\i mysqldump database_name > database_name.sql / mysql database_name < file.sql
+\f1\i0 \
+\'97 
+\f0\i pg_dump \'97 pg_dump mydb > db.sql / pg_restore -d newdb db.sql
+\f1\i0 \
+\
+NOSQL DATAB\'c1ZE\
+\
+\'97 r\uc0\u367 zn\'e9 p\u345 \'edstupy k ukl\'e1d\'e1n\'ed dat\
+	\'97 key-value\
+		\'97 Redis (in memory DB)\
+		\'97 ka\'9ed\'fd z\'e1znam je identifikov\'e1n unik\'e1tn\'edm kl\'ed\uc0\u269 em\
+		\'97 m\uc0\u367 \'9ee m\'edt v\'edce atribut\u367  (prom\u283 nliv\'e9)\
+		\'97 jednoduch\'e9 operace \'97 store, write, update, delete \'97 zbytek je na implementaci aplikace\
+\
+	\'97 dokumentov\'e9\
+		\'97 MongoDB\
+		\'97 xml, json, yaml\
+		\'97 \uc0\u269 ten\'ed metadat \'97 optimalizace\
+\
+	\'97 grafov\'e9\
+		\'97 Neo4j\
+		\'97 node \'97 vlastnost, podle kter\'e9 d\'e1le \uc0\u345 ad\'edme data\
+		\'97 edge \'97 propojen\'ed dvou uzl\uc0\u367  (node) \'97> relace\
+		\'97 properties \'97 vlastnosti uzlu\
+\
+	\'97 sloupcov\'e9\
+		\'97 Cassandra\
+		\'97 wide-column\
+		\'97 optimalizace pro \uc0\u269 ten\'ed\
+		\'97 prom\uc0\u283 nliv\'fd form\'e1t \u345 \'e1dk\u367 \
+\
+\'97 kdy pou\'9e\'edt?!\
+	\'97 horizont\'e1ln\'ed \'9ak\'e1lovatelnost\
+	\'97 velk\'e9 objemy dat\
+	\'97 rychl\'fd v\'fdvoj\
+\
+\'97 vs\
+	\'97 SQL \'97 slo\'9eit\'e9 dotazy, zaru\uc0\u269 uje strukturovan\'e1 data, ACID \'97 Atomicity, Consistency, Isolation, Durability (= zaru\u269 uje spr\'e1vn\'e9 chov\'e1n\'ed datab\'e1ze i p\u345 i vn\u283 j\'9a\'edch probl\'e9mech)\
+	\'97 NoSQL \'97 rychlost, \'9ak\'e1lovatelnost, flexibilita\
+\
+POPUL\'c1RN\'cd DATAB\'c1ZOV\'c9 SYST\'c9MY\
+\
+\'97 rela\uc0\u269 n\'ed\
+	\'97 MySQL, MariaDB \'97 web\
+	\'97 PostgresSQL \'97 pokro\uc0\u269 il\'e1\
+	\'97 SQLite \'97 embedded\
+	\'97 Oracle DB, MS SQL Server \'97 enterprise\
+\
+\'97 NoSQL\
+	\'97 Elasticsearch \'97 fulltext vyhled\'e1v\'e1n\'ed\
+\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\i \cf0 .\'95*\'95.\
+\ul Simple demo:\ulnone \
+mysql -u root -p\
+\
+CREATE DATABASE ukazka_db;\
+\
+CREATE TABLE users (\
+	id INT AUTO_INCREMENT PRIMARY KEY,\
+	username VARCHAR(128) NOT NULL\
+);\
+\
+CREATE TABLE posts (\
+	id INT AUTO_INCREMENT PRIMARY KEY,\
+	user_id INT NOT NULL,\
+  	title VARCHAR(150) NOT NULL\
+);\
+\
+INSERT INTO users (username, email) VALUES\
+	(\'84jozef\'93),\
+ 	(\'84pan_nikdo_2333\'93);\
+}

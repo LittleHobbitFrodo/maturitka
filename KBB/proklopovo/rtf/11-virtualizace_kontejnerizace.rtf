@@ -1,0 +1,249 @@
+{\rtf1\ansi\ansicpg1250\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 TimesNewRomanPS-ItalicMT;\f1\froman\fcharset0 TimesNewRomanPSMT;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww25400\viewh13140\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qc\partightenfactor0
+
+\f0\i\fs20 \cf0 KBB - maturita l\'e9ta p\'e1n\uc0\u283  2045 - NOJONO\
+
+\fs36 \
+Virtualizace a kontejnerizace\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\i0\fs26 \cf0 Z\'c1KLADN\'cd POJMY\
+\
+\'97 virtualizace \'97 techniky, postupy, blablabla, pomoc\'ed kter\'fdch lze k fyzick\'e9mu hardwaru stroje p\uc0\u345 istupovat jinak, ne\'9e je fyzicky existuje (multi-threading, RAID, memory paging)\
+\'97 virtu\'e1ln\'ed stroj \'97 existuje pouze uvnit\uc0\u345  hostitelsk\'e9ho stroje, procesy v n\u283 m b\u283 \'9e\'edc\'ed nijak nemohou ovlivnit hostitelsk\'fd syst\'e9m \'97 nev\u283 d\'ed o n\u283 m\
+\'97 izol	ace prost\uc0\u345 ed\'ed \'97 virtu\'e1ln\'ed stroj lze skoro kompletn\u283  odst\u345 ihnout od hostitelsk\'e9ho a t\'edm vytvo\u345 it bezpe\u269 n\'e9 prost\u345 ed\'ed pro anal\'fdzu nap\u345 .: mallwaru\
+\
+\'97 typy virtualizace\
+	\'97 pln\'e1 virtualizace\
+		\'97 pln\'e1 emulace hardwaru\
+		\'97 virtualizovan\'fd syst\'e9m nen\'ed t\uc0\u345 eba upravovat\
+		\'97 pomalej\'9a\'ed\
+	\'97 para-virtualizace\
+		\'97 hypervisor implementuje funkce, kter\'e9 m\uc0\u367 \'9ee virtualzovan\'fd syst\'e9m vyu\'9e\'edvat\
+		\'97 rychlej\'9a\'ed\
+		\'97 nedoch\'e1z\'ed k pln\'e9 izolaci\
+	\'97 hardware virtualizace\
+		\'97 CPU virtualizace p\uc0\u345 \'edmo popdporuje\
+		\'97 odd\uc0\u283 len\'e9 VM\
+		\'97 virtualiza\uc0\u269 n\'ed vrstva nad hardwarem\
+		\'97 velmi v\'fdkonn\'e9, ANO! vskutku!\
+		\'97 Docker\
+\
+HYPERVISORY\
+\
+= technika virtualizace hardwaru, software pro spr\'e1vu virtu\'e1ln\'edch stroj\uc0\u367 , vrstva mezi hardwarem\
+\'97 bare-metal\
+	\'97 mezi hypervisorem a OS neexistuje dal\'9a\'ed vrstva, kter\'e9 by ho d\uc0\u283 lila od hardwaru (host OS)\
+	\'97 Hyper-V, KVM\
+	\'97 datacentra, servery\
+	\'97 mallware \'97 m\uc0\u367 \'9ee z\'edskat p\u345 \'edstup p\u345 \'edmo k hardwaru (?)\
+\
+\'97 hosted\
+	\'97 mezi hardwarem a hypervisorem je host OS\
+	\'97 konven\uc0\u269 n\'ed prost\u345 ed\'ed opera\u269 n\'edho syst\'e9mu\
+	\'97 VirtualBox, VMWare Workstation\
+	\'97 v\'fdvoj, testov\'e1n\'ed, anal\'fdza mallwaru\
+\
+KOMPONENTY VIRTU\'c1LN\'cdHO STROJE\
+\
+\'97 virtu\'e1ln\'ed hardware\
+	\'97 CPU, disk, RAM, s\'ed\uc0\u357 ov\'e9 rozhran\'ed\
+	\'97 \uc0\u345 adi\u269 e \'97 komunikace s disky\
+\
+\'97 snapshot \'97 \'84z\'e1loha\'93 VM\
+	\'97 na p\uc0\u345 \'e1n\'ed se ulo\'9e\'ed stav RAM, disku\'85\
+	\'97 tuto z\'e1lohu jde v p\uc0\u345 \'edpad\u283  pot\u345 eby vyvolat a pou\'9e\'edvat\
+\
+S\'cd\uc0\u356 OV\'c1N\'cd VE VIRTUALIZACI\
+\
+\'97 virtu\'e1ln\'ed ethernetov\'e9 adapt\'e9ry\
+\'97 virtu\'e1ln\'ed switche, routery\
+\
+\'97 NAT \'97 umo\'9e\uc0\u328 uje VM komunikovat se \'9airok\'fdm itnernetem \'97 p\u345 edst\'edr\'e1, \'9ee provoz jde z hostilesk\'e9ho OS \'97> VM nelze adresovat zvn\u283 \
+\'97 bridged mode \'97 emuluje dal\'9a\'ed fyzick\'e9 za\uc0\u345 \'edzen\'ed na s\'edti \'97 VM m\'e1 vlastn\'ed IP\
+\'97 host-only \'97 s\'ed\uc0\u357 ov\'e1 komunikace pouze s host OS\
+\'97 internal \'97 komunikace mezi virtu\'e1ln\'edmi stroji (stejn\'e9ho v\'fdsledku by \'9alo dos\'e1hnout pomoc\'ed bridged m\'f3du, ten ale vyu\'9e\'edv\'e1 fyzick\'e9 rozhran\'ed, tud\'ed\'9e je zraniteln\'fd v\uc0\u367 \u269 i sniffingu)\
+\
+\'97 VM lze samoz\uc0\u345 ejm\u283  odst\u345 ihnout kompletn\u283 \
+\
+KONTEJNERIZACE\
+\
+\'97 kontejner\
+	\'97 nez\'e1visl\'e1 izolovan\'e1 v\'fdpo\uc0\u269 etn\'ed jednotka, kter\'e1 sd\'edl\'ed kernel s host OS\
+\
+	\'97 namespaces \'97 izolace procesu \'97  ka\'9ed\'fd m\'e1 vlastn\'ed pam\uc0\u283 \u357 , procesy\'85\
+	\'97 control groups \'97 limitov\'e1n\'ed zdroj\uc0\u367  kontejneru\
+\
+	\'97 kontejnery pot\uc0\u345 ebuj\'ed pouze hardwarov\'e9 zdroje \'97 b\u283 \'9e\'ed v\'9aude\
+	\'97 OS / aplika\uc0\u269 n\'ed kontejnery\
+	\'97 lehk\'e9, v\'fdkonn\'e9\
+\
+\'97 kontejner / vm\
+\
+DOCKER\
+\
+\'97 virtualizace na \'farovni opera\uc0\u269 n\'edho syst\'e9mu\
+\'97 automatizace spou\'9at\uc0\u283 n\'ed a spr\'e1va kontejner\u367  skrze prom\u283 nliv\'e9 prost\u345 ed\'ed\
+\'97 docker engine\
+\'97 kontejnery jsou izolovan\'e9, maj\'ed vlastn\'ed knihovny, konfiguraci\'85\
+\
+\'97 koncepty\
+	\'97 image \'97 obsahuje v\'9ae nutn\'e9 pro spu\'9at\uc0\u283 n\'ed k\'fd\'9een\'e9 aplikace (zdrojov\'fd k\'f3d, runtime, konfigurace\'85) \'97 p\u345 enositeln\'fd bal\'ed\u269 ek\
+	\'97 kontejner \'97 konkr\'e9tn\'ed b\uc0\u283 \'9e\'edc\'ed instance\
+	\'97 dockerfile \'97 \'84skript\'93 pro vytvo\uc0\u345 en\'ed image\
+	\'97 registry \'97 datab\'e1ze obraz\uc0\u367 , \'falo\'9ei\'9at\u283  pro n\u283 \
+\
+\'97 z\'e1kladn\'ed p\uc0\u345 \'edkazy\
+	\'97 
+\f0\i docker pull 
+\f1\i0 \'85 \'97 sta\'9een\'ed obrazu\
+	\'97 
+\f0\i docker run
+\f1\i0 \
+		\'97 spu\'9at\uc0\u283 n\'ed obrazu\
+		\'97 
+\f0\i docker run \'97name neco img_name
+\f1\i0 \
+		\'97 -d detach\
+		\'97 -p \'97 port mapping \'97 host:container\
+		\'97 -it \'97 interaktivn\'ed TTY\
+		\'97 -e \'97 environment variable\
+\
+	\'97 
+\f0\i docker stop
+\f1\i0  \'85 
+\f0\i docker start
+\f1\i0 \
+	\'97 
+\f0\i docker ps -a
+\f1\i0 \
+	\'97 
+\f0\i docker build -t
+\f1\i0  
+\f0\i prditko:tag .
+\f1\i0 \
+	\'97 rm \'97 odstran\'ed kontejner / rmi \'97 odstran\'ed obraz\
+\
+\'97 dockerfile\
+	\'97 
+\f0\i viz. ./src/dockerfile
+\f1\i0 \
+	\'97 automatizace vytv\'e1\uc0\u345 en\'ed docker obraz\u367  (image)\
+\
+\'97 volumes\
+	\'97 persistentn\'ed ulo\'9een\'ed dat\
+	\'97 sd\'edlen\'ed mezi kontejnery\
+	\'97 nez\'e1visl\'e9 na kontejnerech\
+	\'97 bind mounts \'97 zp\uc0\u345 \'edstupn\u283 n\'ed slo\'9eky na hostitelsk\'e9m syst\'e9mu kontejneru\
+\
+	\'97 
+\f0\i docker volume create my_volume
+\f1\i0 \
+	\'97 
+\f0\i docker run -v name:/path/in/container\
+	\'97 docker run -v /path/on/host:/path/in/container\
+	\'97 docker run --mount source=my_volume,target=/path/in/container,readonly image_name
+\f1\i0 \
+\
+\'97 networking\
+	\'97 bridge network\
+		\'97 docker zprost\uc0\u345 edkov\'e1v\'e1 virtu\'e1ln\'ed s\'ed\u357 \
+		\'97 ka\'9ed\'fd kontejner m\'e1 vlastn\'ed IP \'97 inter-komunikace\
+		\'97 port mapping\
+	\'97 host network\
+		\'97 kontejner vystupuje jako hostitelsk\'fd OS\
+	\'97 overlay network\
+		\'97 vytv\'e1\uc0\u345 \'ed s\'ed\u357  p\u345 es v\'edce hostitelsk\'fdch OS\
+		\'97 clustering \'97 docker swarm, kuberhn\'e1ty\
+\
+DCOKER COMPOSE\
+\
+\'97 orchestra\uc0\u269 n\'ed n\'e1stroj pro aplikace sest\'e1v\'e1j\'edc\'ed se z v\'edce kontejner\u367  \'97> web server, backend, db\'85\
+\'97 yaml\
+\
+\'97 z\'e1klady\
+	\'97 
+\f0\i viz. ./src/compose.yaml
+\f1\i0 \
+	\'97 
+\f0\i docker compose up /  docker compose down\
+	\'97 -d \'97 detach
+\f1\i0 \
+\
+KUBERNETES\
+\
+\'97 orchestrace kontejner\uc0\u367 \
+\
+\'97 node \'97 jeden fyzick\'fd server v kubernetes clusteru (uzel)\
+\'97 dynamick\'e9 \'9ak\'e1lov\'e1n\'ed (horizont\'e1ln\'ed) \'97 scheduler \'97 kontroluje dostupn\'e9 zdroje na uzlech a pl\'e1nuje efektivn\'ed vyu\'9eit\'ed\
+\
+\'97 self healing\
+	\'97 udr\'9euje syst\'e9m v po\'9eadovan\'e9m funk\uc0\u269 n\'edm stavu\
+	\'97 restartuje / vym\uc0\u283 \u328 uje selhan\'e9 kontejnery\
+	\'97 load balancing\
+	\'97 persistent storage recovery\
+\
+\'97 load balancing \'97 kube proxy \'97 distribuuje z\'e1t\uc0\u283 \'9e na syst\'e9m skrze v\'9aechny dostupn\'e9 zdroje\
+\
+\'97 pojmy:\
+	\'97 pod \'97 nejmen\'9a\'ed jednotka, se kterou kubernetes pracuj\'ed \'97 kontejner(y) \'97 sd\'edl\'ed IP, \'falo\'9ei\'9at\uc0\u283 \
+	\'97 service \'97 v\'edce pod\uc0\u367 , kter\'e9 spolupracuj\'ed\
+	\'97 deployment \'97 desired state \'97 \uc0\u345 \'edd\'ed pody, sna\'9e\'ed se aplikaci udr\'9eet v desired state\
+	\'97 namespace \'97 logick\'e9 d\uc0\u283 len\'ed prost\u345 edk\u367  do odd\u283 len\'fdch skupin \'97 dev, testing, prod!!(porod)\
+\
+BEZPE\uc0\u268 NOST KONTEJNER\u366 \
+\
+\'97 bezpe\uc0\u269 nost VM\
+	\'97 odd\uc0\u283 len\'ed VM od hostitele\
+	\'97 odd\uc0\u283 len\'ed VM mezi sebou\
+	\'97 VM escape\
+		\'97 zranitelnost v hypervisoru\
+\
+\'97 hardening\
+	\'97 omezen\'ed sd\'edlen\'fdch zdroj\uc0\u367  s host OS \'97 sd\'edlen\'fd fs, network, usb, clipboard\
+	\'97 pravideln\'e1 aktualizace hypervisoru\
+\
+\'97 segmentace s\'edt\uc0\u283 \
+	\'97 subnetting, VLAN\
+\
+\'97 image security\
+	\'97 d\uc0\u367 v\u283 ryhodn\'e9 base images \'97 docker hub, \'85\
+	\'97 men\'9a\'ed image \'97> m\'e9n\uc0\u283  mo\'9en\'fdch chyb\
+	\'97 cve scanning \'97 clair, trivy\
+	\'97 supply chain attack\
+\
+\'97 runtime security\
+	\'97 ochrana kontejner\uc0\u367  v produkci\
+	\'97 root kontejner \'97> root host\
+	\'97 read-only fs\
+	\'97 omezen\'ed fyzick\'fdch zdroj\uc0\u367  \'97 DoS, DDoS\
+	\'97 seccomp \'97 secure computing \'97 jednosm\uc0\u283 rn\'fd p\u345 evod procesu do stavu, kdy m\'e1 p\u345 \'edstup pouze k primitivn\'edm syst\'e9mov\'fdm vol\'e1n\'edm (exit, read, write, sigreturn)\
+	\'97 apparmor \'97 bezpe\uc0\u269 nostn\'ed roz\'9a\'ed\u345 en\'ed kernelu\
+	\'97 SELinux  \'97 security enhanced linux \'97 vysok\'e1 kontrola nad opr\'e1vn\uc0\u283 n\'edmi k jednotliv\'fdm \'fakon\u367 m v syst\'e9mu na \'farovni kernelu\
+\
+\'97 rizika\
+	\'97 escape\
+	\'97 zranitelnost v b\'e1zov\'e9m obrazu\
+	\'97 chybn\'e1 konfigurace\
+	\'97 docker secrets \'97 hesla, SSH kl\'ed\uc0\u269 e, \'85 \'97 blob dat, kter\'fd se nesm\'ed pos\'edlat po s\'edti, je ulo\'9een v \'9aifrovan\'e9 podob\u283  \'97 pouze servisy s explicitn\'edm povolen\'edm k nim mohou p\u345 istupovat\
+\
+VYU\'8eIT\'cd V KYBER-BEZPE\uc0\u268 NOSTI\
+\
+\'97 sandboxing \'97 mallware\
+\'97 pentesting, anal\'fdza \'9akodliv\'e9ho n\uc0\u283 \u269 eho\
+\'97 konzistentn\'ed reprodukovatelnost \'97 CI/CD \'97 continuous integration, continuous development, devOps\
+\'97 honeypoty\
+\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+
+\f0\i .\'95*\'95.\
+{\field{\*\fldinst{HYPERLINK "https://en.wikipedia.org/wiki/Virtualization#Hardware_assisted"}}{\fldrslt paravirt}}
+\f1\i0 \
+}

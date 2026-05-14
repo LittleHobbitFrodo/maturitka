@@ -1,0 +1,139 @@
+{\rtf1\ansi\ansicpg1250\cocoartf2709
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 TimesNewRomanPS-ItalicMT;\f1\froman\fcharset0 TimesNewRomanPSMT;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww25400\viewh13140\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\qc\partightenfactor0
+
+\f0\i\fs20 \cf0 KBB - maturita l\'e9ta p\'e1n\uc0\u283  2045 - NOJONO\
+
+\fs36 \
+Spr\'e1va syst\'e9mu linux\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\i0\fs26 \cf0 PERMISSIONS\
+\
+\'97 example 
+\f0\i ls -la
+\f1\i0 :\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\i \cf0 	total 24\
+	drwxr-xr-x  5 poklop  staff   160 23 dub 16:13 ./\
+	drwxr-xr-x  6 poklop  staff   192 19 dub 19:34 ../\
+	-rw-r--r--@ 1 poklop  staff   807 23 dub 15:47 0-template.rtf\
+	-rw-r--r--@ 1 poklop  staff  3039 23 dub 16:10 01-terminalove_prostredi.rtf\
+	-rw-r--r--@ 1 poklop  staff   800 23 dub 16:13 02-sprava_linuxu.rtf
+\f1\i0 \
+
+\f0\i \
+\'97 total 24
+\f1\i0  \'97 obsah adres\'e1\uc0\u345 e zab\'edr\'e1 24 blok\u367  \'97 1kb / 512B\
+\'97 opr\'e1vn\uc0\u283 n\'ed (viz. opr\'e1vn\u283 n\'ed podrobn\u283 ) / po\u269 et odkaz\u367  (hard links) / user owner / group (group perms) / velikost / posledn\'ed modifikace / jm\'e9no\
+\
+\'97 zm\uc0\u283 na \'97 chmod\
+	\'97 
+\f0\i sudo chmod +x \'85\
+	\'97 sudo chmod (1)766 \'85\
+	\'97 sudo chmod go-w \'85 (zak\'e1z\'e1n\'ed zapisov\'e1n\'ed pro group a others)\
+	\'97 sudo chmod u=rwx,go=r \'85\
+	
+\f1\i0 \'97 R \'97 rekurzivn\'ed\
+	\'97 kombinace s find \'97 exec, p\uc0\u345 \'edpadn\u283  print0 a xargs\
+\
+\'97 stat\
+\
+OPR\'c1VN\uc0\u282 N\'cd PODROBN\u282 \
+\
+\'97 prvn\'ed znak \'97 dir / link / block device / none = file\
+\'97 rwx \'97 owner / group / others\
+\'97 \uc0\u269 \'edseln\'fd z\'e1pis\
+	\'97 r \'97> 4\
+	\'97 w \'97> 2\
+	\'97 x \'97> 1\
+	\'97 s\uc0\u269 \'edt\'e1n\'ed \
+\'97 (others + ) sticky bit \'97 t \'97 v\'9aechny soubory adres\'e1\uc0\u345 e jsou modifikovateln\'e9 pouze majitelem (/tmp)\
+\'97 (user + ) suid \'97 tento soubor se v\'9edy zpust\'ed pod u\'9eivatelem, kter\'fd ho vlastn\'ed (/usr/bin/passwd)\
+\'97 (group + ) sgid \'97 umo\'9e\uc0\u328 uje soubor zpustit \u269 len\u367 m skupiny, pokud dir \'97 v\'9aechny soubory budou ve vlastnictv\'ed t\'e9to skupiny\
+\'97 s (S, pokud user nem\'e1 opr\'e1vn\uc0\u283 n\'ed zpou\'9at\u283 t)\
+\'97 \uc0\u269 \'edseln\'fd z\'e1pis\
+	\'97 SUID \'97 4\
+	\'97 SGID \'97 2\
+	\'97 STICKY \'97 1\
+\
+USERS and GROUPS\
+\
+\'97 useradd, adduser, groupadd\
+\'97 p\uc0\u345 i vytvo\u345 en\'ed \'97 home directory, .bashrc \'97 .bash_logout \'97 .bash_profile, mail, group (stejnojmenn\'e1)\
+\'97 /etc/passwd \'97 informace o \'fa\uc0\u269 tu \'97 
+\f0\i [username]:[x]:[UID]:[GID]:[COMMENT]:[HOME_DIR]:[DEF_SHELL]
+\f1\i0 \
+\'97 [x] \'97> heslo v /etc/shadow\
+\
+\'97 /etc/group\
+\
+\'97 usermod\
+	\'97 
+\f0\i usermod [options] [user]
+\f1\i0 \
+	\'97 	\'97append \'97groups wheel,smradi,root jarous\
+	\'97 	\'97expiredate\
+	\'97 	\'97home\
+	\'97 	\'97gid \'97 nov\'e1 prim\'e1rn\'ed skupina podle id\
+	\'97	\'97login 
+\f0\i new_login
+\f1\i0 \
+	\'97 	\'97lock\
+	\'97 	\'97shell\
+	\'97 	\'85\
+\
+\'97 groupmod\
+	\'97 gid, name, group password, users\
+\
+\'97 passwd\
+\
+\'97 userdel \'97 	userdel \'97remove [user]\
+\'97 groupdel\
+\
+\'97 chown\
+	\'97 
+\f0\i chown [options] [owner:group] [file]
+\f1\i0 \
+	\'97 	--recurisve\
+\
+INSTALACE SOFTW\
+\
+\'97 \
+\
+KOMPILCE ZE ZDROJE\
+\
+\'97 linker \'97 v\'edce objektov\'fdch (intermidiate) soubor\uc0\u367 , nebo knihoven \'97 linker \'97 v\'fdstupem je dll, exe nebo dal\'9a\'ed knihovna\
+	\'97 vyhled\'e1v\'e1n\'ed symbol\uc0\u367  v obj souborech \'97 nahrazov\'e1n\'ed adresy\
+	\'97 knihovny \'97 pouze jejich \uc0\u269 \'e1sti\
+	\'97 dynamick\'e9 knihovny \'97 vyhled\'e1v\'e1n\'ed symbol\uc0\u367  a\'9e po startu\
+	\'97 PIE, PIC\
+\
+\'97 build systems \'97 automatizace kompil	ace, automatick\'e9 \uc0\u345 e\'9aen\'ed z\'e1vislost\'ed na ostatn\'edch zdrojov\'fdch souborech, linkov\'e1n\'ed\
+	\'97 make\
+	\'97 cmake\
+	\'97 ninja\
+\
+\
+PATH\
+\
+\'97 enviroment variable \'97 obsahuje cesty k adres\'e1\uc0\u345 \u367 m obsahuj\'edc\'ed spustiteln\'e9 soubory\
+\'97 echo $PATH, export PATH=$PATH:/\'85/\'85/\'85\
+\'97 typick\'e9 um\'edst\uc0\u283 n\'ed\
+	\'97 /bin	/sbin\
+	\'97 /usr/bin	/usr/sbin\
+	\'97 /usr/local/bin \'97 vlastn\'ed instalace pro v\'9aechny u\'9eivatele\
+	\'97 /opt\
+\
+\
+\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
+
+\f0\i achjoachjo\
+}
